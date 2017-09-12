@@ -26,10 +26,10 @@ So annotate this one slot as module window.
          parent* = bootstrap stub -> 'globals' -> 'simpleEventHandler' -> ().
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> () From: ( | {
          'ModuleInfo: Module: window InitialContents: FollowSlot'
         
-         window = bootstrap define: bootstrap stub -> 'globals' -> 'modules' -> 'window' -> () ToBe: bootstrap addSlotsTo: (
+         window = bootstrap define: bootstrap stub -> 'globals' -> 'loadedModules' -> 'window' -> () ToBe: bootstrap addSlotsTo: (
              bootstrap remove: 'comment' From:
              bootstrap remove: 'directory' From:
              bootstrap remove: 'fileInTimeString' From:
@@ -37,30 +37,30 @@ So annotate this one slot as module window.
              bootstrap remove: 'postFileIn' From:
              bootstrap remove: 'revision' From:
              bootstrap remove: 'subpartNames' From:
-             globals modules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'modules' -> 'window' -> () From: ( |
-             {} = 'ModuleInfo: Creator: globals modules window.
+             globals loadedModules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'loadedModules' -> 'window' -> () From: ( |
+             {} = 'ModuleInfo: Creator: globals loadedModules window.
 
 CopyDowns:
-globals modules init. copy 
+globals loadedModules init. copy 
 SlotsToOmit: comment directory fileInTimeString myComment postFileIn revision subpartNames.
 
 \x7fIsComplete: '.
             | ) .
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'window' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'window' -> () From: ( | {
          'ModuleInfo: Module: window InitialContents: FollowSlot\x7fVisibility: public'
         
          directory <- 'graphics'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'window' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'window' -> () From: ( | {
          'ModuleInfo: Module: window InitialContents: InitializeToExpression: (_CurrentTimeString)\x7fVisibility: public'
         
          fileInTimeString <- _CurrentTimeString.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'window' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'window' -> () From: ( | {
          'ModuleInfo: Module: window InitialContents: FollowSlot'
         
          myComment <- 'Simple window object.\"
@@ -69,7 +69,7 @@ SlotsToOmit: comment directory fileInTimeString myComment postFileIn revision su
              Objects using window ideally should be isolated from Xlib.'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'window' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'window' -> () From: ( | {
          'ModuleInfo: Module: window InitialContents: FollowSlot'
         
          postFileIn = ( |
@@ -78,13 +78,13 @@ SlotsToOmit: comment directory fileInTimeString myComment postFileIn revision su
             resend.postFileIn).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'window' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'window' -> () From: ( | {
          'ModuleInfo: Module: window InitialContents: InitializeToExpression: (\'30.14.1\')\x7fVisibility: public'
         
          revision <- '30.14.1'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'window' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'window' -> () From: ( | {
          'ModuleInfo: Module: window InitialContents: FollowSlot\x7fVisibility: public'
         
          subpartNames <- ''.
@@ -681,4 +681,4 @@ for UI2 windows\x7fModuleInfo: Module: window InitialContents: FollowSlot\x7fVis
 
  '-- Side effects'
 
- globals modules window postFileIn
+ globals loadedModules window postFileIn

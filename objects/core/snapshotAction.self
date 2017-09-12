@@ -1,6 +1,6 @@
  '30.12.2'
  '
-Copyright 1992-2014 AUTHORS.
+Copyright 1992-2017 AUTHORS.
 See the legal/LICENSE file for license information and legal/AUTHORS for authors.
 '
 ["preFileIn" self] value
@@ -8,49 +8,40 @@ See the legal/LICENSE file for license information and legal/AUTHORS for authors
 
  '-- Module body'
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'memory' -> () From: ( | {
-         'Category: releasing resources\x7fComment: Add a message to be performed when a thorough cleanup takes place.\x7fModuleInfo: Module: snapshotAction InitialContents: FollowSlot\x7fVisibility: public'
-        
-         addThoroughCleanupMessage: msg = ( |
-            | 
-            thoroughCleanupMessages add: msg.
-            self).
-        } | ) 
-
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> () From: ( | {
          'ModuleInfo: Module: snapshotAction InitialContents: FollowSlot'
         
-         snapshotAction = bootstrap define: bootstrap stub -> 'globals' -> 'modules' -> 'snapshotAction' -> () ToBe: bootstrap addSlotsTo: (
+         snapshotAction = bootstrap define: bootstrap stub -> 'globals' -> 'loadedModules' -> 'snapshotAction' -> () ToBe: bootstrap addSlotsTo: (
              bootstrap remove: 'directory' From:
              bootstrap remove: 'fileInTimeString' From:
              bootstrap remove: 'myComment' From:
              bootstrap remove: 'postFileIn' From:
              bootstrap remove: 'revision' From:
              bootstrap remove: 'subpartNames' From:
-             globals modules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'modules' -> 'snapshotAction' -> () From: ( |
-             {} = 'ModuleInfo: Creator: globals modules snapshotAction.
+             globals loadedModules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'loadedModules' -> 'snapshotAction' -> () From: ( |
+             {} = 'ModuleInfo: Creator: globals loadedModules snapshotAction.
 
 CopyDowns:
-globals modules init. copy 
+globals loadedModules init. copy 
 SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNames.
 
 \x7fIsComplete: '.
             | ) .
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'snapshotAction' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'snapshotAction' -> () From: ( | {
          'ModuleInfo: Module: snapshotAction InitialContents: FollowSlot\x7fVisibility: public'
         
          directory <- 'core'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'snapshotAction' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'snapshotAction' -> () From: ( | {
          'ModuleInfo: Module: snapshotAction InitialContents: InitializeToExpression: (_CurrentTimeString)\x7fVisibility: public'
         
          fileInTimeString <- _CurrentTimeString.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'snapshotAction' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'snapshotAction' -> () From: ( | {
          'ModuleInfo: Module: snapshotAction InitialContents: FollowSlot'
         
          myComment <- '<globals system systemInvokedActions> snapshotAction\"
@@ -64,7 +55,7 @@ SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNam
              sends \'garbageCollect\' to memory.  [bwc 10/91]'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'snapshotAction' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'snapshotAction' -> () From: ( | {
          'ModuleInfo: Module: snapshotAction InitialContents: FollowSlot\x7fVisibility: private'
         
          postFileIn = ( |
@@ -113,16 +104,34 @@ SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNam
             ]).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'snapshotAction' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'snapshotAction' -> () From: ( | {
          'ModuleInfo: Module: snapshotAction InitialContents: InitializeToExpression: (\'30.12.2\')\x7fVisibility: public'
         
          revision <- '30.12.2'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'snapshotAction' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'snapshotAction' -> () From: ( | {
          'ModuleInfo: Module: snapshotAction InitialContents: FollowSlot\x7fVisibility: public'
         
          subpartNames <- ''.
+        } | ) 
+
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'memory' -> () From: ( | {
+         'Category: releasing resources\x7fComment: Add a message to be performed when a thorough cleanup takes place.\x7fModuleInfo: Module: snapshotAction InitialContents: FollowSlot\x7fVisibility: public'
+        
+         addThoroughCleanupMessage: msg = ( |
+            | 
+            thoroughCleanupMessages add: msg.
+            self).
+        } | ) 
+
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> () From: ( | {
+         'Category: system\x7fCategory: modules\x7fCategory: support\x7fModuleInfo: Module: snapshotAction InitialContents: FollowSlot\x7fVisibility: public'
+        
+         snapshotAction = bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'snapshotAction' -> () From: ( |
+             {} = 'ModuleInfo: Creator: globals snapshotAction.
+\x7fIsComplete: '.
+            | ) .
         } | ) 
 
  bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'snapshotAction' -> () From: ( | {
@@ -250,7 +259,7 @@ option is used.\x7fModuleInfo: Module: snapshotAction InitialContents: FollowSlo
             | 
             v: about core.
             ('\n\tWelcome to the Self system!  (', about core asString, ')\n') printLine.
-            modules init copyright printLine.
+            loadedModules init copyright printLine.
             'Type _Credits for full credits.\n' printLine.
             isVMADebugBuild ifTrue: [
               printDebugVMWarning
@@ -332,4 +341,4 @@ standard mechanism.\x7fModuleInfo: Module: snapshotAction InitialContents: Follo
 
  '-- Side effects'
 
- globals modules snapshotAction postFileIn
+ globals loadedModules snapshotAction postFileIn

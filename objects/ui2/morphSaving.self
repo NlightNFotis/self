@@ -1,6 +1,6 @@
  '$Revision: 30.9 $'
  '
-Copyright 1992-2014 AUTHORS.
+Copyright 1992-2017 AUTHORS.
 See the legal/LICENSE file for license information and legal/AUTHORS for authors.
 '
 ["preFileIn" self] value
@@ -413,6 +413,58 @@ See the legal/LICENSE file for license information and legal/AUTHORS for authors
             | lineMorph).
         } | ) 
 
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> () From: ( | {
+         'ModuleInfo: Module: morphSaving InitialContents: FollowSlot'
+        
+         morphSaving = bootstrap define: bootstrap stub -> 'globals' -> 'loadedModules' -> 'morphSaving' -> () ToBe: bootstrap addSlotsTo: (
+             bootstrap remove: 'comment' From:
+             bootstrap remove: 'directory' From:
+             bootstrap remove: 'fileInTimeString' From:
+             bootstrap remove: 'myComment' From:
+             bootstrap remove: 'postFileIn' From:
+             bootstrap remove: 'revision' From:
+             bootstrap remove: 'subpartNames' From:
+             globals loadedModules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'loadedModules' -> 'morphSaving' -> () From: ( |
+             {} = 'ModuleInfo: Creator: globals loadedModules morphSaving.
+
+CopyDowns:
+globals loadedModules init. copy 
+SlotsToOmit: comment directory fileInTimeString myComment postFileIn revision subpartNames.
+
+\x7fIsComplete: '.
+            | ) .
+        } | ) 
+
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'morphSaving' -> () From: ( | {
+         'ModuleInfo: Module: morphSaving InitialContents: FollowSlot\x7fVisibility: public'
+        
+         directory <- 'ui2'.
+        } | ) 
+
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'morphSaving' -> () From: ( | {
+         'ModuleInfo: Module: morphSaving InitialContents: InitializeToExpression: (_CurrentTimeString)\x7fVisibility: public'
+        
+         fileInTimeString <- _CurrentTimeString.
+        } | ) 
+
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'morphSaving' -> () From: ( | {
+         'ModuleInfo: Module: morphSaving InitialContents: FollowSlot'
+        
+         myComment <- ''.
+        } | ) 
+
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'morphSaving' -> () From: ( | {
+         'ModuleInfo: Module: morphSaving InitialContents: FollowSlot\x7fVisibility: public'
+        
+         revision <- '$Revision: 30.9 $'.
+        } | ) 
+
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'morphSaving' -> () From: ( | {
+         'ModuleInfo: Module: morphSaving InitialContents: FollowSlot\x7fVisibility: private'
+        
+         subpartNames <- ''.
+        } | ) 
+
  bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'messageButtonMorph' -> () From: ( | {
          'Category: filing out\x7fModuleInfo: Module: morphSaving InitialContents: FollowSlot\x7fVisibility: public'
         
@@ -460,58 +512,6 @@ See the legal/LICENSE file for license information and legal/AUTHORS for authors
         
          prototype = ( |
             | moduleField).
-        } | ) 
-
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> () From: ( | {
-         'ModuleInfo: Module: morphSaving InitialContents: FollowSlot'
-        
-         morphSaving = bootstrap define: bootstrap stub -> 'globals' -> 'modules' -> 'morphSaving' -> () ToBe: bootstrap addSlotsTo: (
-             bootstrap remove: 'comment' From:
-             bootstrap remove: 'directory' From:
-             bootstrap remove: 'fileInTimeString' From:
-             bootstrap remove: 'myComment' From:
-             bootstrap remove: 'postFileIn' From:
-             bootstrap remove: 'revision' From:
-             bootstrap remove: 'subpartNames' From:
-             globals modules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'modules' -> 'morphSaving' -> () From: ( |
-             {} = 'ModuleInfo: Creator: globals modules morphSaving.
-
-CopyDowns:
-globals modules init. copy 
-SlotsToOmit: comment directory fileInTimeString myComment postFileIn revision subpartNames.
-
-\x7fIsComplete: '.
-            | ) .
-        } | ) 
-
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'morphSaving' -> () From: ( | {
-         'ModuleInfo: Module: morphSaving InitialContents: FollowSlot\x7fVisibility: public'
-        
-         directory <- 'ui2'.
-        } | ) 
-
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'morphSaving' -> () From: ( | {
-         'ModuleInfo: Module: morphSaving InitialContents: InitializeToExpression: (_CurrentTimeString)\x7fVisibility: public'
-        
-         fileInTimeString <- _CurrentTimeString.
-        } | ) 
-
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'morphSaving' -> () From: ( | {
-         'ModuleInfo: Module: morphSaving InitialContents: FollowSlot'
-        
-         myComment <- ''.
-        } | ) 
-
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'morphSaving' -> () From: ( | {
-         'ModuleInfo: Module: morphSaving InitialContents: FollowSlot\x7fVisibility: public'
-        
-         revision <- '$Revision: 30.9 $'.
-        } | ) 
-
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'morphSaving' -> () From: ( | {
-         'ModuleInfo: Module: morphSaving InitialContents: FollowSlot\x7fVisibility: private'
-        
-         subpartNames <- ''.
         } | ) 
 
  bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'morph' -> () From: ( | {
@@ -1256,9 +1256,9 @@ SlotsToOmit: comment directory fileInTimeString myComment postFileIn revision su
         } | ) 
 
  bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'slotHoldersMorph' -> () From: ( | {
-         'ModuleInfo: Module: morphSaving InitialContents: InitializeToExpression: (modules init)\x7fVisibility: private'
+         'ModuleInfo: Module: morphSaving InitialContents: InitializeToExpression: (loadedModules init)\x7fVisibility: private'
         
-         module <- bootstrap stub -> 'globals' -> 'modules' -> 'init' -> ().
+         module <- bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> ().
         } | ) 
 
  bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'slotHoldersMorph' -> () From: ( | {
@@ -1632,4 +1632,4 @@ SlotsToOmit: comment directory fileInTimeString myComment postFileIn revision su
 
  '-- Side effects'
 
- globals modules morphSaving postFileIn
+ globals loadedModules morphSaving postFileIn

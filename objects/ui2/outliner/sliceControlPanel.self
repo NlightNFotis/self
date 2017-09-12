@@ -1,8 +1,9 @@
  '$Revision: 30.11 $'
  '
-Copyright 1992-2012 AUTHORS.
-See the LICENSE file for license information.
+Copyright 1992-2016 AUTHORS.
+See the legal/LICENSE file for license information and legal/AUTHORS for authors.
 '
+["preFileIn" self] value
 
 
  '-- Module body'
@@ -323,59 +324,59 @@ use this set to stop.\x7fModuleInfo: Module: sliceControlPanel InitialContents: 
          stopSet <- set copyRemoveAll.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> () From: ( | {
          'ModuleInfo: Module: sliceControlPanel InitialContents: FollowSlot'
         
-         sliceControlPanel = bootstrap define: bootstrap stub -> 'globals' -> 'modules' -> 'sliceControlPanel' -> () ToBe: bootstrap addSlotsTo: (
+         sliceControlPanel = bootstrap define: bootstrap stub -> 'globals' -> 'loadedModules' -> 'sliceControlPanel' -> () ToBe: bootstrap addSlotsTo: (
              bootstrap remove: 'directory' From:
              bootstrap remove: 'fileInTimeString' From:
              bootstrap remove: 'myComment' From:
              bootstrap remove: 'postFileIn' From:
              bootstrap remove: 'revision' From:
              bootstrap remove: 'subpartNames' From:
-             globals modules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'modules' -> 'sliceControlPanel' -> () From: ( |
-             {} = 'ModuleInfo: Creator: globals modules sliceControlPanel.
+             globals loadedModules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'loadedModules' -> 'sliceControlPanel' -> () From: ( |
+             {} = 'ModuleInfo: Creator: globals loadedModules sliceControlPanel.
 
 CopyDowns:
-globals modules init. copy 
+globals loadedModules init. copy 
 SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNames.
 
 \x7fIsComplete: '.
             | ) .
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'sliceControlPanel' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'sliceControlPanel' -> () From: ( | {
          'ModuleInfo: Module: sliceControlPanel InitialContents: FollowSlot\x7fVisibility: public'
         
          directory <- 'ui2/outliner'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'sliceControlPanel' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'sliceControlPanel' -> () From: ( | {
          'ModuleInfo: Module: sliceControlPanel InitialContents: InitializeToExpression: (_CurrentTimeString)\x7fVisibility: public'
         
          fileInTimeString <- _CurrentTimeString.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'sliceControlPanel' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'sliceControlPanel' -> () From: ( | {
          'ModuleInfo: Module: sliceControlPanel InitialContents: FollowSlot'
         
          myComment <- ''.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'sliceControlPanel' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'sliceControlPanel' -> () From: ( | {
          'ModuleInfo: Module: sliceControlPanel InitialContents: FollowSlot'
         
          postFileIn = ( |
             | resend.postFileIn).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'sliceControlPanel' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'sliceControlPanel' -> () From: ( | {
          'ModuleInfo: Module: sliceControlPanel InitialContents: FollowSlot\x7fVisibility: public'
         
          revision <- '$Revision: 30.11 $'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'sliceControlPanel' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'sliceControlPanel' -> () From: ( | {
          'ModuleInfo: Module: sliceControlPanel InitialContents: FollowSlot\x7fVisibility: private'
         
          subpartNames <- ''.
@@ -808,4 +809,4 @@ references the objectName, etc.\x7fModuleInfo: Module: sliceControlPanel Initial
 
  '-- Side effects'
 
- globals modules sliceControlPanel postFileIn
+ globals loadedModules sliceControlPanel postFileIn

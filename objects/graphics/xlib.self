@@ -8,10 +8,10 @@ See the legal/LICENSE file for license information and legal/AUTHORS for authors
 
  '-- Module body'
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> () From: ( | {
          'ModuleInfo: Module: xlib InitialContents: FollowSlot'
         
-         xlib = bootstrap define: bootstrap stub -> 'globals' -> 'modules' -> 'xlib' -> () ToBe: bootstrap addSlotsTo: (
+         xlib = bootstrap define: bootstrap stub -> 'globals' -> 'loadedModules' -> 'xlib' -> () ToBe: bootstrap addSlotsTo: (
              bootstrap remove: 'comment' From:
              bootstrap remove: 'directory' From:
              bootstrap remove: 'fileInTimeString' From:
@@ -19,30 +19,30 @@ See the legal/LICENSE file for license information and legal/AUTHORS for authors
              bootstrap remove: 'postFileIn' From:
              bootstrap remove: 'revision' From:
              bootstrap remove: 'subpartNames' From:
-             globals modules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'modules' -> 'xlib' -> () From: ( |
-             {} = 'ModuleInfo: Creator: globals modules xlib.
+             globals loadedModules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'loadedModules' -> 'xlib' -> () From: ( |
+             {} = 'ModuleInfo: Creator: globals loadedModules xlib.
 
 CopyDowns:
-globals modules init. copy 
+globals loadedModules init. copy 
 SlotsToOmit: comment directory fileInTimeString myComment postFileIn revision subpartNames.
 
 \x7fIsComplete: '.
             | ) .
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'xlib' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'xlib' -> () From: ( | {
          'ModuleInfo: Module: xlib InitialContents: FollowSlot\x7fVisibility: public'
         
          directory <- 'graphics'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'xlib' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'xlib' -> () From: ( | {
          'ModuleInfo: Module: xlib InitialContents: InitializeToExpression: (_CurrentTimeString)\x7fVisibility: public'
         
          fileInTimeString <- _CurrentTimeString.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'xlib' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'xlib' -> () From: ( | {
          'ModuleInfo: Module: xlib InitialContents: FollowSlot'
         
          myComment <- 'Philosophy of the Xlib interface: the primitives (and their wrappers) conform
@@ -58,7 +58,7 @@ SlotsToOmit: comment directory fileInTimeString myComment postFileIn revision su
             \"IMPORTANT: more slots are added to these objects in xlib.wrappers.self'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'xlib' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'xlib' -> () From: ( | {
          'ModuleInfo: Module: xlib InitialContents: FollowSlot'
         
          postFileIn = ( |
@@ -68,19 +68,19 @@ SlotsToOmit: comment directory fileInTimeString myComment postFileIn revision su
             resend.postFileIn).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'xlib' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'xlib' -> () From: ( | {
          'ModuleInfo: Module: xlib InitialContents: InitializeToExpression: (\'30.17.0\')\x7fVisibility: public'
         
          revision <- '30.17.0'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'xlib' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'xlib' -> () From: ( | {
          'ModuleInfo: Module: xlib InitialContents: FollowSlot\x7fVisibility: public'
         
          subpartNames <- bootstrap setObjectAnnotationOf: ( 'xDrawable
 xlib_wrappers
 ' copyMutable) From: ( |
-             {} = 'ModuleInfo: Creator: globals modules xlib subpartNames.
+             {} = 'ModuleInfo: Creator: globals loadedModules xlib subpartNames.
 
 CopyDowns:
 globals byteVector. copy 
@@ -6076,4 +6076,4 @@ an object with these slots:
 
  '-- Side effects'
 
- globals modules xlib postFileIn
+ globals loadedModules xlib postFileIn

@@ -165,10 +165,10 @@ globals moduleHolderModel parent buttonDescriptions. _Clone
             (n = 0  ifTrue: 'No' False: [n printString]), ' Changed Modules').
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> () From: ( | {
          'ModuleInfo: Module: changedModulesModel InitialContents: FollowSlot'
         
-         changedModulesModel = bootstrap define: bootstrap stub -> 'globals' -> 'modules' -> 'changedModulesModel' -> () ToBe: bootstrap addSlotsTo: (
+         changedModulesModel = bootstrap define: bootstrap stub -> 'globals' -> 'loadedModules' -> 'changedModulesModel' -> () ToBe: bootstrap addSlotsTo: (
              bootstrap remove: 'comment' From:
              bootstrap remove: 'directory' From:
              bootstrap remove: 'fileInTimeString' From:
@@ -176,36 +176,36 @@ globals moduleHolderModel parent buttonDescriptions. _Clone
              bootstrap remove: 'postFileIn' From:
              bootstrap remove: 'revision' From:
              bootstrap remove: 'subpartNames' From:
-             globals modules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'modules' -> 'changedModulesModel' -> () From: ( |
-             {} = 'ModuleInfo: Creator: globals modules changedModulesModel.
+             globals loadedModules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'loadedModules' -> 'changedModulesModel' -> () From: ( |
+             {} = 'ModuleInfo: Creator: globals loadedModules changedModulesModel.
 
 CopyDowns:
-globals modules init. copy 
+globals loadedModules init. copy 
 SlotsToOmit: comment directory fileInTimeString myComment postFileIn revision subpartNames.
 
 \x7fIsComplete: '.
             | ) .
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'changedModulesModel' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'changedModulesModel' -> () From: ( | {
          'ModuleInfo: Module: changedModulesModel InitialContents: FollowSlot\x7fVisibility: public'
         
          directory <- 'ui2/outliner'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'changedModulesModel' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'changedModulesModel' -> () From: ( | {
          'ModuleInfo: Module: changedModulesModel InitialContents: InitializeToExpression: (_CurrentTimeString)\x7fVisibility: public'
         
          fileInTimeString <- _CurrentTimeString.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'changedModulesModel' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'changedModulesModel' -> () From: ( | {
          'ModuleInfo: Module: changedModulesModel InitialContents: FollowSlot'
         
          myComment <- ''.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'changedModulesModel' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'changedModulesModel' -> () From: ( | {
          'ModuleInfo: Module: changedModulesModel InitialContents: FollowSlot'
         
          postFileIn = ( |
@@ -214,13 +214,13 @@ SlotsToOmit: comment directory fileInTimeString myComment postFileIn revision su
             resend.postFileIn).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'changedModulesModel' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'changedModulesModel' -> () From: ( | {
          'ModuleInfo: Module: changedModulesModel InitialContents: InitializeToExpression: (\'30.7.1\')\x7fVisibility: public'
         
          revision <- '30.7.1'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'changedModulesModel' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'changedModulesModel' -> () From: ( | {
          'ModuleInfo: Module: changedModulesModel InitialContents: FollowSlot\x7fVisibility: private'
         
          subpartNames <- 'allModulesModel
@@ -237,4 +237,4 @@ SlotsToOmit: comment directory fileInTimeString myComment postFileIn revision su
 
  '-- Side effects'
 
- globals modules changedModulesModel postFileIn
+ globals loadedModules changedModulesModel postFileIn

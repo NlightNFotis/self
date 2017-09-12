@@ -8,70 +8,70 @@ See the legal/LICENSE file for license information and legal/AUTHORS for authors
 
  '-- Module body'
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> () From: ( | {
          'ModuleInfo: Module: transporter InitialContents: FollowSlot'
         
-         transporter = bootstrap define: bootstrap stub -> 'globals' -> 'modules' -> 'transporter' -> () ToBe: bootstrap addSlotsTo: (
+         transporter = bootstrap define: bootstrap stub -> 'globals' -> 'loadedModules' -> 'transporter' -> () ToBe: bootstrap addSlotsTo: (
              bootstrap remove: 'directory' From:
              bootstrap remove: 'fileInTimeString' From:
              bootstrap remove: 'myComment' From:
              bootstrap remove: 'postFileIn' From:
              bootstrap remove: 'revision' From:
              bootstrap remove: 'subpartNames' From:
-             globals modules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'modules' -> 'transporter' -> () From: ( |
-             {} = 'ModuleInfo: Creator: globals modules transporter.
+             globals loadedModules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'loadedModules' -> 'transporter' -> () From: ( |
+             {} = 'ModuleInfo: Creator: globals loadedModules transporter.
 
 CopyDowns:
-globals modules init. copy 
+globals loadedModules init. copy 
 SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNames.
 
 \x7fIsComplete: '.
             | ) .
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'transporter' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'transporter' -> () From: ( | {
          'ModuleInfo: Module: transporter InitialContents: FollowSlot\x7fVisibility: public'
         
          directory <- 'core'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'transporter' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'transporter' -> () From: ( | {
          'ModuleInfo: Module: transporter InitialContents: InitializeToExpression: (_CurrentTimeString)\x7fVisibility: public'
         
          fileInTimeString <- _CurrentTimeString.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'transporter' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'transporter' -> () From: ( | {
          'ModuleInfo: Module: transporter InitialContents: FollowSlot'
         
          myComment <- ''.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'transporter' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'transporter' -> () From: ( | {
          'ModuleInfo: Module: transporter InitialContents: InitializeToExpression: (\'30.9.0\')\x7fVisibility: public'
         
          revision <- '30.9.0'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'transporter' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'transporter' -> () From: ( | {
          'ModuleInfo: Module: transporter InitialContents: FollowSlot\x7fVisibility: public'
         
-         subpartNames <- '
-	 objectScanner
-	 transporterFiles
-	 beamOut
-	 beamIn
-	 fastTransporter
-	 chain
-	 fileOut
-	 module
-	 annotator
-	 incrementalSaving
-	 '.
+         subpartNames <- 'objectScanner
+transporterFiles
+beamOut
+beamIn
+fastTransporter
+chain
+fileOut
+module
+annotator
+incrementalSaving
+universes
+'.
         } | ) 
 
  bootstrap addSlotsTo: bootstrap stub -> 'globals' -> () From: ( | {
-         'Category: system\x7fCategory: modules\x7fModuleInfo: Module: transporter InitialContents: FollowSlot\x7fVisibility: public'
+         'Category: system\x7fCategory: modules\x7fCategory: support\x7fModuleInfo: Module: transporter InitialContents: FollowSlot\x7fVisibility: public'
         
          transporter = bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'transporter' -> () From: ( |
              {} = 'ModuleInfo: Creator: globals transporter.
@@ -123,9 +123,10 @@ accessed quickly
  bootstrap read: 'module' From: 'core'
  bootstrap read: 'annotator' From: 'core'
  bootstrap read: 'incrementalSaving' From: 'core'
+ bootstrap read: 'universes' From: 'core'
 
 
 
  '-- Side effects'
 
- globals modules transporter postFileIn
+ globals loadedModules transporter postFileIn

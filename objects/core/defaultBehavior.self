@@ -1,8 +1,9 @@
  'Sun-$Revision: 30.10 $'
  '
-Copyright 1992-2012 AUTHORS.
-See the LICENSE file for license information.
+Copyright 1992-2016 AUTHORS.
+See the legal/LICENSE file for license information and legal/AUTHORS for authors.
 '
+["preFileIn" self] value
 
 
  '-- Module body'
@@ -481,10 +482,10 @@ arguments when only the first argument is of interest.\x7fModuleInfo: Module: de
             value: a With: b With: c With: d With: e With: f).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> () From: ( | {
          'ModuleInfo: Module: defaultBehavior InitialContents: FollowSlot'
         
-         defaultBehavior = bootstrap define: bootstrap stub -> 'globals' -> 'modules' -> 'defaultBehavior' -> () ToBe: bootstrap addSlotsTo: (
+         defaultBehavior = bootstrap define: bootstrap stub -> 'globals' -> 'loadedModules' -> 'defaultBehavior' -> () ToBe: bootstrap addSlotsTo: (
              bootstrap remove: 'comment' From:
              bootstrap remove: 'directory' From:
              bootstrap remove: 'fileInTimeString' From:
@@ -492,42 +493,42 @@ arguments when only the first argument is of interest.\x7fModuleInfo: Module: de
              bootstrap remove: 'postFileIn' From:
              bootstrap remove: 'revision' From:
              bootstrap remove: 'subpartNames' From:
-             globals modules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'modules' -> 'defaultBehavior' -> () From: ( |
-             {} = 'ModuleInfo: Creator: globals modules defaultBehavior.
+             globals loadedModules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'loadedModules' -> 'defaultBehavior' -> () From: ( |
+             {} = 'ModuleInfo: Creator: globals loadedModules defaultBehavior.
 
 CopyDowns:
-globals modules init. copy 
+globals loadedModules init. copy 
 SlotsToOmit: comment directory fileInTimeString myComment postFileIn revision subpartNames.
 
 \x7fIsComplete: '.
             | ) .
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'defaultBehavior' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'defaultBehavior' -> () From: ( | {
          'ModuleInfo: Module: defaultBehavior InitialContents: FollowSlot\x7fVisibility: public'
         
          directory <- 'core'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'defaultBehavior' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'defaultBehavior' -> () From: ( | {
          'ModuleInfo: Module: defaultBehavior InitialContents: InitializeToExpression: (_CurrentTimeString)\x7fVisibility: public'
         
          fileInTimeString <- _CurrentTimeString.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'defaultBehavior' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'defaultBehavior' -> () From: ( | {
          'ModuleInfo: Module: defaultBehavior InitialContents: FollowSlot'
         
          myComment <- 'behavior for the lobby and objects that inherit from it'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'defaultBehavior' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'defaultBehavior' -> () From: ( | {
          'ModuleInfo: Module: defaultBehavior InitialContents: FollowSlot\x7fVisibility: public'
         
          revision <- 'Sun-$Revision: 30.10 $'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'defaultBehavior' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'defaultBehavior' -> () From: ( | {
          'ModuleInfo: Module: defaultBehavior InitialContents: FollowSlot\x7fVisibility: private'
         
          subpartNames <- ''.
@@ -537,4 +538,4 @@ SlotsToOmit: comment directory fileInTimeString myComment postFileIn revision su
 
  '-- Side effects'
 
- globals modules defaultBehavior postFileIn
+ globals loadedModules defaultBehavior postFileIn

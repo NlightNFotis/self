@@ -8,46 +8,46 @@ See the legal/LICENSE file for license information and legal/AUTHORS for authors
 
  '-- Module body'
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> () From: ( | {
          'ModuleInfo: Module: defaultPreferences InitialContents: FollowSlot'
         
-         defaultPreferences = bootstrap define: bootstrap stub -> 'globals' -> 'modules' -> 'defaultPreferences' -> () ToBe: bootstrap addSlotsTo: (
+         defaultPreferences = bootstrap define: bootstrap stub -> 'globals' -> 'loadedModules' -> 'defaultPreferences' -> () ToBe: bootstrap addSlotsTo: (
              bootstrap remove: 'directory' From:
              bootstrap remove: 'fileInTimeString' From:
              bootstrap remove: 'myComment' From:
              bootstrap remove: 'postFileIn' From:
              bootstrap remove: 'revision' From:
              bootstrap remove: 'subpartNames' From:
-             globals modules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'modules' -> 'defaultPreferences' -> () From: ( |
-             {} = 'ModuleInfo: Creator: globals modules defaultPreferences.
+             globals loadedModules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'loadedModules' -> 'defaultPreferences' -> () From: ( |
+             {} = 'ModuleInfo: Creator: globals loadedModules defaultPreferences.
 
 CopyDowns:
-globals modules init. copy 
+globals loadedModules init. copy 
 SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNames.
 
 \x7fIsComplete: '.
             | ) .
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'defaultPreferences' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'defaultPreferences' -> () From: ( | {
          'ModuleInfo: Module: defaultPreferences InitialContents: FollowSlot\x7fVisibility: public'
         
          directory <- 'core'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'defaultPreferences' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'defaultPreferences' -> () From: ( | {
          'ModuleInfo: Module: defaultPreferences InitialContents: InitializeToExpression: (_CurrentTimeString)\x7fVisibility: public'
         
          fileInTimeString <- _CurrentTimeString.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'defaultPreferences' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'defaultPreferences' -> () From: ( | {
          'ModuleInfo: Module: defaultPreferences InitialContents: FollowSlot'
         
          myComment <- 'default user preferences'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'defaultPreferences' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'defaultPreferences' -> () From: ( | {
          'ModuleInfo: Module: defaultPreferences InitialContents: FollowSlot'
         
          postFileIn = ( |
@@ -56,13 +56,13 @@ SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNam
             resend.postFileIn).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'defaultPreferences' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'defaultPreferences' -> () From: ( | {
          'ModuleInfo: Module: defaultPreferences InitialContents: InitializeToExpression: (\'30.11.0\')\x7fVisibility: public'
         
          revision <- '30.11.0'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'defaultPreferences' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'defaultPreferences' -> () From: ( | {
          'ModuleInfo: Module: defaultPreferences InitialContents: FollowSlot\x7fVisibility: private'
         
          subpartNames <- ''.
@@ -159,4 +159,4 @@ Except that, as of 12/07, it needs to be :0. -- dmu\x7fModuleInfo: Module: defau
 
  '-- Side effects'
 
- globals modules defaultPreferences postFileIn
+ globals loadedModules defaultPreferences postFileIn

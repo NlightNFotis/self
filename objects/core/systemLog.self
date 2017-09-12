@@ -8,6 +8,66 @@ See the legal/LICENSE file for license information and legal/AUTHORS for authors
 
  '-- Module body'
 
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> () From: ( | {
+         'ModuleInfo: Module: systemLog InitialContents: FollowSlot'
+        
+         systemLog = bootstrap define: bootstrap stub -> 'globals' -> 'loadedModules' -> 'systemLog' -> () ToBe: bootstrap addSlotsTo: (
+             bootstrap remove: 'directory' From:
+             bootstrap remove: 'fileInTimeString' From:
+             bootstrap remove: 'myComment' From:
+             bootstrap remove: 'postFileIn' From:
+             bootstrap remove: 'revision' From:
+             bootstrap remove: 'subpartNames' From:
+             globals loadedModules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'loadedModules' -> 'systemLog' -> () From: ( |
+             {} = 'ModuleInfo: Creator: globals loadedModules systemLog.
+
+CopyDowns:
+globals loadedModules init. copy 
+SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNames.
+
+\x7fIsComplete: '.
+            | ) .
+        } | ) 
+
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'systemLog' -> () From: ( | {
+         'ModuleInfo: Module: systemLog InitialContents: FollowSlot\x7fVisibility: public'
+        
+         directory <- 'core'.
+        } | ) 
+
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'systemLog' -> () From: ( | {
+         'ModuleInfo: Module: systemLog InitialContents: InitializeToExpression: (_CurrentTimeString)\x7fVisibility: public'
+        
+         fileInTimeString <- _CurrentTimeString.
+        } | ) 
+
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'systemLog' -> () From: ( | {
+         'ModuleInfo: Module: systemLog InitialContents: FollowSlot'
+        
+         myComment <- ''.
+        } | ) 
+
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'systemLog' -> () From: ( | {
+         'ModuleInfo: Module: systemLog InitialContents: FollowSlot'
+        
+         postFileIn = ( |
+            | 
+            log resetToDefault.
+            resend.postFileIn).
+        } | ) 
+
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'systemLog' -> () From: ( | {
+         'ModuleInfo: Module: systemLog InitialContents: InitializeToExpression: (\'0.2.0\')\x7fVisibility: public'
+        
+         revision <- '0.2.0'.
+        } | ) 
+
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'systemLog' -> () From: ( | {
+         'ModuleInfo: Module: systemLog InitialContents: FollowSlot\x7fVisibility: private'
+        
+         subpartNames <- ''.
+        } | ) 
+
  bootstrap addSlotsTo: bootstrap stub -> 'globals' -> () From: ( | {
          'Category: system\x7fModuleInfo: Module: systemLog InitialContents: FollowSlot\x7fVisibility: public'
         
@@ -734,68 +794,8 @@ See the legal/LICENSE file for license information and legal/AUTHORS for authors
             log: s Severity: levels warn For: p).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> () From: ( | {
-         'ModuleInfo: Module: systemLog InitialContents: FollowSlot'
-        
-         systemLog = bootstrap define: bootstrap stub -> 'globals' -> 'modules' -> 'systemLog' -> () ToBe: bootstrap addSlotsTo: (
-             bootstrap remove: 'directory' From:
-             bootstrap remove: 'fileInTimeString' From:
-             bootstrap remove: 'myComment' From:
-             bootstrap remove: 'postFileIn' From:
-             bootstrap remove: 'revision' From:
-             bootstrap remove: 'subpartNames' From:
-             globals modules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'modules' -> 'systemLog' -> () From: ( |
-             {} = 'ModuleInfo: Creator: globals modules systemLog.
-
-CopyDowns:
-globals modules init. copy 
-SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNames.
-
-\x7fIsComplete: '.
-            | ) .
-        } | ) 
-
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'systemLog' -> () From: ( | {
-         'ModuleInfo: Module: systemLog InitialContents: FollowSlot\x7fVisibility: public'
-        
-         directory <- 'core'.
-        } | ) 
-
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'systemLog' -> () From: ( | {
-         'ModuleInfo: Module: systemLog InitialContents: InitializeToExpression: (_CurrentTimeString)\x7fVisibility: public'
-        
-         fileInTimeString <- _CurrentTimeString.
-        } | ) 
-
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'systemLog' -> () From: ( | {
-         'ModuleInfo: Module: systemLog InitialContents: FollowSlot'
-        
-         myComment <- ''.
-        } | ) 
-
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'systemLog' -> () From: ( | {
-         'ModuleInfo: Module: systemLog InitialContents: FollowSlot'
-        
-         postFileIn = ( |
-            | 
-            log resetToDefault.
-            resend.postFileIn).
-        } | ) 
-
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'systemLog' -> () From: ( | {
-         'ModuleInfo: Module: systemLog InitialContents: InitializeToExpression: (\'0.2.0\')\x7fVisibility: public'
-        
-         revision <- '0.2.0'.
-        } | ) 
-
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'systemLog' -> () From: ( | {
-         'ModuleInfo: Module: systemLog InitialContents: FollowSlot\x7fVisibility: private'
-        
-         subpartNames <- ''.
-        } | ) 
-
 
 
  '-- Side effects'
 
- globals modules systemLog postFileIn
+ globals loadedModules systemLog postFileIn

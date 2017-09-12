@@ -1,8 +1,9 @@
  'Sun-$Revision: 30.10 $'
  '
-Copyright 1992-2012 AUTHORS.
-See the LICENSE file for license information.
+Copyright 1992-2016 AUTHORS.
+See the legal/LICENSE file for license information and legal/AUTHORS for authors.
 '
+["preFileIn" self] value
 
 
  '-- Module body'
@@ -81,10 +82,10 @@ can lie if some of the elements of the collector change size!
          previous.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> () From: ( | {
          'ModuleInfo: Module: collector InitialContents: FollowSlot'
         
-         collector = bootstrap define: bootstrap stub -> 'globals' -> 'modules' -> 'collector' -> () ToBe: bootstrap addSlotsTo: (
+         collector = bootstrap define: bootstrap stub -> 'globals' -> 'loadedModules' -> 'collector' -> () ToBe: bootstrap addSlotsTo: (
              bootstrap remove: 'comment' From:
              bootstrap remove: 'directory' From:
              bootstrap remove: 'fileInTimeString' From:
@@ -92,42 +93,42 @@ can lie if some of the elements of the collector change size!
              bootstrap remove: 'postFileIn' From:
              bootstrap remove: 'revision' From:
              bootstrap remove: 'subpartNames' From:
-             globals modules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'modules' -> 'collector' -> () From: ( |
-             {} = 'ModuleInfo: Creator: globals modules collector.
+             globals loadedModules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'loadedModules' -> 'collector' -> () From: ( |
+             {} = 'ModuleInfo: Creator: globals loadedModules collector.
 
 CopyDowns:
-globals modules init. copy 
+globals loadedModules init. copy 
 SlotsToOmit: comment directory fileInTimeString myComment postFileIn revision subpartNames.
 
 \x7fIsComplete: '.
             | ) .
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'collector' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'collector' -> () From: ( | {
          'ModuleInfo: Module: collector InitialContents: FollowSlot\x7fVisibility: public'
         
          directory <- 'core'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'collector' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'collector' -> () From: ( | {
          'ModuleInfo: Module: collector InitialContents: InitializeToExpression: (_CurrentTimeString)\x7fVisibility: public'
         
          fileInTimeString <- _CurrentTimeString.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'collector' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'collector' -> () From: ( | {
          'ModuleInfo: Module: collector InitialContents: FollowSlot'
         
          myComment <- ''.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'collector' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'collector' -> () From: ( | {
          'ModuleInfo: Module: collector InitialContents: FollowSlot\x7fVisibility: public'
         
          revision <- 'Sun-$Revision: 30.10 $'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'collector' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'collector' -> () From: ( | {
          'ModuleInfo: Module: collector InitialContents: FollowSlot\x7fVisibility: private'
         
          subpartNames <- ''.
@@ -368,4 +369,4 @@ SlotsToOmit: comment directory fileInTimeString myComment postFileIn revision su
 
  '-- Side effects'
 
- globals modules collector postFileIn
+ globals loadedModules collector postFileIn

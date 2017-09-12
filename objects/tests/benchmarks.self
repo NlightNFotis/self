@@ -1,8 +1,9 @@
  'Sun-$Revision: 30.10 $'
  '
-Copyright 1992-2012 AUTHORS.
-See the LICENSE file for license information.
+Copyright 1992-2016 AUTHORS.
+See the legal/LICENSE file for license information and legal/AUTHORS for authors.
 '
+["preFileIn" self] value
 
 
  '-- Module body'
@@ -8658,40 +8659,40 @@ See the LICENSE file for license information.
             | 0).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> () From: ( | {
          'ModuleInfo: Module: benchmarks InitialContents: FollowSlot'
         
-         benchmarks = bootstrap define: bootstrap stub -> 'globals' -> 'modules' -> 'benchmarks' -> () ToBe: bootstrap addSlotsTo: (
+         benchmarks = bootstrap define: bootstrap stub -> 'globals' -> 'loadedModules' -> 'benchmarks' -> () ToBe: bootstrap addSlotsTo: (
              bootstrap remove: 'directory' From:
              bootstrap remove: 'fileInTimeString' From:
              bootstrap remove: 'myComment' From:
              bootstrap remove: 'postFileIn' From:
              bootstrap remove: 'revision' From:
              bootstrap remove: 'subpartNames' From:
-             globals modules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'modules' -> 'benchmarks' -> () From: ( |
-             {} = 'ModuleInfo: Creator: globals modules benchmarks.
+             globals loadedModules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'loadedModules' -> 'benchmarks' -> () From: ( |
+             {} = 'ModuleInfo: Creator: globals loadedModules benchmarks.
 
 CopyDowns:
-globals modules init. copy 
+globals loadedModules init. copy 
 SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNames.
 
 \x7fIsComplete: '.
             | ) .
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'benchmarks' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'benchmarks' -> () From: ( | {
          'ModuleInfo: Module: benchmarks InitialContents: FollowSlot\x7fVisibility: public'
         
          directory <- 'tests'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'benchmarks' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'benchmarks' -> () From: ( | {
          'ModuleInfo: Module: benchmarks InitialContents: InitializeToExpression: (_CurrentTimeString)\x7fVisibility: public'
         
          fileInTimeString <- _CurrentTimeString.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'benchmarks' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'benchmarks' -> () From: ( | {
          'ModuleInfo: Module: benchmarks InitialContents: FollowSlot'
         
          myComment <- 'This is a suite of benchmarks that are relatively short, both in program
@@ -8704,7 +8705,7 @@ SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNam
              for the string \'_RunScript\' to see where this is done.'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'benchmarks' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'benchmarks' -> () From: ( | {
          'ModuleInfo: Module: benchmarks InitialContents: FollowSlot'
         
          postFileIn = ( |
@@ -8836,13 +8837,13 @@ SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNam
             resend.postFileIn).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'benchmarks' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'benchmarks' -> () From: ( | {
          'ModuleInfo: Module: benchmarks InitialContents: FollowSlot\x7fVisibility: public'
         
          revision <- 'Sun-$Revision: 30.10 $'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'benchmarks' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'benchmarks' -> () From: ( | {
          'ModuleInfo: Module: benchmarks InitialContents: FollowSlot\x7fVisibility: private'
         
          subpartNames <- '
@@ -9496,4 +9497,4 @@ SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNam
 
  '-- Side effects'
 
- globals modules benchmarks postFileIn
+ globals loadedModules benchmarks postFileIn

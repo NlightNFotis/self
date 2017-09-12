@@ -1,8 +1,9 @@
  'Sun-$Revision: 30.17 $'
  '
-Copyright 1992-2011 AUTHORS.
+Copyright 1992-2016 AUTHORS.
 See the legal/LICENSE file for license information and legal/AUTHORS for authors.
 '
+["preFileIn" self] value
 
 
  '-- Module body'
@@ -15,10 +16,10 @@ show a morph describing me instead of an outliner.
          isShowableAsMorph = bootstrap stub -> 'globals' -> 'false' -> ().
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> () From: ( | {
          'ModuleInfo: Module: morph InitialContents: FollowSlot'
         
-         morph = bootstrap define: bootstrap stub -> 'globals' -> 'modules' -> 'morph' -> () ToBe: bootstrap addSlotsTo: (
+         morph = bootstrap define: bootstrap stub -> 'globals' -> 'loadedModules' -> 'morph' -> () ToBe: bootstrap addSlotsTo: (
              bootstrap remove: 'comment' From:
              bootstrap remove: 'directory' From:
              bootstrap remove: 'fileInTimeString' From:
@@ -26,36 +27,36 @@ show a morph describing me instead of an outliner.
              bootstrap remove: 'postFileIn' From:
              bootstrap remove: 'revision' From:
              bootstrap remove: 'subpartNames' From:
-             globals modules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'modules' -> 'morph' -> () From: ( |
-             {} = 'ModuleInfo: Creator: globals modules morph.
+             globals loadedModules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'loadedModules' -> 'morph' -> () From: ( |
+             {} = 'ModuleInfo: Creator: globals loadedModules morph.
 
 CopyDowns:
-globals modules init. copy 
+globals loadedModules init. copy 
 SlotsToOmit: comment directory fileInTimeString myComment postFileIn revision subpartNames.
 
 \x7fIsComplete: '.
             | ) .
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'morph' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'morph' -> () From: ( | {
          'ModuleInfo: Module: morph InitialContents: FollowSlot\x7fVisibility: public'
         
          directory <- 'ui2'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'morph' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'morph' -> () From: ( | {
          'ModuleInfo: Module: morph InitialContents: InitializeToExpression: (_CurrentTimeString)\x7fVisibility: public'
         
          fileInTimeString <- _CurrentTimeString.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'morph' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'morph' -> () From: ( | {
          'ModuleInfo: Module: morph InitialContents: FollowSlot'
         
          myComment <- 'The basic morph object.'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'morph' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'morph' -> () From: ( | {
          'ModuleInfo: Module: morph InitialContents: FollowSlot'
         
          postFileIn = ( |
@@ -65,13 +66,13 @@ SlotsToOmit: comment directory fileInTimeString myComment postFileIn revision su
             self).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'morph' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'morph' -> () From: ( | {
          'ModuleInfo: Module: morph InitialContents: FollowSlot\x7fVisibility: public'
         
          revision <- 'Sun-$Revision: 30.17 $'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'morph' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'morph' -> () From: ( | {
          'ModuleInfo: Module: morph InitialContents: FollowSlot\x7fVisibility: private'
         
          subpartNames <- ''.
@@ -2645,4 +2646,4 @@ owner is nil. This morph is typically a worldMorph.\x7fModuleInfo: Module: morph
 
  '-- Side effects'
 
- globals modules morph postFileIn
+ globals loadedModules morph postFileIn

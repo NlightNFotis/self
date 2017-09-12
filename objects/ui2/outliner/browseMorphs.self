@@ -1,6 +1,6 @@
  'Sun-$Revision: 30.12 $'
  '
-Copyright 1992-2014 AUTHORS.
+Copyright 1992-2017 AUTHORS.
 See the legal/LICENSE file for license information and legal/AUTHORS for authors.
 '
 ["preFileIn" self] value
@@ -545,9 +545,9 @@ SlotsToOmit: mirror parent prototype.
         } | ) 
 
  bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'slotsInModuleMorph' -> () From: ( | {
-         'ModuleInfo: Module: browseMorphs InitialContents: InitializeToExpression: (modules init)'
+         'ModuleInfo: Module: browseMorphs InitialContents: InitializeToExpression: (loadedModules init)'
         
-         module <- bootstrap stub -> 'globals' -> 'modules' -> 'init' -> ().
+         module <- bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> ().
         } | ) 
 
  bootstrap addSlotsTo: bootstrap stub -> 'traits' -> () From: ( | {
@@ -1292,6 +1292,58 @@ SlotsToOmit: parent prototype.
             initialContentsContainingMorph).
         } | ) 
 
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> () From: ( | {
+         'ModuleInfo: Module: browseMorphs InitialContents: FollowSlot'
+        
+         browseMorphs = bootstrap define: bootstrap stub -> 'globals' -> 'loadedModules' -> 'browseMorphs' -> () ToBe: bootstrap addSlotsTo: (
+             bootstrap remove: 'comment' From:
+             bootstrap remove: 'directory' From:
+             bootstrap remove: 'fileInTimeString' From:
+             bootstrap remove: 'myComment' From:
+             bootstrap remove: 'postFileIn' From:
+             bootstrap remove: 'revision' From:
+             bootstrap remove: 'subpartNames' From:
+             globals loadedModules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'loadedModules' -> 'browseMorphs' -> () From: ( |
+             {} = 'ModuleInfo: Creator: globals loadedModules browseMorphs.
+
+CopyDowns:
+globals loadedModules init. copy 
+SlotsToOmit: comment directory fileInTimeString myComment postFileIn revision subpartNames.
+
+\x7fIsComplete: '.
+            | ) .
+        } | ) 
+
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'browseMorphs' -> () From: ( | {
+         'ModuleInfo: Module: browseMorphs InitialContents: FollowSlot\x7fVisibility: public'
+        
+         directory <- 'ui2/outliner'.
+        } | ) 
+
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'browseMorphs' -> () From: ( | {
+         'ModuleInfo: Module: browseMorphs InitialContents: InitializeToExpression: (_CurrentTimeString)\x7fVisibility: public'
+        
+         fileInTimeString <- _CurrentTimeString.
+        } | ) 
+
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'browseMorphs' -> () From: ( | {
+         'ModuleInfo: Module: browseMorphs InitialContents: FollowSlot'
+        
+         myComment <- 'This module defines ui2 morphs for browsing'.
+        } | ) 
+
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'browseMorphs' -> () From: ( | {
+         'ModuleInfo: Module: browseMorphs InitialContents: FollowSlot\x7fVisibility: public'
+        
+         revision <- 'Sun-$Revision: 30.12 $'.
+        } | ) 
+
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'browseMorphs' -> () From: ( | {
+         'ModuleInfo: Module: browseMorphs InitialContents: FollowSlot\x7fVisibility: private'
+        
+         subpartNames <- ''.
+        } | ) 
+
  bootstrap addSlotsTo: bootstrap stub -> 'globals' -> () From: ( | {
          'Category: graphical interface\x7fCategory: ui2\x7fCategory: Programming Environment\x7fCategory: Enumeration\x7fModuleInfo: Module: browseMorphs InitialContents: FollowSlot\x7fVisibility: public'
         
@@ -1330,58 +1382,6 @@ SlotsToOmit: parent prototype.
          slot <- bootstrap stub -> 'globals' -> 'slots' -> 'method' -> ().
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> () From: ( | {
-         'ModuleInfo: Module: browseMorphs InitialContents: FollowSlot'
-        
-         browseMorphs = bootstrap define: bootstrap stub -> 'globals' -> 'modules' -> 'browseMorphs' -> () ToBe: bootstrap addSlotsTo: (
-             bootstrap remove: 'comment' From:
-             bootstrap remove: 'directory' From:
-             bootstrap remove: 'fileInTimeString' From:
-             bootstrap remove: 'myComment' From:
-             bootstrap remove: 'postFileIn' From:
-             bootstrap remove: 'revision' From:
-             bootstrap remove: 'subpartNames' From:
-             globals modules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'modules' -> 'browseMorphs' -> () From: ( |
-             {} = 'ModuleInfo: Creator: globals modules browseMorphs.
-
-CopyDowns:
-globals modules init. copy 
-SlotsToOmit: comment directory fileInTimeString myComment postFileIn revision subpartNames.
-
-\x7fIsComplete: '.
-            | ) .
-        } | ) 
-
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'browseMorphs' -> () From: ( | {
-         'ModuleInfo: Module: browseMorphs InitialContents: FollowSlot\x7fVisibility: public'
-        
-         directory <- 'ui2/outliner'.
-        } | ) 
-
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'browseMorphs' -> () From: ( | {
-         'ModuleInfo: Module: browseMorphs InitialContents: InitializeToExpression: (_CurrentTimeString)\x7fVisibility: public'
-        
-         fileInTimeString <- _CurrentTimeString.
-        } | ) 
-
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'browseMorphs' -> () From: ( | {
-         'ModuleInfo: Module: browseMorphs InitialContents: FollowSlot'
-        
-         myComment <- 'This module defines ui2 morphs for browsing'.
-        } | ) 
-
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'browseMorphs' -> () From: ( | {
-         'ModuleInfo: Module: browseMorphs InitialContents: FollowSlot\x7fVisibility: public'
-        
-         revision <- 'Sun-$Revision: 30.12 $'.
-        } | ) 
-
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'browseMorphs' -> () From: ( | {
-         'ModuleInfo: Module: browseMorphs InitialContents: FollowSlot\x7fVisibility: private'
-        
-         subpartNames <- ''.
-        } | ) 
-
  bootstrap addSlotsTo: bootstrap stub -> 'globals' -> () From: ( | {
          'Category: graphical interface\x7fCategory: ui2\x7fCategory: Programming Environment\x7fCategory: Enumeration\x7fModuleInfo: Module: browseMorphs InitialContents: FollowSlot\x7fVisibility: public'
         
@@ -1400,9 +1400,9 @@ SlotsToOmit: module parent.
         } | ) 
 
  bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'orphansMorph' -> () From: ( | {
-         'ModuleInfo: Module: browseMorphs InitialContents: InitializeToExpression: (modules init)'
+         'ModuleInfo: Module: browseMorphs InitialContents: InitializeToExpression: (loadedModules init)'
         
-         module <- bootstrap stub -> 'globals' -> 'modules' -> 'init' -> ().
+         module <- bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> ().
         } | ) 
 
  bootstrap addSlotsTo: bootstrap stub -> 'traits' -> () From: ( | {
@@ -2293,4 +2293,4 @@ SlotsToOmit: mirror parent prototype.
 
  '-- Side effects'
 
- globals modules browseMorphs postFileIn
+ globals loadedModules browseMorphs postFileIn

@@ -1,8 +1,9 @@
  'Sun-$Revision: 30.24 $'
  '
-Copyright 1992-2012 AUTHORS.
-See the LICENSE file for license information.
+Copyright 1992-2016 AUTHORS.
+See the legal/LICENSE file for license information and legal/AUTHORS for authors.
 '
+["preFileIn" self] value
 
 
  '-- Module body'
@@ -96,52 +97,52 @@ use \'state\' in a platform independent way.\x7fModuleInfo: Module: ui2Event Ini
          wheelDelta <- 0.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> () From: ( | {
          'ModuleInfo: Module: ui2Event InitialContents: FollowSlot'
         
-         ui2Event = bootstrap define: bootstrap stub -> 'globals' -> 'modules' -> 'ui2Event' -> () ToBe: bootstrap addSlotsTo: (
+         ui2Event = bootstrap define: bootstrap stub -> 'globals' -> 'loadedModules' -> 'ui2Event' -> () ToBe: bootstrap addSlotsTo: (
              bootstrap remove: 'directory' From:
              bootstrap remove: 'fileInTimeString' From:
              bootstrap remove: 'myComment' From:
              bootstrap remove: 'postFileIn' From:
              bootstrap remove: 'revision' From:
              bootstrap remove: 'subpartNames' From:
-             globals modules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'modules' -> 'ui2Event' -> () From: ( |
-             {} = 'ModuleInfo: Creator: globals modules ui2Event.
+             globals loadedModules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'loadedModules' -> 'ui2Event' -> () From: ( |
+             {} = 'ModuleInfo: Creator: globals loadedModules ui2Event.
 
 CopyDowns:
-globals modules init. copy 
+globals loadedModules init. copy 
 SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNames.
 
 \x7fIsComplete: '.
             | ) .
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'ui2Event' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'ui2Event' -> () From: ( | {
          'ModuleInfo: Module: ui2Event InitialContents: FollowSlot\x7fVisibility: public'
         
          directory <- 'ui2'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'ui2Event' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'ui2Event' -> () From: ( | {
          'ModuleInfo: Module: ui2Event InitialContents: InitializeToExpression: (_CurrentTimeString)\x7fVisibility: public'
         
          fileInTimeString <- _CurrentTimeString.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'ui2Event' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'ui2Event' -> () From: ( | {
          'ModuleInfo: Module: ui2Event InitialContents: FollowSlot'
         
          myComment <- 'UI2 events and input handling.'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'ui2Event' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'ui2Event' -> () From: ( | {
          'ModuleInfo: Module: ui2Event InitialContents: FollowSlot\x7fVisibility: public'
         
          revision <- 'Sun-$Revision: 30.24 $'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'ui2Event' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'ui2Event' -> () From: ( | {
          'ModuleInfo: Module: ui2Event InitialContents: FollowSlot\x7fVisibility: public'
         
          subpartNames <- ''.
@@ -1171,4 +1172,4 @@ too hard to do selection extension.
 
  '-- Side effects'
 
- globals modules ui2Event postFileIn
+ globals loadedModules ui2Event postFileIn

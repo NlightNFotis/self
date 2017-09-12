@@ -1,6 +1,6 @@
  '$Revision: 30.11 $'
  '
-Copyright 1992-2014 AUTHORS.
+Copyright 1992-2016 AUTHORS.
 See the legal/LICENSE file for license information and legal/AUTHORS for authors.
 '
 ["preFileIn" self] value
@@ -412,10 +412,10 @@ SlotsToOmit: parent prototype.
          parent* = bootstrap stub -> 'traits' -> 'labelPropsMorph' -> ().
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> () From: ( | {
          'ModuleInfo: Module: propertySheets InitialContents: FollowSlot'
         
-         propertySheets = bootstrap define: bootstrap stub -> 'globals' -> 'modules' -> 'propertySheets' -> () ToBe: bootstrap addSlotsTo: (
+         propertySheets = bootstrap define: bootstrap stub -> 'globals' -> 'loadedModules' -> 'propertySheets' -> () ToBe: bootstrap addSlotsTo: (
              bootstrap remove: 'directory' From:
              bootstrap remove: 'fileInTimeString' From:
              bootstrap remove: 'myComment' From:
@@ -423,36 +423,36 @@ SlotsToOmit: parent prototype.
              bootstrap remove: 'revision' From:
              bootstrap remove: 'revision:' From:
              bootstrap remove: 'subpartNames' From:
-             globals modules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'modules' -> 'propertySheets' -> () From: ( |
-             {} = 'ModuleInfo: Creator: globals modules propertySheets.
+             globals loadedModules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'loadedModules' -> 'propertySheets' -> () From: ( |
+             {} = 'ModuleInfo: Creator: globals loadedModules propertySheets.
 
 CopyDowns:
-globals modules init. copy 
+globals loadedModules init. copy 
 SlotsToOmit: directory fileInTimeString myComment postFileIn revision revision: subpartNames.
 
 \x7fIsComplete: '.
             | ) .
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'propertySheets' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'propertySheets' -> () From: ( | {
          'ModuleInfo: Module: propertySheets InitialContents: FollowSlot\x7fVisibility: public'
         
          directory <- 'ui2'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'propertySheets' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'propertySheets' -> () From: ( | {
          'ModuleInfo: Module: propertySheets InitialContents: InitializeToExpression: (_CurrentTimeString)\x7fVisibility: public'
         
          fileInTimeString <- _CurrentTimeString.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'propertySheets' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'propertySheets' -> () From: ( | {
          'ModuleInfo: Module: propertySheets InitialContents: FollowSlot'
         
          myComment <- ''.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'propertySheets' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'propertySheets' -> () From: ( | {
          'ModuleInfo: Module: propertySheets InitialContents: FollowSlot\x7fVisibility: public'
         
          postFileIn = ( |
@@ -470,13 +470,13 @@ SlotsToOmit: directory fileInTimeString myComment postFileIn revision revision: 
             self).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'propertySheets' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'propertySheets' -> () From: ( | {
          'ModuleInfo: Module: propertySheets InitialContents: FollowSlot\x7fVisibility: public'
         
          revision <- '$Revision: 30.11 $'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'propertySheets' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'propertySheets' -> () From: ( | {
          'ModuleInfo: Module: propertySheets InitialContents: FollowSlot\x7fVisibility: private'
         
          subpartNames <- ''.
@@ -1226,4 +1226,4 @@ SlotsToOmit: parent prototype.
 
  '-- Side effects'
 
- globals modules propertySheets postFileIn
+ globals loadedModules propertySheets postFileIn

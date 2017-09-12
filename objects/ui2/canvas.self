@@ -913,10 +913,10 @@ SlotsToOmit: parent.
          winCanvas.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> () From: ( | {
          'ModuleInfo: Module: canvas InitialContents: FollowSlot'
         
-         canvas = bootstrap define: bootstrap stub -> 'globals' -> 'modules' -> 'canvas' -> () ToBe: bootstrap addSlotsTo: (
+         canvas = bootstrap define: bootstrap stub -> 'globals' -> 'loadedModules' -> 'canvas' -> () ToBe: bootstrap addSlotsTo: (
              bootstrap remove: 'comment' From:
              bootstrap remove: 'directory' From:
              bootstrap remove: 'fileInTimeString' From:
@@ -924,42 +924,42 @@ SlotsToOmit: parent.
              bootstrap remove: 'postFileIn' From:
              bootstrap remove: 'revision' From:
              bootstrap remove: 'subpartNames' From:
-             globals modules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'modules' -> 'canvas' -> () From: ( |
-             {} = 'ModuleInfo: Creator: globals modules canvas.
+             globals loadedModules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'loadedModules' -> 'canvas' -> () From: ( |
+             {} = 'ModuleInfo: Creator: globals loadedModules canvas.
 
 CopyDowns:
-globals modules init. copy 
+globals loadedModules init. copy 
 SlotsToOmit: comment directory fileInTimeString myComment postFileIn revision subpartNames.
 
 \x7fIsComplete: '.
             | ) .
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'canvas' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'canvas' -> () From: ( | {
          'ModuleInfo: Module: canvas InitialContents: FollowSlot\x7fVisibility: public'
         
          directory <- 'ui2'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'canvas' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'canvas' -> () From: ( | {
          'ModuleInfo: Module: canvas InitialContents: InitializeToExpression: (_CurrentTimeString)\x7fVisibility: public'
         
          fileInTimeString <- _CurrentTimeString.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'canvas' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'canvas' -> () From: ( | {
          'ModuleInfo: Module: canvas InitialContents: FollowSlot'
         
          myComment <- 'Canvases: the drawing surfaces of ui2.'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'canvas' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'canvas' -> () From: ( | {
          'ModuleInfo: Module: canvas InitialContents: InitializeToExpression: (\'30.17.1\')\x7fVisibility: public'
         
          revision <- '30.17.1'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'canvas' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'canvas' -> () From: ( | {
          'ModuleInfo: Module: canvas InitialContents: FollowSlot\x7fVisibility: private'
         
          subpartNames <- 'quartzCanvas
@@ -2506,4 +2506,4 @@ the pixmapCache some day.
 
  '-- Side effects'
 
- globals modules canvas postFileIn
+ globals loadedModules canvas postFileIn

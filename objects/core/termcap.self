@@ -1,16 +1,17 @@
  'Sun-$Revision: 30.7 $'
  '
-Copyright 1992-2012 AUTHORS.
-See the LICENSE file for license information.
+Copyright 1992-2016 AUTHORS.
+See the legal/LICENSE file for license information and legal/AUTHORS for authors.
 '
+["preFileIn" self] value
 
 
  '-- Module body'
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> () From: ( | {
          'ModuleInfo: Module: termcap InitialContents: FollowSlot'
         
-         termcap = bootstrap define: bootstrap stub -> 'globals' -> 'modules' -> 'termcap' -> () ToBe: bootstrap addSlotsTo: (
+         termcap = bootstrap define: bootstrap stub -> 'globals' -> 'loadedModules' -> 'termcap' -> () ToBe: bootstrap addSlotsTo: (
              bootstrap remove: 'comment' From:
              bootstrap remove: 'directory' From:
              bootstrap remove: 'fileInTimeString' From:
@@ -18,30 +19,30 @@ See the LICENSE file for license information.
              bootstrap remove: 'postFileIn' From:
              bootstrap remove: 'revision' From:
              bootstrap remove: 'subpartNames' From:
-             globals modules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'modules' -> 'termcap' -> () From: ( |
-             {} = 'ModuleInfo: Creator: globals modules termcap.
+             globals loadedModules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'loadedModules' -> 'termcap' -> () From: ( |
+             {} = 'ModuleInfo: Creator: globals loadedModules termcap.
 
 CopyDowns:
-globals modules init. copy 
+globals loadedModules init. copy 
 SlotsToOmit: comment directory fileInTimeString myComment postFileIn revision subpartNames.
 
 \x7fIsComplete: '.
             | ) .
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'termcap' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'termcap' -> () From: ( | {
          'ModuleInfo: Module: termcap InitialContents: FollowSlot\x7fVisibility: public'
         
          directory <- 'core'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'termcap' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'termcap' -> () From: ( | {
          'ModuleInfo: Module: termcap InitialContents: InitializeToExpression: (_CurrentTimeString)\x7fVisibility: public'
         
          fileInTimeString <- _CurrentTimeString.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'termcap' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'termcap' -> () From: ( | {
          'ModuleInfo: Module: termcap InitialContents: FollowSlot'
         
          myComment <- 'termcap.self provides a self interface to the unix termcap library.
@@ -52,13 +53,13 @@ SlotsToOmit: comment directory fileInTimeString myComment postFileIn revision su
              supported by this interface. (3/5/92) LB'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'termcap' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'termcap' -> () From: ( | {
          'ModuleInfo: Module: termcap InitialContents: FollowSlot\x7fVisibility: public'
         
          revision <- 'Sun-$Revision: 30.7 $'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'termcap' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'termcap' -> () From: ( | {
          'ModuleInfo: Module: termcap InitialContents: FollowSlot\x7fVisibility: public'
         
          subpartNames <- '
@@ -647,4 +648,4 @@ SlotsToOmit: ident.
 
  '-- Side effects'
 
- globals modules termcap postFileIn
+ globals loadedModules termcap postFileIn

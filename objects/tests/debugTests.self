@@ -1,46 +1,47 @@
  'Sun-$Revision: 30.8 $'
  '
-Copyright 1992-2012 AUTHORS.
-See the LICENSE file for license information.
+Copyright 1992-2016 AUTHORS.
+See the legal/LICENSE file for license information and legal/AUTHORS for authors.
 '
+["preFileIn" self] value
 
 
  '-- Module body'
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> () From: ( | {
          'ModuleInfo: Module: debugTests InitialContents: FollowSlot'
         
-         debugTests = bootstrap define: bootstrap stub -> 'globals' -> 'modules' -> 'debugTests' -> () ToBe: bootstrap addSlotsTo: (
+         debugTests = bootstrap define: bootstrap stub -> 'globals' -> 'loadedModules' -> 'debugTests' -> () ToBe: bootstrap addSlotsTo: (
              bootstrap remove: 'directory' From:
              bootstrap remove: 'fileInTimeString' From:
              bootstrap remove: 'myComment' From:
              bootstrap remove: 'postFileIn' From:
              bootstrap remove: 'revision' From:
              bootstrap remove: 'subpartNames' From:
-             globals modules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'modules' -> 'debugTests' -> () From: ( |
-             {} = 'ModuleInfo: Creator: globals modules debugTests.
+             globals loadedModules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'loadedModules' -> 'debugTests' -> () From: ( |
+             {} = 'ModuleInfo: Creator: globals loadedModules debugTests.
 
 CopyDowns:
-globals modules init. copy 
+globals loadedModules init. copy 
 SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNames.
 
 \x7fIsComplete: '.
             | ) .
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'debugTests' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'debugTests' -> () From: ( | {
          'ModuleInfo: Module: debugTests InitialContents: FollowSlot\x7fVisibility: public'
         
          directory <- 'tests'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'debugTests' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'debugTests' -> () From: ( | {
          'ModuleInfo: Module: debugTests InitialContents: InitializeToExpression: (_CurrentTimeString)\x7fVisibility: public'
         
          fileInTimeString <- _CurrentTimeString.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'debugTests' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'debugTests' -> () From: ( | {
          'ModuleInfo: Module: debugTests InitialContents: FollowSlot'
         
          myComment <- 'tests the debugging functionality\"
@@ -49,13 +50,13 @@ SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNam
                 to clutter them with testing stuff'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'debugTests' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'debugTests' -> () From: ( | {
          'ModuleInfo: Module: debugTests InitialContents: FollowSlot\x7fVisibility: public'
         
          revision <- 'Sun-$Revision: 30.8 $'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'debugTests' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'debugTests' -> () From: ( | {
          'ModuleInfo: Module: debugTests InitialContents: FollowSlot\x7fVisibility: private'
         
          subpartNames <- ''.
@@ -552,4 +553,4 @@ SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNam
 
  '-- Side effects'
 
- globals modules debugTests postFileIn
+ globals loadedModules debugTests postFileIn

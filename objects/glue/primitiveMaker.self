@@ -1,46 +1,47 @@
  '$Revision: 30.11 $'
  '
-Copyright 1992-2012 AUTHORS.
-See the LICENSE file for license information.
+Copyright 1992-2017 AUTHORS.
+See the legal/LICENSE file for license information and legal/AUTHORS for authors.
 '
+["preFileIn" self] value
 
 
  '-- Module body'
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> () From: ( | {
          'ModuleInfo: Module: primitiveMaker InitialContents: FollowSlot'
         
-         primitiveMaker = bootstrap define: bootstrap stub -> 'globals' -> 'modules' -> 'primitiveMaker' -> () ToBe: bootstrap addSlotsTo: (
+         primitiveMaker = bootstrap define: bootstrap stub -> 'globals' -> 'loadedModules' -> 'primitiveMaker' -> () ToBe: bootstrap addSlotsTo: (
              bootstrap remove: 'directory' From:
              bootstrap remove: 'fileInTimeString' From:
              bootstrap remove: 'myComment' From:
              bootstrap remove: 'postFileIn' From:
              bootstrap remove: 'revision' From:
              bootstrap remove: 'subpartNames' From:
-             globals modules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'modules' -> 'primitiveMaker' -> () From: ( |
-             {} = 'ModuleInfo: Creator: globals modules primitiveMaker.
+             globals loadedModules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'loadedModules' -> 'primitiveMaker' -> () From: ( |
+             {} = 'ModuleInfo: Creator: globals loadedModules primitiveMaker.
 
 CopyDowns:
-globals modules init. copy 
+globals loadedModules init. copy 
 SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNames.
 
 \x7fIsComplete: '.
             | ) .
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'primitiveMaker' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'primitiveMaker' -> () From: ( | {
          'ModuleInfo: Module: primitiveMaker InitialContents: FollowSlot\x7fVisibility: public'
         
          directory <- 'glue'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'primitiveMaker' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'primitiveMaker' -> () From: ( | {
          'ModuleInfo: Module: primitiveMaker InitialContents: InitializeToExpression: (_CurrentTimeString)\x7fVisibility: public'
         
          fileInTimeString <- _CurrentTimeString.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'primitiveMaker' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'primitiveMaker' -> () From: ( | {
          'ModuleInfo: Module: primitiveMaker InitialContents: FollowSlot'
         
          myComment <- 'CAUTION: This file is not part of the documented Self world.  It may be
@@ -163,13 +164,13 @@ SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNam
                 To test this out, type ``primitiveMaker reader copy staticLinking test\'\'.'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'primitiveMaker' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'primitiveMaker' -> () From: ( | {
          'ModuleInfo: Module: primitiveMaker InitialContents: FollowSlot\x7fVisibility: public'
         
          revision <- '$Revision: 30.11 $'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'primitiveMaker' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'primitiveMaker' -> () From: ( | {
          'ModuleInfo: Module: primitiveMaker InitialContents: FollowSlot\x7fVisibility: private'
         
          subpartNames <- ''.
@@ -3778,7 +3779,7 @@ SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNam
              an: an copyForComment: warningMessage.
              an: an copyForModuleInfo: [|:mi|
               mi copyForCreatorSlotHint: 
-               (reflect: modules) 
+               (reflect: loadedModules) 
                  at: moduleName 
                  IfAbsent: [mi prototype creatorSlotHint]].
             '{} = ',
@@ -4478,4 +4479,4 @@ Please do not change it manually. -- dmu 12/91 '.
 
  '-- Side effects'
 
- globals modules primitiveMaker postFileIn
+ globals loadedModules primitiveMaker postFileIn

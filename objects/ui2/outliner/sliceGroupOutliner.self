@@ -1,6 +1,6 @@
  '$Revision: 30.14 $'
  '
-Copyright 1992-2014 AUTHORS.
+Copyright 1992-2016 AUTHORS.
 See the legal/LICENSE file for license information and legal/AUTHORS for authors.
 '
 ["preFileIn" self] value
@@ -8,59 +8,59 @@ See the legal/LICENSE file for license information and legal/AUTHORS for authors
 
  '-- Module body'
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> () From: ( | {
          'ModuleInfo: Module: sliceGroupOutliner InitialContents: FollowSlot'
         
-         sliceGroupOutliner = bootstrap define: bootstrap stub -> 'globals' -> 'modules' -> 'sliceGroupOutliner' -> () ToBe: bootstrap addSlotsTo: (
+         sliceGroupOutliner = bootstrap define: bootstrap stub -> 'globals' -> 'loadedModules' -> 'sliceGroupOutliner' -> () ToBe: bootstrap addSlotsTo: (
              bootstrap remove: 'directory' From:
              bootstrap remove: 'fileInTimeString' From:
              bootstrap remove: 'myComment' From:
              bootstrap remove: 'postFileIn' From:
              bootstrap remove: 'revision' From:
              bootstrap remove: 'subpartNames' From:
-             globals modules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'modules' -> 'sliceGroupOutliner' -> () From: ( |
-             {} = 'ModuleInfo: Creator: globals modules sliceGroupOutliner.
+             globals loadedModules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'loadedModules' -> 'sliceGroupOutliner' -> () From: ( |
+             {} = 'ModuleInfo: Creator: globals loadedModules sliceGroupOutliner.
 
 CopyDowns:
-globals modules init. copy 
+globals loadedModules init. copy 
 SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNames.
 
 \x7fIsComplete: '.
             | ) .
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'sliceGroupOutliner' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'sliceGroupOutliner' -> () From: ( | {
          'ModuleInfo: Module: sliceGroupOutliner InitialContents: FollowSlot\x7fVisibility: public'
         
          directory <- 'ui2/outliner'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'sliceGroupOutliner' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'sliceGroupOutliner' -> () From: ( | {
          'ModuleInfo: Module: sliceGroupOutliner InitialContents: InitializeToExpression: (_CurrentTimeString)\x7fVisibility: public'
         
          fileInTimeString <- _CurrentTimeString.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'sliceGroupOutliner' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'sliceGroupOutliner' -> () From: ( | {
          'ModuleInfo: Module: sliceGroupOutliner InitialContents: FollowSlot'
         
          myComment <- ''.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'sliceGroupOutliner' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'sliceGroupOutliner' -> () From: ( | {
          'ModuleInfo: Module: sliceGroupOutliner InitialContents: FollowSlot'
         
          postFileIn = ( |
             | resend.postFileIn).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'sliceGroupOutliner' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'sliceGroupOutliner' -> () From: ( | {
          'ModuleInfo: Module: sliceGroupOutliner InitialContents: FollowSlot\x7fVisibility: public'
         
          revision <- '$Revision: 30.14 $'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'sliceGroupOutliner' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'sliceGroupOutliner' -> () From: ( | {
          'ModuleInfo: Module: sliceGroupOutliner InitialContents: FollowSlot\x7fVisibility: private'
         
          subpartNames <- ''.
@@ -513,4 +513,4 @@ does no remapping.\x7fModuleInfo: Module: sliceGroupOutliner InitialContents: Fo
 
  '-- Side effects'
 
- globals modules sliceGroupOutliner postFileIn
+ globals loadedModules sliceGroupOutliner postFileIn

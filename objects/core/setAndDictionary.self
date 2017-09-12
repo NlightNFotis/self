@@ -1,8 +1,9 @@
  'Sun-$Revision: 30.19 $'
  '
-Copyright 1992-2012 AUTHORS.
-See the LICENSE file for license information.
+Copyright 1992-2016 AUTHORS.
+See the legal/LICENSE file for license information and legal/AUTHORS for authors.
 '
+["preFileIn" self] value
 
 
  '-- Module body'
@@ -1141,10 +1142,10 @@ SlotsToOmit: parent prototype.
          values <-  vector _Clone: 4 Filler: nil .
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> () From: ( | {
          'ModuleInfo: Module: setAndDictionary InitialContents: FollowSlot'
         
-         setAndDictionary = bootstrap define: bootstrap stub -> 'globals' -> 'modules' -> 'setAndDictionary' -> () ToBe: bootstrap addSlotsTo: (
+         setAndDictionary = bootstrap define: bootstrap stub -> 'globals' -> 'loadedModules' -> 'setAndDictionary' -> () ToBe: bootstrap addSlotsTo: (
              bootstrap remove: 'comment' From:
              bootstrap remove: 'directory' From:
              bootstrap remove: 'fileInTimeString' From:
@@ -1152,30 +1153,30 @@ SlotsToOmit: parent prototype.
              bootstrap remove: 'postFileIn' From:
              bootstrap remove: 'revision' From:
              bootstrap remove: 'subpartNames' From:
-             globals modules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'modules' -> 'setAndDictionary' -> () From: ( |
-             {} = 'ModuleInfo: Creator: globals modules setAndDictionary.
+             globals loadedModules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'loadedModules' -> 'setAndDictionary' -> () From: ( |
+             {} = 'ModuleInfo: Creator: globals loadedModules setAndDictionary.
 
 CopyDowns:
-globals modules init. copy 
+globals loadedModules init. copy 
 SlotsToOmit: comment directory fileInTimeString myComment postFileIn revision subpartNames.
 
 \x7fIsComplete: '.
             | ) .
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'setAndDictionary' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'setAndDictionary' -> () From: ( | {
          'ModuleInfo: Module: setAndDictionary InitialContents: FollowSlot\x7fVisibility: public'
         
          directory <- 'core'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'setAndDictionary' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'setAndDictionary' -> () From: ( | {
          'ModuleInfo: Module: setAndDictionary InitialContents: InitializeToExpression: (_CurrentTimeString)\x7fVisibility: public'
         
          fileInTimeString <- _CurrentTimeString.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'setAndDictionary' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'setAndDictionary' -> () From: ( | {
          'ModuleInfo: Module: setAndDictionary InitialContents: FollowSlot'
         
          myComment <- 'Common behavior for sets and dictionary implemented via hash tables.\"
@@ -1184,7 +1185,7 @@ SlotsToOmit: comment directory fileInTimeString myComment postFileIn revision su
             \"Dictionary implemented with a hash table.'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'setAndDictionary' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'setAndDictionary' -> () From: ( | {
          'ModuleInfo: Module: setAndDictionary InitialContents: FollowSlot'
         
          postFileIn = ( |
@@ -1194,13 +1195,13 @@ SlotsToOmit: comment directory fileInTimeString myComment postFileIn revision su
             resend.postFileIn).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'setAndDictionary' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'setAndDictionary' -> () From: ( | {
          'ModuleInfo: Module: setAndDictionary InitialContents: FollowSlot\x7fVisibility: public'
         
          revision <- 'Sun-$Revision: 30.19 $'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'setAndDictionary' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'setAndDictionary' -> () From: ( | {
          'ModuleInfo: Module: setAndDictionary InitialContents: FollowSlot\x7fVisibility: private'
         
          subpartNames <- 'orderedDictionary
@@ -1473,4 +1474,4 @@ dictionary\x7fModuleInfo: Module: setAndDictionary InitialContents: FollowSlot\x
 
  '-- Side effects'
 
- globals modules setAndDictionary postFileIn
+ globals loadedModules setAndDictionary postFileIn

@@ -1,6 +1,6 @@
  '$Revision: 1.3 $'
  '
-Copyright 1992-2014 AUTHORS.
+Copyright 1992-2016 AUTHORS.
 See the legal/LICENSE file for license information and legal/AUTHORS for authors.
 '
 ["preFileIn" self] value
@@ -8,46 +8,46 @@ See the legal/LICENSE file for license information and legal/AUTHORS for authors
 
  '-- Module body'
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> () From: ( | {
          'ModuleInfo: Module: operandSelectors InitialContents: FollowSlot'
         
-         operandSelectors = bootstrap define: bootstrap stub -> 'globals' -> 'modules' -> 'operandSelectors' -> () ToBe: bootstrap addSlotsTo: (
+         operandSelectors = bootstrap define: bootstrap stub -> 'globals' -> 'loadedModules' -> 'operandSelectors' -> () ToBe: bootstrap addSlotsTo: (
              bootstrap remove: 'directory' From:
              bootstrap remove: 'fileInTimeString' From:
              bootstrap remove: 'myComment' From:
              bootstrap remove: 'postFileIn' From:
              bootstrap remove: 'revision' From:
              bootstrap remove: 'subpartNames' From:
-             globals modules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'modules' -> 'operandSelectors' -> () From: ( |
-             {} = 'ModuleInfo: Creator: globals modules operandSelectors.
+             globals loadedModules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'loadedModules' -> 'operandSelectors' -> () From: ( |
+             {} = 'ModuleInfo: Creator: globals loadedModules operandSelectors.
 
 CopyDowns:
-globals modules init. copy 
+globals loadedModules init. copy 
 SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNames.
 
 \x7fIsComplete: '.
             | ) .
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'operandSelectors' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'operandSelectors' -> () From: ( | {
          'ModuleInfo: Module: operandSelectors InitialContents: FollowSlot\x7fVisibility: public'
         
          directory <- 'ui2'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'operandSelectors' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'operandSelectors' -> () From: ( | {
          'ModuleInfo: Module: operandSelectors InitialContents: InitializeToExpression: (_CurrentTimeString)\x7fVisibility: public'
         
          fileInTimeString <- _CurrentTimeString.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'operandSelectors' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'operandSelectors' -> () From: ( | {
          'ModuleInfo: Module: operandSelectors InitialContents: FollowSlot'
         
          myComment <- ''.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'operandSelectors' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'operandSelectors' -> () From: ( | {
          'ModuleInfo: Module: operandSelectors InitialContents: FollowSlot'
         
          postFileIn = ( |
@@ -56,13 +56,13 @@ SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNam
             operandSelectorsMorph initializePrototype).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'operandSelectors' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'operandSelectors' -> () From: ( | {
          'ModuleInfo: Module: operandSelectors InitialContents: FollowSlot\x7fVisibility: public'
         
          revision <- '$Revision: 1.3 $'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'operandSelectors' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'operandSelectors' -> () From: ( | {
          'ModuleInfo: Module: operandSelectors InitialContents: FollowSlot\x7fVisibility: private'
         
          subpartNames <- ''.
@@ -617,4 +617,4 @@ I am also immutable.\x7fModuleInfo: Creator: traits operandSelectorsMorph operan
 
  '-- Side effects'
 
- globals modules operandSelectors postFileIn
+ globals loadedModules operandSelectors postFileIn

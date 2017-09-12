@@ -1,7 +1,7 @@
-'30.12.0'
+'30.13.0'
 
 '
-Copyright 1992-2016 AUTHORS.
+Copyright 1992-2017 AUTHORS.
 See the legal/LICENSE file for license information and legal/AUTHORS for authors.
 '
 
@@ -230,7 +230,7 @@ true       = true _AddSlots: ( |
 
 
     { 'Category: modules\x7fModuleInfo: Module: init InitialContents: FollowSlot'
-        modules = ( |
+        loadedModules = ( |
           {} = 'ModuleInfo: Creator: globals modules.'.
         | ).
         snapshotAction = snapshotAction _AddSlots: ( |
@@ -370,8 +370,8 @@ globals bootstrap _AddSlotsIfAbsent: ( |
 
         registerTree: t RootedAt: r IfConflict: fb = ( | l |
             l: (| lobby = lobby |) lobby.
-            (l modules init treeRootFor: t 
-                               IfAbsent: [l modules init registerTree: t At: r. r]
+            (l loadedModules init treeRootFor: t 
+                               IfAbsent: [l loadedModules init registerTree: t At: r. r]
                ) = r ifFalse: [ ^ fb value: (concat: 'Tree ' With: t With: 'exists with different root.')].
             self).
 
@@ -380,7 +380,7 @@ globals bootstrap _AddSlotsIfAbsent: ( |
            t = '' ifFalse: [| l |
              "This will break if modules module not loaded!"
              l: (| lobby = lobby |) lobby.
-             n: concat: (l modules init treeRootFor: t 
+             n: concat: (l loadedModules init treeRootFor: t 
                                            IfAbsent: [^ l error: 'Cannot find tree:', t]) 
                   With: '/'].
            n: concat: n                     With: dir.
@@ -536,11 +536,12 @@ globals bootstrap _AddSlotsIfAbsent: ( |
 
 _RemoveSlot: 'systemObjects' IfFail: [|:err. :name| nil].
 
-globals modules _AddSlots: ( | 
- {} = 'ModuleInfo: Creator: globals modules.'.
+globals loadedModules _AddSlots: ( | 
+ {} = 'ModuleInfo: Creator: globals loadedModules.'.
+ 
  {  'ModuleInfo: Module: init InitialContents: FollowSlot'
     init = ( |
-     {} = 'Comment: the prototype module object, I am created by init.self.\x7fModuleInfo: Creator: globals modules init.\x7fIsComplete: '.
+     {} = 'Comment: the prototype module object, I am created by init.self.\x7fModuleInfo: Creator: globals loadedModules init.\x7fIsComplete: '.
     {  'Category: state\x7fModuleInfo: Module: init InitialContents: InitializeToExpression: (-1)\x7fVisibility: private'
         
          savedTimestamp <- -1.
@@ -550,7 +551,7 @@ globals modules _AddSlots: ( |
     }
     {  'Category: state\x7fModuleInfo: Module: init InitialContents: FollowSlot\x7fVisibility: public'
       copyright <- '
-Copyright 1992-2016 AUTHORS.
+Copyright 1992-2017 AUTHORS.
 See the legal/LICENSE file for license information and legal/AUTHORS for authors.
 '
 
@@ -573,7 +574,7 @@ See the legal/LICENSE file for license information and legal/AUTHORS for authors
     }
      {  'ModuleInfo: Module: init InitialContents: FollowSlot\x7fVisibility: private'
       parent* = ( | 
-        {} = 'ModuleInfo: Creator: globals modules init parent.'.
+        {} = 'ModuleInfo: Creator: globals loadedModules init parent.'.
         copy = (
           "dummy, the real one gets put in module.self"
            _Clone).
@@ -614,7 +615,7 @@ This module is used to avoid filing out spurious objects in other modules
       directory <- 'core'.
 
       postFileIn = ( |
-         {} = 'ModuleInfo: Creator: globals modules init postFileIn.
+         {} = 'ModuleInfo: Creator: globals loadedModules init postFileIn.
 '.
 	 |
         "This slot was part of the original, empty world, 
@@ -625,7 +626,7 @@ This module is used to avoid filing out spurious objects in other modules
 	 lobby _RemoveSlot: 'help' IfFail: [|:err. :name| nil].
 	 resend.postFileIn).
 
-      revision <- '30.12.0'.
+      revision <- '30.13.0'.
 
       subpartNames <- ''.
 
@@ -657,4 +658,4 @@ desktop _AddSlotsIfAbsent: ( |
   isOpen = false
 | )
 
-modules init postFileIn
+loadedModules init postFileIn

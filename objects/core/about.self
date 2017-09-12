@@ -299,10 +299,10 @@ Finally, thanks go to Sun Microsystems Laboratories, Stanford University, and al
             (v at: 2) printString).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> () From: ( | {
          'ModuleInfo: Module: about InitialContents: FollowSlot'
         
-         about = bootstrap define: bootstrap stub -> 'globals' -> 'modules' -> 'about' -> () ToBe: bootstrap addSlotsTo: (
+         about = bootstrap define: bootstrap stub -> 'globals' -> 'loadedModules' -> 'about' -> () ToBe: bootstrap addSlotsTo: (
              bootstrap remove: 'copyright' From:
              bootstrap remove: 'directory' From:
              bootstrap remove: 'fileInTimeString' From:
@@ -310,18 +310,18 @@ Finally, thanks go to Sun Microsystems Laboratories, Stanford University, and al
              bootstrap remove: 'postFileIn' From:
              bootstrap remove: 'revision' From:
              bootstrap remove: 'subpartNames' From:
-             globals modules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'modules' -> 'about' -> () From: ( |
-             {} = 'ModuleInfo: Creator: globals modules about.
+             globals loadedModules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'loadedModules' -> 'about' -> () From: ( |
+             {} = 'ModuleInfo: Creator: globals loadedModules about.
 
 CopyDowns:
-globals modules init. copy 
+globals loadedModules init. copy 
 SlotsToOmit: copyright directory fileInTimeString myComment postFileIn revision subpartNames.
 
 \x7fIsComplete: '.
             | ) .
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'about' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'about' -> () From: ( | {
          'Category: state\x7fModuleInfo: Module: about InitialContents: InitializeToExpression: (\'
 Copyright 2016 AUTHORS.
 See the legal/LICENSE file for license information and legal/AUTHORS for authors.
@@ -333,25 +333,25 @@ See the legal/LICENSE file for license information and legal/AUTHORS for authors
 '.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'about' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'about' -> () From: ( | {
          'ModuleInfo: Module: about InitialContents: FollowSlot\x7fVisibility: public'
         
          directory <- 'core'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'about' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'about' -> () From: ( | {
          'ModuleInfo: Module: about InitialContents: InitializeToExpression: (_CurrentTimeString)\x7fVisibility: public'
         
          fileInTimeString <- _CurrentTimeString.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'about' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'about' -> () From: ( | {
          'ModuleInfo: Module: about InitialContents: FollowSlot'
         
          myComment <- ''.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'about' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'about' -> () From: ( | {
          'ModuleInfo: Module: about InitialContents: FollowSlot'
         
          postFileIn = ( |
@@ -359,13 +359,13 @@ See the legal/LICENSE file for license information and legal/AUTHORS for authors
             resend.postFileIn).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'about' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'about' -> () From: ( | {
          'ModuleInfo: Module: about InitialContents: InitializeToExpression: (\'0.0.1\')\x7fVisibility: public'
         
          revision <- '0.0.1'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'about' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'about' -> () From: ( | {
          'ModuleInfo: Module: about InitialContents: FollowSlot\x7fVisibility: private'
         
          subpartNames <- 'coreVersion
@@ -382,4 +382,4 @@ See the legal/LICENSE file for license information and legal/AUTHORS for authors
 
  '-- Side effects'
 
- globals modules about postFileIn
+ globals loadedModules about postFileIn

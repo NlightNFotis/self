@@ -8,59 +8,59 @@ See the legal/LICENSE file for license information and legal/AUTHORS for authors
 
  '-- Module body'
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> () From: ( | {
          'ModuleInfo: Module: specialPaintManager InitialContents: FollowSlot'
         
-         specialPaintManager = bootstrap define: bootstrap stub -> 'globals' -> 'modules' -> 'specialPaintManager' -> () ToBe: bootstrap addSlotsTo: (
+         specialPaintManager = bootstrap define: bootstrap stub -> 'globals' -> 'loadedModules' -> 'specialPaintManager' -> () ToBe: bootstrap addSlotsTo: (
              bootstrap remove: 'directory' From:
              bootstrap remove: 'fileInTimeString' From:
              bootstrap remove: 'myComment' From:
              bootstrap remove: 'postFileIn' From:
              bootstrap remove: 'revision' From:
              bootstrap remove: 'subpartNames' From:
-             globals modules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'modules' -> 'specialPaintManager' -> () From: ( |
-             {} = 'ModuleInfo: Creator: globals modules specialPaintManager.
+             globals loadedModules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'loadedModules' -> 'specialPaintManager' -> () From: ( |
+             {} = 'ModuleInfo: Creator: globals loadedModules specialPaintManager.
 
 CopyDowns:
-globals modules init. copy 
+globals loadedModules init. copy 
 SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNames.
 
 \x7fIsComplete: '.
             | ) .
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'specialPaintManager' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'specialPaintManager' -> () From: ( | {
          'ModuleInfo: Module: specialPaintManager InitialContents: FollowSlot\x7fVisibility: public'
         
          directory <- 'ui2'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'specialPaintManager' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'specialPaintManager' -> () From: ( | {
          'ModuleInfo: Module: specialPaintManager InitialContents: InitializeToExpression: (_CurrentTimeString)\x7fVisibility: public'
         
          fileInTimeString <- _CurrentTimeString.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'specialPaintManager' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'specialPaintManager' -> () From: ( | {
          'ModuleInfo: Module: specialPaintManager InitialContents: FollowSlot'
         
          myComment <- ''.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'specialPaintManager' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'specialPaintManager' -> () From: ( | {
          'ModuleInfo: Module: specialPaintManager InitialContents: FollowSlot'
         
          postFileIn = ( |
             | resend.postFileIn).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'specialPaintManager' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'specialPaintManager' -> () From: ( | {
          'ModuleInfo: Module: specialPaintManager InitialContents: InitializeToExpression: (\'30.6.1\')\x7fVisibility: public'
         
          revision <- '30.6.1'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'specialPaintManager' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'specialPaintManager' -> () From: ( | {
          'ModuleInfo: Module: specialPaintManager InitialContents: FollowSlot\x7fVisibility: private'
         
          subpartNames <- ''.
@@ -170,4 +170,4 @@ SlotsToOmit: parent.
 
  '-- Side effects'
 
- globals modules specialPaintManager postFileIn
+ globals loadedModules specialPaintManager postFileIn

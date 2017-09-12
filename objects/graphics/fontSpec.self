@@ -1,8 +1,9 @@
  '$Revision: 30.6 $'
  '
-Copyright 1992-2012 AUTHORS.
-See the LICENSE file for license information.
+Copyright 1992-2016 AUTHORS.
+See the legal/LICENSE file for license information and legal/AUTHORS for authors.
 '
+["preFileIn" self] value
 
 
  '-- Module body'
@@ -232,10 +233,10 @@ I am also immutable.\x7fModuleInfo: Creator: globals fontSpec.
             | fStyle: aString uncapitalize).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> () From: ( | {
          'ModuleInfo: Module: fontSpec InitialContents: FollowSlot'
         
-         fontSpec = bootstrap define: bootstrap stub -> 'globals' -> 'modules' -> 'fontSpec' -> () ToBe: bootstrap addSlotsTo: (
+         fontSpec = bootstrap define: bootstrap stub -> 'globals' -> 'loadedModules' -> 'fontSpec' -> () ToBe: bootstrap addSlotsTo: (
              bootstrap remove: 'comment' From:
              bootstrap remove: 'directory' From:
              bootstrap remove: 'fileInTimeString' From:
@@ -243,49 +244,49 @@ I am also immutable.\x7fModuleInfo: Creator: globals fontSpec.
              bootstrap remove: 'postFileIn' From:
              bootstrap remove: 'revision' From:
              bootstrap remove: 'subpartNames' From:
-             globals modules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'modules' -> 'fontSpec' -> () From: ( |
-             {} = 'ModuleInfo: Creator: globals modules fontSpec.
+             globals loadedModules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'loadedModules' -> 'fontSpec' -> () From: ( |
+             {} = 'ModuleInfo: Creator: globals loadedModules fontSpec.
 
 CopyDowns:
-globals modules init. copy 
+globals loadedModules init. copy 
 SlotsToOmit: comment directory fileInTimeString myComment postFileIn revision subpartNames.
 
 \x7fIsComplete: '.
             | ) .
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'fontSpec' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'fontSpec' -> () From: ( | {
          'ModuleInfo: Module: fontSpec InitialContents: FollowSlot\x7fVisibility: public'
         
          directory <- 'graphics'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'fontSpec' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'fontSpec' -> () From: ( | {
          'ModuleInfo: Module: fontSpec InitialContents: InitializeToExpression: (_CurrentTimeString)\x7fVisibility: public'
         
          fileInTimeString <- _CurrentTimeString.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'fontSpec' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'fontSpec' -> () From: ( | {
          'ModuleInfo: Module: fontSpec InitialContents: FollowSlot'
         
          myComment <- ''.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'fontSpec' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'fontSpec' -> () From: ( | {
          'ModuleInfo: Module: fontSpec InitialContents: FollowSlot'
         
          postFileIn = ( |
             | resend.postFileIn).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'fontSpec' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'fontSpec' -> () From: ( | {
          'ModuleInfo: Module: fontSpec InitialContents: FollowSlot\x7fVisibility: public'
         
          revision <- '$Revision: 30.6 $'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'fontSpec' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'fontSpec' -> () From: ( | {
          'ModuleInfo: Module: fontSpec InitialContents: FollowSlot\x7fVisibility: private'
         
          subpartNames <- ''.
@@ -295,4 +296,4 @@ SlotsToOmit: comment directory fileInTimeString myComment postFileIn revision su
 
  '-- Side effects'
 
- globals modules fontSpec postFileIn
+ globals loadedModules fontSpec postFileIn

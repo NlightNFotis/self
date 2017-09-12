@@ -1,8 +1,9 @@
  'Sun-$Revision: 30.11 $'
  '
-Copyright 1992-2012 AUTHORS.
-See the LICENSE file for license information.
+Copyright 1992-2016 AUTHORS.
+See the legal/LICENSE file for license information and legal/AUTHORS for authors.
 '
+["preFileIn" self] value
 
 
  '-- Module body'
@@ -168,52 +169,52 @@ See the LICENSE file for license information.
             | hsbColor).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> () From: ( | {
          'ModuleInfo: Module: color InitialContents: FollowSlot'
         
-         color = bootstrap define: bootstrap stub -> 'globals' -> 'modules' -> 'color' -> () ToBe: bootstrap addSlotsTo: (
+         color = bootstrap define: bootstrap stub -> 'globals' -> 'loadedModules' -> 'color' -> () ToBe: bootstrap addSlotsTo: (
              bootstrap remove: 'directory' From:
              bootstrap remove: 'fileInTimeString' From:
              bootstrap remove: 'myComment' From:
              bootstrap remove: 'postFileIn' From:
              bootstrap remove: 'revision' From:
              bootstrap remove: 'subpartNames' From:
-             globals modules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'modules' -> 'color' -> () From: ( |
-             {} = 'ModuleInfo: Creator: globals modules color.
+             globals loadedModules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'loadedModules' -> 'color' -> () From: ( |
+             {} = 'ModuleInfo: Creator: globals loadedModules color.
 
 CopyDowns:
-globals modules init. copy 
+globals loadedModules init. copy 
 SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNames.
 
 \x7fIsComplete: '.
             | ) .
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'color' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'color' -> () From: ( | {
          'ModuleInfo: Module: color InitialContents: FollowSlot\x7fVisibility: public'
         
          directory <- 'graphics'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'color' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'color' -> () From: ( | {
          'ModuleInfo: Module: color InitialContents: InitializeToExpression: (_CurrentTimeString)\x7fVisibility: public'
         
          fileInTimeString <- _CurrentTimeString.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'color' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'color' -> () From: ( | {
          'ModuleInfo: Module: color InitialContents: FollowSlot'
         
          myComment <- ''.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'color' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'color' -> () From: ( | {
          'ModuleInfo: Module: color InitialContents: FollowSlot\x7fVisibility: public'
         
          revision <- 'Sun-$Revision: 30.11 $'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'color' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'color' -> () From: ( | {
          'ModuleInfo: Module: color InitialContents: FollowSlot\x7fVisibility: private'
         
          subpartNames <- 'colorRange'.
@@ -853,4 +854,4 @@ SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNam
 
  '-- Side effects'
 
- globals modules color postFileIn
+ globals loadedModules color postFileIn

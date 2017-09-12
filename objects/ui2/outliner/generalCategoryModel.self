@@ -1,8 +1,9 @@
  '$Revision: 30.15 $'
  '
-Copyright 1992-2014 AUTHORS.
+Copyright 1992-2016 AUTHORS.
 See the legal/LICENSE file for license information and legal/AUTHORS for authors.
 '
+["preFileIn" self] value
 
 
  '-- Module body'
@@ -767,10 +768,10 @@ I am also immutable.\x7fModuleInfo: Creator: globals generalCategoryModel parent
             self).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> () From: ( | {
          'ModuleInfo: Module: generalCategoryModel InitialContents: FollowSlot'
         
-         generalCategoryModel = bootstrap define: bootstrap stub -> 'globals' -> 'modules' -> 'generalCategoryModel' -> () ToBe: bootstrap addSlotsTo: (
+         generalCategoryModel = bootstrap define: bootstrap stub -> 'globals' -> 'loadedModules' -> 'generalCategoryModel' -> () ToBe: bootstrap addSlotsTo: (
              bootstrap remove: 'comment' From:
              bootstrap remove: 'directory' From:
              bootstrap remove: 'fileInTimeString' From:
@@ -778,49 +779,49 @@ I am also immutable.\x7fModuleInfo: Creator: globals generalCategoryModel parent
              bootstrap remove: 'postFileIn' From:
              bootstrap remove: 'revision' From:
              bootstrap remove: 'subpartNames' From:
-             globals modules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'modules' -> 'generalCategoryModel' -> () From: ( |
-             {} = 'ModuleInfo: Creator: globals modules generalCategoryModel.
+             globals loadedModules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'loadedModules' -> 'generalCategoryModel' -> () From: ( |
+             {} = 'ModuleInfo: Creator: globals loadedModules generalCategoryModel.
 
 CopyDowns:
-globals modules init. copy 
+globals loadedModules init. copy 
 SlotsToOmit: comment directory fileInTimeString myComment postFileIn revision subpartNames.
 
 \x7fIsComplete: '.
             | ) .
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'generalCategoryModel' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'generalCategoryModel' -> () From: ( | {
          'ModuleInfo: Module: generalCategoryModel InitialContents: FollowSlot\x7fVisibility: public'
         
          directory <- 'ui2/outliner'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'generalCategoryModel' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'generalCategoryModel' -> () From: ( | {
          'ModuleInfo: Module: generalCategoryModel InitialContents: InitializeToExpression: (_CurrentTimeString)\x7fVisibility: public'
         
          fileInTimeString <- _CurrentTimeString.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'generalCategoryModel' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'generalCategoryModel' -> () From: ( | {
          'ModuleInfo: Module: generalCategoryModel InitialContents: FollowSlot'
         
          myComment <- ''.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'generalCategoryModel' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'generalCategoryModel' -> () From: ( | {
          'ModuleInfo: Module: generalCategoryModel InitialContents: FollowSlot'
         
          postFileIn = ( |
             | resend.postFileIn).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'generalCategoryModel' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'generalCategoryModel' -> () From: ( | {
          'ModuleInfo: Module: generalCategoryModel InitialContents: FollowSlot\x7fVisibility: public'
         
          revision <- '$Revision: 30.15 $'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'generalCategoryModel' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'generalCategoryModel' -> () From: ( | {
          'ModuleInfo: Module: generalCategoryModel InitialContents: FollowSlot\x7fVisibility: private'
         
          subpartNames <- ''.
@@ -830,4 +831,4 @@ SlotsToOmit: comment directory fileInTimeString myComment postFileIn revision su
 
  '-- Side effects'
 
- globals modules generalCategoryModel postFileIn
+ globals loadedModules generalCategoryModel postFileIn

@@ -1,8 +1,9 @@
  'Sun-$Revision: 30.9 $'
  '
-Copyright 1992-2012 AUTHORS.
-See the LICENSE file for license information.
+Copyright 1992-2016 AUTHORS.
+See the legal/LICENSE file for license information and legal/AUTHORS for authors.
 '
+["preFileIn" self] value
 
 
  '-- Module body'
@@ -124,52 +125,52 @@ See the LICENSE file for license information.
          target <- ((bootstrap stub -> 'globals') \/-> 'vector') -> ().
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> () From: ( | {
          'ModuleInfo: Module: enumerating InitialContents: FollowSlot'
         
-         enumerating = bootstrap define: bootstrap stub -> 'globals' -> 'modules' -> 'enumerating' -> () ToBe: bootstrap addSlotsTo: (
+         enumerating = bootstrap define: bootstrap stub -> 'globals' -> 'loadedModules' -> 'enumerating' -> () ToBe: bootstrap addSlotsTo: (
              bootstrap remove: 'directory' From:
              bootstrap remove: 'fileInTimeString' From:
              bootstrap remove: 'myComment' From:
              bootstrap remove: 'postFileIn' From:
              bootstrap remove: 'revision' From:
              bootstrap remove: 'subpartNames' From:
-             globals modules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'modules' -> 'enumerating' -> () From: ( |
-             {} = 'ModuleInfo: Creator: globals modules enumerating.
+             globals loadedModules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'loadedModules' -> 'enumerating' -> () From: ( |
+             {} = 'ModuleInfo: Creator: globals loadedModules enumerating.
 
 CopyDowns:
-globals modules init. copy 
+globals loadedModules init. copy 
 SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNames.
 
 \x7fIsComplete: '.
             | ) .
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'enumerating' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'enumerating' -> () From: ( | {
          'ModuleInfo: Module: enumerating InitialContents: FollowSlot\x7fVisibility: public'
         
          directory <- 'core'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'enumerating' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'enumerating' -> () From: ( | {
          'ModuleInfo: Module: enumerating InitialContents: InitializeToExpression: (_CurrentTimeString)\x7fVisibility: public'
         
          fileInTimeString <- _CurrentTimeString.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'enumerating' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'enumerating' -> () From: ( | {
          'ModuleInfo: Module: enumerating InitialContents: FollowSlot'
         
          myComment <- ''.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'enumerating' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'enumerating' -> () From: ( | {
          'ModuleInfo: Module: enumerating InitialContents: FollowSlot\x7fVisibility: public'
         
          revision <- 'Sun-$Revision: 30.9 $'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'enumerating' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'enumerating' -> () From: ( | {
          'ModuleInfo: Module: enumerating InitialContents: FollowSlot\x7fVisibility: private'
         
          subpartNames <- ''.
@@ -428,4 +429,4 @@ SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNam
 
  '-- Side effects'
 
- globals modules enumerating postFileIn
+ globals loadedModules enumerating postFileIn

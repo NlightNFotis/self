@@ -1,8 +1,9 @@
  '$Revision: 30.7 $'
  '
-Copyright 1992-2012 AUTHORS.
-See the LICENSE file for license information.
+Copyright 1992-2016 AUTHORS.
+See the legal/LICENSE file for license information and legal/AUTHORS for authors.
 '
+["preFileIn" self] value
 
 
  '-- Module body'
@@ -241,46 +242,46 @@ or can gain energy from indiviadual atoms. -- Randy, 6/22/95\x7fModuleInfo: Modu
          wallEnergy <- 100.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> () From: ( | {
          'ModuleInfo: Module: idealGas InitialContents: FollowSlot'
         
-         idealGas = bootstrap define: bootstrap stub -> 'globals' -> 'modules' -> 'idealGas' -> () ToBe: bootstrap addSlotsTo: (
+         idealGas = bootstrap define: bootstrap stub -> 'globals' -> 'loadedModules' -> 'idealGas' -> () ToBe: bootstrap addSlotsTo: (
              bootstrap remove: 'directory' From:
              bootstrap remove: 'fileInTimeString' From:
              bootstrap remove: 'myComment' From:
              bootstrap remove: 'postFileIn' From:
              bootstrap remove: 'revision' From:
              bootstrap remove: 'subpartNames' From:
-             globals modules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'modules' -> 'idealGas' -> () From: ( |
-             {} = 'ModuleInfo: Creator: globals modules idealGas.
+             globals loadedModules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'loadedModules' -> 'idealGas' -> () From: ( |
+             {} = 'ModuleInfo: Creator: globals loadedModules idealGas.
 
 CopyDowns:
-globals modules init. copy 
+globals loadedModules init. copy 
 SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNames.
 
 \x7fIsComplete: '.
             | ) .
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'idealGas' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'idealGas' -> () From: ( | {
          'ModuleInfo: Module: idealGas InitialContents: FollowSlot\x7fVisibility: public'
         
          directory <- 'ui2'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'idealGas' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'idealGas' -> () From: ( | {
          'ModuleInfo: Module: idealGas InitialContents: InitializeToExpression: (_CurrentTimeString)\x7fVisibility: public'
         
          fileInTimeString <- _CurrentTimeString.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'idealGas' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'idealGas' -> () From: ( | {
          'ModuleInfo: Module: idealGas InitialContents: FollowSlot'
         
          myComment <- ''.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'idealGas' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'idealGas' -> () From: ( | {
          'ModuleInfo: Module: idealGas InitialContents: FollowSlot'
         
          postFileIn = ( |
@@ -289,13 +290,13 @@ SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNam
             atom initializePrototype).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'idealGas' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'idealGas' -> () From: ( | {
          'ModuleInfo: Module: idealGas InitialContents: FollowSlot\x7fVisibility: public'
         
          revision <- '$Revision: 30.7 $'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'idealGas' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'idealGas' -> () From: ( | {
          'ModuleInfo: Module: idealGas InitialContents: FollowSlot\x7fVisibility: private'
         
          subpartNames <- ''.
@@ -539,4 +540,4 @@ to be sent repeatedly by the UI.
 
  '-- Side effects'
 
- globals modules idealGas postFileIn
+ globals loadedModules idealGas postFileIn

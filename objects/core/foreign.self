@@ -1,8 +1,9 @@
  'Sun-$Revision: 30.12 $'
  '
-Copyright 1992-2012 AUTHORS.
-See the LICENSE file for license information.
+Copyright 1992-2016 AUTHORS.
+See the legal/LICENSE file for license information and legal/AUTHORS for authors.
 '
+["preFileIn" self] value
 
 
  '-- Module body'
@@ -423,40 +424,40 @@ SlotsToOmit: parent.
          linker = bootstrap stub -> 'globals' -> 'sunLinker' -> ().
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> () From: ( | {
          'ModuleInfo: Module: foreign InitialContents: FollowSlot'
         
-         foreign = bootstrap define: bootstrap stub -> 'globals' -> 'modules' -> 'foreign' -> () ToBe: bootstrap addSlotsTo: (
+         foreign = bootstrap define: bootstrap stub -> 'globals' -> 'loadedModules' -> 'foreign' -> () ToBe: bootstrap addSlotsTo: (
              bootstrap remove: 'directory' From:
              bootstrap remove: 'fileInTimeString' From:
              bootstrap remove: 'myComment' From:
              bootstrap remove: 'postFileIn' From:
              bootstrap remove: 'revision' From:
              bootstrap remove: 'subpartNames' From:
-             globals modules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'modules' -> 'foreign' -> () From: ( |
-             {} = 'ModuleInfo: Creator: globals modules foreign.
+             globals loadedModules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'loadedModules' -> 'foreign' -> () From: ( |
+             {} = 'ModuleInfo: Creator: globals loadedModules foreign.
 
 CopyDowns:
-globals modules init. copy 
+globals loadedModules init. copy 
 SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNames.
 
 \x7fIsComplete: '.
             | ) .
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'foreign' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'foreign' -> () From: ( | {
          'ModuleInfo: Module: foreign InitialContents: FollowSlot\x7fVisibility: public'
         
          directory <- 'core'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'foreign' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'foreign' -> () From: ( | {
          'ModuleInfo: Module: foreign InitialContents: InitializeToExpression: (_CurrentTimeString)\x7fVisibility: public'
         
          fileInTimeString <- _CurrentTimeString.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'foreign' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'foreign' -> () From: ( | {
          'ModuleInfo: Module: foreign InitialContents: FollowSlot'
         
          myComment <- 'An interface to foreign functions.\"
@@ -547,7 +548,7 @@ SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNam
                  slotsToAdd'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'foreign' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'foreign' -> () From: ( | {
          'ModuleInfo: Module: foreign InitialContents: FollowSlot'
         
          postFileIn = ( |
@@ -573,13 +574,13 @@ SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNam
             resend.postFileIn).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'foreign' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'foreign' -> () From: ( | {
          'ModuleInfo: Module: foreign InitialContents: InitializeToExpression: (\'Sun-$Revision: 30.12 $\')\x7fVisibility: public'
         
          revision <- 'Sun-$Revision: 30.12 $'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'foreign' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'foreign' -> () From: ( | {
          'ModuleInfo: Module: foreign InitialContents: FollowSlot\x7fVisibility: private'
         
          subpartNames <- ''.
@@ -3031,4 +3032,4 @@ coerced.\x7fModuleInfo: Module: foreign InitialContents: FollowSlot\x7fVisibilit
 
  '-- Side effects'
 
- globals modules foreign postFileIn
+ globals loadedModules foreign postFileIn

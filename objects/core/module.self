@@ -1,6 +1,6 @@
  '30.21.0'
  '
-Copyright 1992-2016 AUTHORS.
+Copyright 1992-2017 AUTHORS.
 See the legal/LICENSE file for license information and legal/AUTHORS for authors.
 '
 ["preFileIn" self] value
@@ -8,7 +8,7 @@ See the legal/LICENSE file for license information and legal/AUTHORS for authors
 
  '-- Module body'
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: comparing\x7fModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: public'
         
          < m = ( |
@@ -16,7 +16,7 @@ See the legal/LICENSE file for license information and legal/AUTHORS for authors
             nameOrNone < m nameOrNone).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: comparing\x7fModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: public'
         
          = m = ( |
@@ -24,7 +24,7 @@ See the legal/LICENSE file for license information and legal/AUTHORS for authors
             == m).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: file naming\x7fModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: public'
         
          absolutePath = ( |
@@ -32,7 +32,7 @@ See the legal/LICENSE file for license information and legal/AUTHORS for authors
             treeAddress, '/', partialPath).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: nesting modules\x7fComment: Add a submodule (if it is not already there). 
 It becomes the last submodule. \x7fModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: public'
         
@@ -44,7 +44,7 @@ It becomes the last submodule. \x7fModuleInfo: Module: module InitialContents: F
             self).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: nesting modules\x7fModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: public'
         
          allSubparts = ( |
@@ -55,7 +55,7 @@ It becomes the last submodule. \x7fModuleInfo: Module: module InitialContents: F
             r).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: caching slots\x7fModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: public'
         
          alwaysRefill = ( |
@@ -63,7 +63,7 @@ It becomes the last submodule. \x7fModuleInfo: Module: module InitialContents: F
             transporter moduleDictionary alwaysRefill).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: caching slots\x7fModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: public'
         
          annotate = ( |
@@ -71,7 +71,7 @@ It becomes the last submodule. \x7fModuleInfo: Module: module InitialContents: F
             transporter annotator annotateModule: self).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: caching slots\x7fModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: public'
         
          annotatedPaths = ( |
@@ -81,21 +81,21 @@ It becomes the last submodule. \x7fModuleInfo: Module: module InitialContents: F
             paths).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: conversion\x7fModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: public'
         
          asModule = ( |
             | self).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: conversion\x7fModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: public'
         
          asString = ( |
             | name "for checkPresenceOfModule").
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: file times\x7fModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: public'
         
          beAsNewAsFile = ( |
@@ -103,7 +103,7 @@ It becomes the last submodule. \x7fModuleInfo: Module: module InitialContents: F
             fileInTime: fileModificationTime).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: dirtyness\x7fModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: public'
         
          beClean = ( |
@@ -113,7 +113,7 @@ It becomes the last submodule. \x7fModuleInfo: Module: module InitialContents: F
             self).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: currency\x7fComment: Use VM timestamp to avoid useless refilling xxx duplicated\x7fModuleInfo: Module: module InitialContents: FollowSlot'
         
          beCurrent = ( |
@@ -121,7 +121,7 @@ It becomes the last submodule. \x7fModuleInfo: Module: module InitialContents: F
             savedTimestamp:  mirrors mirror freezingTimestamp).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: dirtyness\x7fComment: mark me as needing to be filed out\x7fModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: public'
         
          beDirty = ( |
@@ -136,7 +136,7 @@ It becomes the last submodule. \x7fModuleInfo: Module: module InitialContents: F
             self).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: file times\x7fModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: public'
         
          beNewerThanFile = ( |
@@ -144,14 +144,14 @@ It becomes the last submodule. \x7fModuleInfo: Module: module InitialContents: F
             fileInTimeString: _CurrentTimeString).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: currency\x7fComment: Use VM timestamp to avoid useless refilling xxx duplicated\x7fModuleInfo: Module: module InitialContents: FollowSlot'
         
          beObsolete = ( |
             | savedTimestamp:  deliberatelyObsolete).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: currency\x7fComment: Use VM timestamp to avoid useless refilling xxx duplicated\x7fModuleInfo: Module: module InitialContents: FollowSlot'
         
          bringUpToDate = ( |
@@ -160,14 +160,14 @@ It becomes the last submodule. \x7fModuleInfo: Module: module InitialContents: F
             self).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: caching slots\x7fModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: private'
         
          cachedPaths = ( |
             | mapSlotsToPaths: cachedSlots).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: reading and writing files\x7fModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: public'
         
          canBeFiledOut = ( |
@@ -178,7 +178,7 @@ It becomes the last submodule. \x7fModuleInfo: Module: module InitialContents: F
             ) not).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: renaming\x7fModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: public'
         
          changeNameTo: newName IfFail: fb = ( |
@@ -212,7 +212,7 @@ It becomes the last submodule. \x7fModuleInfo: Module: module InitialContents: F
             newModule).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: caching slots\x7fModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: public'
         
          checkModuleMembershipInvariants = ( |
@@ -220,7 +220,7 @@ It becomes the last submodule. \x7fModuleInfo: Module: module InitialContents: F
             self).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: time stamps on files\x7fModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: public'
         
          checkTimeStampsIfFail: fb = ( |
@@ -235,7 +235,7 @@ It becomes the last submodule. \x7fModuleInfo: Module: module InitialContents: F
             self).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: parsing\x7fModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: private'
         
          chunk: s Eating: eats = ( |
@@ -259,14 +259,14 @@ It becomes the last submodule. \x7fModuleInfo: Module: module InitialContents: F
             ] loop).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: comment\x7fModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: public'
         
          comment = ( |
             | myComment).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: comment\x7fModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: public'
         
          comment: c = ( |
@@ -276,7 +276,7 @@ It becomes the last submodule. \x7fModuleInfo: Module: module InitialContents: F
             beDirty "need to file me out").
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'ModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: public'
         
          copy = ( |
@@ -287,13 +287,13 @@ It becomes the last submodule. \x7fModuleInfo: Module: module InitialContents: F
                removedSlotPaths:    removedSlotPaths    copy).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: currency\x7fComment: Use VM timestamp to avoid useless refilling xxx duplicated\x7fModuleInfo: Module: module InitialContents: FollowSlot'
         
          deliberatelyObsolete = -1.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'ModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: private'
         
          empty = ( |
@@ -301,7 +301,7 @@ It becomes the last submodule. \x7fModuleInfo: Module: module InitialContents: F
             cachedSlots: cachedSlots copyRemoveAll).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: reading and writing files\x7fModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: public'
         
          fileIn = ( |
@@ -336,21 +336,21 @@ It becomes the last submodule. \x7fModuleInfo: Module: module InitialContents: F
             self).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: time stamps on files\x7fModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: public'
         
          fileInTime = ( |
             | time copyFromString: fileInTimeString).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: time stamps on files\x7fModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: public'
         
          fileInTime: t = ( |
             | fileInTimeString: t printString canonicalize).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: time stamps on files\x7fModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: public'
         
          fileModificationTime = ( |
@@ -358,7 +358,7 @@ It becomes the last submodule. \x7fModuleInfo: Module: module InitialContents: F
             fileModificationTimeOf: fileName).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: time stamps on files\x7fModuleInfo: Module: module InitialContents: FollowSlot'
         
          fileModificationTimeOf: name = ( |
@@ -371,14 +371,14 @@ It becomes the last submodule. \x7fModuleInfo: Module: module InitialContents: F
             t).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: file naming\x7fModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: public'
         
          fileName = ( |
             | absolutePath, name, '.self').
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: reading and writing files\x7fModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: public'
         
          fileOut = ( |
@@ -386,14 +386,14 @@ It becomes the last submodule. \x7fModuleInfo: Module: module InitialContents: F
             transporter fileOut fileOutModule: name).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: currency\x7fModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: public'
         
          filedMeIn = ( |
             | transporter moduleDictionary filedIn: name. self).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: nesting modules\x7fModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: public'
         
          hasSubparts = ( |
@@ -402,14 +402,14 @@ It becomes the last submodule. \x7fModuleInfo: Module: module InitialContents: F
             subparts isEmpty not).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: comparing\x7fModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: public'
         
          hash = ( |
             | identityHash).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: caching slots\x7fComment: Return the holders of my slots.\x7fModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: public'
         
          holders = ( |
@@ -420,7 +420,7 @@ It becomes the last submodule. \x7fModuleInfo: Module: module InitialContents: F
             s asVector).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: caching slots\x7fModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: private'
         
          initCachedSlots = ( |
@@ -441,7 +441,7 @@ It becomes the last submodule. \x7fModuleInfo: Module: module InitialContents: F
             self).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'ModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: public'
         
          initialize = ( |
@@ -456,7 +456,7 @@ It becomes the last submodule. \x7fModuleInfo: Module: module InitialContents: F
             self).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: caching slots\x7fModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: public'
         
          interestingHolders = ( |
@@ -467,7 +467,7 @@ It becomes the last submodule. \x7fModuleInfo: Module: module InitialContents: F
             s asVector).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: caching slots\x7fModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: public'
         
          interestingSlots = ( |
@@ -477,7 +477,7 @@ It becomes the last submodule. \x7fModuleInfo: Module: module InitialContents: F
               &&  [s holder   !=  asMirror]]).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: dirtyness\x7fComment: answer true if this module contains no unsaved changes\x7fModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: public'
         
          isClean = ( |
@@ -486,7 +486,7 @@ It becomes the last submodule. \x7fModuleInfo: Module: module InitialContents: F
             && [ removedSlotPaths    isEmpty ]).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: currency\x7fComment: Use VM timestamp to avoid useless refilling xxx duplicated\x7fModuleInfo: Module: module InitialContents: FollowSlot'
         
          isCurrent = ( |
@@ -494,7 +494,7 @@ It becomes the last submodule. \x7fModuleInfo: Module: module InitialContents: F
             savedTimestamp = mirrors mirror freezingTimestamp).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: dirtyness\x7fModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: public'
         
          isDirty = ( |
@@ -502,14 +502,14 @@ It becomes the last submodule. \x7fModuleInfo: Module: module InitialContents: F
             isClean not).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: currency\x7fComment: Use VM timestamp to avoid useless refilling xxx duplicated\x7fModuleInfo: Module: module InitialContents: FollowSlot'
         
          isObsolete = ( |
             | isCurrent not).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: caching slots\x7fModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: private'
         
          isWorthCaching: s = ( |
@@ -517,7 +517,14 @@ It becomes the last submodule. \x7fModuleInfo: Module: module InitialContents: F
             transporter moduleDictionary isWorthCaching: s ForModuleName: name).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
+         'ModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: public'
+        
+         loaded = ( |
+            | transporter moduleDictionary includes: self).
+        } | ) 
+
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: caching slots\x7fComment: Each slot in slots (a set) must have a holder for which a creatorPath exists
 Otherwise, the returned set will include nullPath.\x7fModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: private'
         
@@ -530,25 +537,25 @@ Otherwise, the returned set will include nullPath.\x7fModuleInfo: Module: module
             ]).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: revision\x7fModuleInfo: Module: module InitialContents: FollowSlot'
         
-         moduleVersion = bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> 'moduleVersion' -> () From: ( |
-             {} = 'ModuleInfo: Creator: globals modules init parent moduleVersion.
+         moduleVersion = bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> 'moduleVersion' -> () From: ( |
+             {} = 'ModuleInfo: Creator: globals loadedModules init parent moduleVersion.
 '.
             | ) .
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> 'moduleVersion' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> 'moduleVersion' -> () From: ( | {
          'ModuleInfo: Module: module InitialContents: FollowSlot'
         
-         parent* = bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> 'moduleVersion' -> 'parent' -> () From: ( |
-             {} = 'ModuleInfo: Creator: globals modules init parent moduleVersion parent.
+         parent* = bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> 'moduleVersion' -> 'parent' -> () From: ( |
+             {} = 'ModuleInfo: Creator: globals loadedModules init parent moduleVersion parent.
 '.
             | ) .
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> 'moduleVersion' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> 'moduleVersion' -> 'parent' -> () From: ( | {
          'Category: comparing\x7fModuleInfo: Module: module InitialContents: FollowSlot'
         
          < mv = ( |
@@ -559,7 +566,7 @@ Otherwise, the returned set will include nullPath.\x7fModuleInfo: Module: module
             (rawPrereleaseLabel != '') && (mv rawPrereleaseLabel = '')).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> 'moduleVersion' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> 'moduleVersion' -> 'parent' -> () From: ( | {
          'Category: comparing\x7fModuleInfo: Module: module InitialContents: FollowSlot'
         
          = mv = ( |
@@ -570,7 +577,7 @@ Otherwise, the returned set will include nullPath.\x7fModuleInfo: Module: module
             (rawPrereleaseLabel = mv rawPrereleaseLabel)).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> 'moduleVersion' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> 'moduleVersion' -> 'parent' -> () From: ( | {
          'Category: creating\x7fModuleInfo: Module: module InitialContents: FollowSlot'
         
          copyOn: s = ( |
@@ -584,7 +591,7 @@ Otherwise, the returned set will include nullPath.\x7fModuleInfo: Module: module
             copyOnNewStyle: s).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> 'moduleVersion' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> 'moduleVersion' -> 'parent' -> () From: ( | {
          'Category: creating\x7fModuleInfo: Module: module InitialContents: FollowSlot'
         
          copyOnModule: module = ( |
@@ -592,7 +599,7 @@ Otherwise, the returned set will include nullPath.\x7fModuleInfo: Module: module
             (copyOn: module revision) referrentModule: module).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> 'moduleVersion' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> 'moduleVersion' -> 'parent' -> () From: ( | {
          'Category: creating\x7fModuleInfo: Module: module InitialContents: FollowSlot'
         
          copyOnNewStyle: s = ( |
@@ -612,7 +619,7 @@ Otherwise, the returned set will include nullPath.\x7fModuleInfo: Module: module
             m).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> 'moduleVersion' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> 'moduleVersion' -> 'parent' -> () From: ( | {
          'Category: creating\x7fModuleInfo: Module: module InitialContents: FollowSlot'
         
          copyOnOldStyle: s = ( |
@@ -626,7 +633,7 @@ Otherwise, the returned set will include nullPath.\x7fModuleInfo: Module: module
               rawMinor: (t at: 1) asInteger )).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> 'moduleVersion' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> 'moduleVersion' -> 'parent' -> () From: ( | {
          'Category: creating\x7fModuleInfo: Module: module InitialContents: FollowSlot'
         
          copyOnSunStyle: s = ( |
@@ -639,7 +646,7 @@ Otherwise, the returned set will include nullPath.\x7fModuleInfo: Module: module
               rawMinor: (t at: 1) asInteger )).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> 'moduleVersion' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> 'moduleVersion' -> 'parent' -> () From: ( | {
          'Category: comparing\x7fModuleInfo: Module: module InitialContents: FollowSlot'
         
          hash = ( |
@@ -647,47 +654,47 @@ Otherwise, the returned set will include nullPath.\x7fModuleInfo: Module: module
             rawMajor hash ^^ rawMinor hash ^^ rawPatch hash ^^ rawPrereleaseLabel hash).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> 'moduleVersion' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> 'moduleVersion' -> 'parent' -> () From: ( | {
          'Category: accessing\x7fModuleInfo: Module: module InitialContents: FollowSlot'
         
          major = ( |
             | rawMajor).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> 'moduleVersion' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> 'moduleVersion' -> 'parent' -> () From: ( | {
          'Category: accessing\x7fModuleInfo: Module: module InitialContents: FollowSlot'
         
          minor = ( |
             | rawMinor).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> 'moduleVersion' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> 'moduleVersion' -> 'parent' -> () From: ( | {
          'Category: comparing\x7fModuleInfo: Module: module InitialContents: FollowSlot'
         
          mixinsOrdered* = bootstrap stub -> 'mixins' -> 'ordered' -> ().
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> 'moduleVersion' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> 'moduleVersion' -> 'parent' -> () From: ( | {
          'ModuleInfo: Module: module InitialContents: FollowSlot'
         
          p* = bootstrap stub -> 'traits' -> 'clonable' -> ().
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> 'moduleVersion' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> 'moduleVersion' -> 'parent' -> () From: ( | {
          'Category: accessing\x7fModuleInfo: Module: module InitialContents: FollowSlot'
         
          patch = ( |
             | rawPatch).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> 'moduleVersion' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> 'moduleVersion' -> 'parent' -> () From: ( | {
          'Category: accessing\x7fModuleInfo: Module: module InitialContents: FollowSlot'
         
          prereleaseLabel = ( |
             | rawPrereleaseLabel).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> 'moduleVersion' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> 'moduleVersion' -> 'parent' -> () From: ( | {
          'Category: printing\x7fModuleInfo: Module: module InitialContents: FollowSlot'
         
          printString = ( |
@@ -701,37 +708,37 @@ Otherwise, the returned set will include nullPath.\x7fModuleInfo: Module: module
             ')').
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> 'moduleVersion' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> 'moduleVersion' -> () From: ( | {
          'ModuleInfo: Module: module InitialContents: InitializeToExpression: (0)'
         
          rawMajor <- 0.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> 'moduleVersion' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> 'moduleVersion' -> () From: ( | {
          'ModuleInfo: Module: module InitialContents: InitializeToExpression: (0)'
         
          rawMinor <- 0.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> 'moduleVersion' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> 'moduleVersion' -> () From: ( | {
          'ModuleInfo: Module: module InitialContents: InitializeToExpression: (0)'
         
          rawPatch <- 0.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> 'moduleVersion' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> 'moduleVersion' -> () From: ( | {
          'ModuleInfo: Module: module InitialContents: InitializeToExpression: (\'\')'
         
          rawPrereleaseLabel <- ''.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> 'moduleVersion' -> () From: ( | {
-         'ModuleInfo: Module: module InitialContents: InitializeToExpression: (modules init)'
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> 'moduleVersion' -> () From: ( | {
+         'ModuleInfo: Module: module InitialContents: InitializeToExpression: (loadedModules init)'
         
-         referrentModule <- bootstrap stub -> 'globals' -> 'modules' -> 'init' -> ().
+         referrentModule <- bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> ().
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: naming\x7fModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: public'
         
          name = ( |
@@ -739,20 +746,20 @@ Otherwise, the returned set will include nullPath.\x7fModuleInfo: Module: module
             nameIfAbsent: [error: 'module object: ', objectID, ' has no name ']).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: naming\x7fModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: public'
         
          nameIfAbsent: failBlock = ( |
             | 
             (reflect: self) creatorSlotIfPresent: [|:s| s name ] IfAbsent: [
               "Fallback strategy; enumerate all slots in 'modules'"
-              (reflect: modules) findFirst: [|:s| s contents = (reflect: self)]
+              (reflect: loadedModules) findFirst: [|:s| s contents = (reflect: self)]
                                  IfPresent: [|:s| s name]
                                  IfAbsent:  failBlock
             ]).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: naming\x7fModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: public'
         
          nameOrNone = ( |
@@ -760,21 +767,21 @@ Otherwise, the returned set will include nullPath.\x7fModuleInfo: Module: module
             nameIfAbsent: 'noName').
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: file naming\x7fModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: public'
         
          oldFileName = ( |
             | absolutePath, name, '.OLD').
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: nesting modules\x7fModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: public'
         
          owner = ( |
             | ownerIfPresent: [|:o| o] IfAbsent: nil).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: nesting modules\x7fModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: public'
         
          ownerIfPresent: pb = ( |
@@ -782,7 +789,7 @@ Otherwise, the returned set will include nullPath.\x7fModuleInfo: Module: module
             ownerIfPresent: pb IfAbsent: []).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: nesting modules\x7fModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: public'
         
          ownerIfPresent: pb IfAbsent: ab = ( |
@@ -795,13 +802,13 @@ Otherwise, the returned set will include nullPath.\x7fModuleInfo: Module: module
             ab value).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'ModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: private'
         
          parent* = bootstrap stub -> 'traits' -> 'orderedClonable' -> ().
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: parsing\x7fModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: private'
         
          parseLines: s = ( |
@@ -812,7 +819,7 @@ Otherwise, the returned set will include nullPath.\x7fModuleInfo: Module: module
             chunk: s Eating: '\n').
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: parsing\x7fModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: private'
         
          parseLinesOfWords: s = ( |
@@ -827,7 +834,7 @@ Otherwise, the returned set will include nullPath.\x7fModuleInfo: Module: module
                     Into: list copyRemoveAll).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: parsing\x7fModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: private'
         
          parseWordsAcrossLines: s = ( |
@@ -840,7 +847,7 @@ Otherwise, the returned set will include nullPath.\x7fModuleInfo: Module: module
             chunk: s Eating: ' \t\n').
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: parsing\x7fModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: private'
         
          parseWordsWithinLines: s = ( |
@@ -852,7 +859,7 @@ Otherwise, the returned set will include nullPath.\x7fModuleInfo: Module: module
             chunk: s Eating: ' \t').
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: file naming\x7fModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: public'
         
          partialPath = ( |
@@ -860,14 +867,14 @@ Otherwise, the returned set will include nullPath.\x7fModuleInfo: Module: module
             directory isEmpty ifTrue: '' False: [ directory, '/' ]).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: caching slots\x7fModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: public'
         
          paths = ( |
             | mapSlotsToPaths: slots).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: resent to\x7fModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: private'
         
          postFileIn = ( |
@@ -876,23 +883,23 @@ Otherwise, the returned set will include nullPath.\x7fModuleInfo: Module: module
             self).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'ModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: public'
         
-         postFileInProto = bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> 'postFileInProto' -> () From: ( |
-             {} = 'ModuleInfo: Creator: globals modules init parent postFileInProto.
+         postFileInProto = bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> 'postFileInProto' -> () From: ( |
+             {} = 'ModuleInfo: Creator: globals loadedModules init parent postFileInProto.
 '.
             | ) .
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> 'postFileInProto' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> 'postFileInProto' -> () From: ( | {
          'ModuleInfo: Module: module InitialContents: FollowSlot'
         
          postFileIn = ( |
             | resend.postFileIn).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: nesting modules\x7fModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: public'
         
          postorderDo: blk = ( |
@@ -902,23 +909,23 @@ Otherwise, the returned set will include nullPath.\x7fModuleInfo: Module: module
             blk value: self With: self).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: resent to\x7fModuleInfo: Module: module InitialContents: FollowSlot'
         
          preFileIn = ( |
             | self).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'ModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: public'
         
-         preFileInProto = bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> 'preFileInProto' -> () From: ( |
-             {} = 'ModuleInfo: Creator: globals modules init parent preFileInProto.
+         preFileInProto = bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> 'preFileInProto' -> () From: ( |
+             {} = 'ModuleInfo: Creator: globals loadedModules init parent preFileInProto.
 '.
             | ) .
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> 'preFileInProto' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> 'preFileInProto' -> () From: ( | {
          'ModuleInfo: Module: module InitialContents: FollowSlot'
         
          preFileIn = ( |
@@ -926,7 +933,7 @@ Otherwise, the returned set will include nullPath.\x7fModuleInfo: Module: module
             "prefileIn" self).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: nesting modules\x7fModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: public'
         
          preorderDo: blk = ( |
@@ -937,7 +944,7 @@ Otherwise, the returned set will include nullPath.\x7fModuleInfo: Module: module
             self).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'ModuleInfo: Module: module InitialContents: FollowSlot'
         
          printString = ( |
@@ -947,7 +954,7 @@ Otherwise, the returned set will include nullPath.\x7fModuleInfo: Module: module
                         False: ' (in ', tree, ' tree)')).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: time stamps on files\x7fModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: public'
         
          printTimeStamps = ( |
@@ -958,7 +965,7 @@ Otherwise, the returned set will include nullPath.\x7fModuleInfo: Module: module
             self).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: caching slots\x7fModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: public'
         
          refill = ( |
@@ -967,7 +974,7 @@ Otherwise, the returned set will include nullPath.\x7fModuleInfo: Module: module
             self).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: caching slots\x7fModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: public'
         
          refillAndProtectDo: blk = ( |
@@ -977,7 +984,7 @@ Otherwise, the returned set will include nullPath.\x7fModuleInfo: Module: module
               blk value]).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: trees\x7fModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: public'
         
          registerTree: t At: a = ( |
@@ -985,7 +992,7 @@ Otherwise, the returned set will include nullPath.\x7fModuleInfo: Module: module
             treeDictionary at: t Put: a. self).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: releasing memory\x7fModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: private'
         
          releaseObsoleteAddedOrChangedSlots = ( |
@@ -1002,7 +1009,7 @@ Otherwise, the returned set will include nullPath.\x7fModuleInfo: Module: module
             addedOrChangedSlots: r).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: releasing memory\x7fModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: private'
         
          releaseObsoleteCachedSlots = ( |
@@ -1018,7 +1025,7 @@ Otherwise, the returned set will include nullPath.\x7fModuleInfo: Module: module
             self).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: releasing memory\x7fModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: public'
         
          releaseUnusedMemory = ( |
@@ -1027,7 +1034,7 @@ Otherwise, the returned set will include nullPath.\x7fModuleInfo: Module: module
             releaseObsoleteAddedOrChangedSlots).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: nesting modules\x7fModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: public'
         
          removeAllSubparts = ( |
@@ -1035,7 +1042,7 @@ Otherwise, the returned set will include nullPath.\x7fModuleInfo: Module: module
             subparts: vector).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: nesting modules\x7fModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: public'
         
          removeSubpart: aModule = ( |
@@ -1043,7 +1050,7 @@ Otherwise, the returned set will include nullPath.\x7fModuleInfo: Module: module
             subparts: subparts asList remove: aModule).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: caching slots\x7fModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: public'
         
          slots = ( |
@@ -1054,7 +1061,7 @@ Otherwise, the returned set will include nullPath.\x7fModuleInfo: Module: module
             r).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: caching slots\x7fModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: public'
         
          slotsFilteredBy: filterBlock = ( |
@@ -1070,7 +1077,7 @@ Otherwise, the returned set will include nullPath.\x7fModuleInfo: Module: module
             ]).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: reporting\x7fModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: public'
         
          slotsInMeAndAllSubparts = ( |
@@ -1078,7 +1085,7 @@ Otherwise, the returned set will include nullPath.\x7fModuleInfo: Module: module
             allSubparts gather: [|:m| m slots] Into: list copyRemoveAll).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: reporting\x7fModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: public'
         
          sourceLineCount = ( |
@@ -1093,7 +1100,7 @@ Otherwise, the returned set will include nullPath.\x7fModuleInfo: Module: module
             r).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: reporting\x7fModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: public'
         
          sourceLineCountInMeAndAllSubparts = ( |
@@ -1103,7 +1110,7 @@ Otherwise, the returned set will include nullPath.\x7fModuleInfo: Module: module
             r).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: nesting modules\x7fModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: public'
         
          subparts = ( |
@@ -1117,7 +1124,7 @@ Otherwise, the returned set will include nullPath.\x7fModuleInfo: Module: module
             vector).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: nesting modules\x7fModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: public'
         
          subparts: mods = ( |
@@ -1132,7 +1139,7 @@ Otherwise, the returned set will include nullPath.\x7fModuleInfo: Module: module
             self).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: nesting modules\x7fModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: public'
         
          swapOwnersWith: mod2 = ( |
@@ -1153,7 +1160,7 @@ Otherwise, the returned set will include nullPath.\x7fModuleInfo: Module: module
             self).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: time stamps on files\x7fModuleInfo: Module: module InitialContents: FollowSlot'
         
          tmpFileModificationTime = ( |
@@ -1161,14 +1168,14 @@ Otherwise, the returned set will include nullPath.\x7fModuleInfo: Module: module
             fileModificationTimeOf: tmpFileName).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: file naming\x7fModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: public'
         
          tmpFileName = ( |
             | absolutePath, name, '.TMP').
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: trees\x7fModuleInfo: Module: module InitialContents: FollowSlot'
         
          treeAddress = ( |
@@ -1178,20 +1185,20 @@ Otherwise, the returned set will include nullPath.\x7fModuleInfo: Module: module
                False: [treeRootFor: tree IfAbsent: [|:m| ^ error: m]]).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: trees\x7fModuleInfo: Module: module InitialContents: InitializeToExpression: (dictionary copyRemoveAll)'
         
          treeDictionary = dictionary copyRemoveAll.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: trees\x7fModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: public'
         
          treeRootFor: t IfAbsent: blk = ( |
             | treeDictionary at: t IfAbsent: blk).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'init' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'init' -> 'parent' -> () From: ( | {
          'Category: revision\x7fModuleInfo: Module: module InitialContents: FollowSlot'
         
          version = ( |
@@ -1199,46 +1206,46 @@ Otherwise, the returned set will include nullPath.\x7fModuleInfo: Module: module
             moduleVersion copyOnModule: self).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> () From: ( | {
          'ModuleInfo: Module: module InitialContents: FollowSlot'
         
-         module = bootstrap define: bootstrap stub -> 'globals' -> 'modules' -> 'module' -> () ToBe: bootstrap addSlotsTo: (
+         module = bootstrap define: bootstrap stub -> 'globals' -> 'loadedModules' -> 'module' -> () ToBe: bootstrap addSlotsTo: (
              bootstrap remove: 'directory' From:
              bootstrap remove: 'fileInTimeString' From:
              bootstrap remove: 'myComment' From:
              bootstrap remove: 'postFileIn' From:
              bootstrap remove: 'revision' From:
              bootstrap remove: 'subpartNames' From:
-             globals modules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'modules' -> 'module' -> () From: ( |
-             {} = 'ModuleInfo: Creator: globals modules module.
+             globals loadedModules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'loadedModules' -> 'module' -> () From: ( |
+             {} = 'ModuleInfo: Creator: globals loadedModules module.
 
 CopyDowns:
-globals modules init. copy 
+globals loadedModules init. copy 
 SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNames.
 
 \x7fIsComplete: '.
             | ) .
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'module' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'module' -> () From: ( | {
          'ModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: public'
         
          directory <- 'core'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'module' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'module' -> () From: ( | {
          'ModuleInfo: Module: module InitialContents: InitializeToExpression: (_CurrentTimeString)\x7fVisibility: public'
         
          fileInTimeString <- _CurrentTimeString.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'module' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'module' -> () From: ( | {
          'ModuleInfo: Module: module InitialContents: FollowSlot'
         
          myComment <- 'for annotations'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'module' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'module' -> () From: ( | {
          'ModuleInfo: Module: module InitialContents: FollowSlot'
         
          postFileIn = ( |
@@ -1257,13 +1264,13 @@ SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNam
             resend.postFileIn).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'module' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'module' -> () From: ( | {
          'ModuleInfo: Module: module InitialContents: InitializeToExpression: (\'30.21.0\')\x7fVisibility: public'
         
          revision <- '30.21.0'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'module' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'module' -> () From: ( | {
          'ModuleInfo: Module: module InitialContents: FollowSlot\x7fVisibility: private'
         
          subpartNames <- ''.
@@ -1296,7 +1303,8 @@ SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNam
          'ModuleInfo: Module: module InitialContents: FollowSlot'
         
          directoryOfTree: tree = ( |
-            | modules init treeRootFor: tree IfAbsent: [|:m| ^ error: m]).
+            | 
+            loadedModules init treeRootFor: tree IfAbsent: [|:m| ^ error: m]).
         } | ) 
 
  bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'preferences' -> 'modules' -> () From: ( | {
@@ -1309,14 +1317,16 @@ SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNam
          'ModuleInfo: Module: module InitialContents: FollowSlot'
         
          registerTree: tree At: directory = ( |
-            | modules init registerTree: tree At: directory. self).
+            | 
+            loadedModules init registerTree: tree At: directory. self).
         } | ) 
 
  bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'preferences' -> 'modules' -> () From: ( | {
          'ModuleInfo: Module: module InitialContents: FollowSlot'
         
          trees = ( |
-            | modules init treeDictionary keys).
+            | 
+            loadedModules init treeDictionary keys).
         } | ) 
 
  bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'transporter' -> () From: ( | {
@@ -1355,7 +1365,7 @@ SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNam
               error: '``', moduleName, '\'\' does not start with a lowercase letter'
             ].
 
-            mirror: reflect: modules module copy initialize.
+            mirror: reflect: loadedModules module copy initialize.
 
             "set up module names of new modules slots
              BEFORE installing it to avoid spurious detection
@@ -1765,9 +1775,9 @@ as a result of incremental changes\x7fModuleInfo: Module: module InitialContents
         } | ) 
 
  bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'transporter' -> 'moduleDictionary' -> () From: ( | {
-         'Category: dictionary behavior\x7fCategory: implementation\x7fModuleInfo: Module: module InitialContents: InitializeToExpression: (modules _Mirror)\x7fVisibility: private'
+         'Category: dictionary behavior\x7fCategory: implementation\x7fModuleInfo: Module: module InitialContents: InitializeToExpression: (loadedModules _Mirror)\x7fVisibility: private'
         
-         holderMirror = modules _Mirror.
+         holderMirror = loadedModules _Mirror.
         } | ) 
 
  bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'transporter' -> 'moduleDictionary' -> () From: ( | {
@@ -2100,7 +2110,7 @@ initially and contained the other modules.
          theMainModule = ( |
             | 
             findFirst: [|:m|
-                m subparts includes: modules init
+                m subparts includes: loadedModules init
               ] IfPresent: [|:m| m]
                 IfAbsent: [error: '??']).
         } | ) 
@@ -2233,4 +2243,4 @@ initially and contained the other modules.
 
  '-- Side effects'
 
- globals modules module postFileIn
+ globals loadedModules module postFileIn

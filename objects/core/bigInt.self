@@ -1,8 +1,9 @@
  'Sun-$Revision: 30.16 $'
  '
-Copyright 1992-2012 AUTHORS.
-See the LICENSE file for license information.
+Copyright 1992-2016 AUTHORS.
+See the legal/LICENSE file for license information and legal/AUTHORS for authors.
 '
+["preFileIn" self] value
 
 
  '-- Module body'
@@ -50,10 +51,10 @@ See the LICENSE file for license information.
          sign <- 0.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> () From: ( | {
          'ModuleInfo: Module: bigInt InitialContents: FollowSlot'
         
-         bigInt = bootstrap define: bootstrap stub -> 'globals' -> 'modules' -> 'bigInt' -> () ToBe: bootstrap addSlotsTo: (
+         bigInt = bootstrap define: bootstrap stub -> 'globals' -> 'loadedModules' -> 'bigInt' -> () ToBe: bootstrap addSlotsTo: (
              bootstrap remove: 'comment' From:
              bootstrap remove: 'directory' From:
              bootstrap remove: 'fileInTimeString' From:
@@ -61,43 +62,43 @@ See the LICENSE file for license information.
              bootstrap remove: 'postFileIn' From:
              bootstrap remove: 'revision' From:
              bootstrap remove: 'subpartNames' From:
-             globals modules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'modules' -> 'bigInt' -> () From: ( |
-             {} = 'ModuleInfo: Creator: globals modules bigInt.
+             globals loadedModules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'loadedModules' -> 'bigInt' -> () From: ( |
+             {} = 'ModuleInfo: Creator: globals loadedModules bigInt.
 
 CopyDowns:
-globals modules init. copy 
+globals loadedModules init. copy 
 SlotsToOmit: comment directory fileInTimeString myComment postFileIn revision subpartNames.
 
 \x7fIsComplete: '.
             | ) .
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'bigInt' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'bigInt' -> () From: ( | {
          'ModuleInfo: Module: bigInt InitialContents: FollowSlot\x7fVisibility: public'
         
          directory <- 'core'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'bigInt' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'bigInt' -> () From: ( | {
          'ModuleInfo: Module: bigInt InitialContents: InitializeToExpression: (_CurrentTimeString)\x7fVisibility: public'
         
          fileInTimeString <- _CurrentTimeString.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'bigInt' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'bigInt' -> () From: ( | {
          'ModuleInfo: Module: bigInt InitialContents: FollowSlot'
         
          myComment <- 'Changed from base 10 to general base to speed up arithmetic. 
              Ole Agesen, Oct. 1991.'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'bigInt' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'bigInt' -> () From: ( | {
          'ModuleInfo: Module: bigInt InitialContents: FollowSlot\x7fVisibility: public'
         
          revision <- 'Sun-$Revision: 30.16 $'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'bigInt' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'bigInt' -> () From: ( | {
          'ModuleInfo: Module: bigInt InitialContents: FollowSlot\x7fVisibility: private'
         
          subpartNames <- ''.
@@ -1113,4 +1114,4 @@ for Klein. Used to be 10,000. -- dmu\x7fModuleInfo: Module: bigInt InitialConten
 
  '-- Side effects'
 
- globals modules bigInt postFileIn
+ globals loadedModules bigInt postFileIn

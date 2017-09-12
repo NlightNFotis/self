@@ -8,46 +8,46 @@ See the legal/LICENSE file for license information and legal/AUTHORS for authors
 
  '-- Module body'
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> () From: ( | {
          'ModuleInfo: Module: debuggerWidgets InitialContents: FollowSlot'
         
-         debuggerWidgets = bootstrap define: bootstrap stub -> 'globals' -> 'modules' -> 'debuggerWidgets' -> () ToBe: bootstrap addSlotsTo: (
+         debuggerWidgets = bootstrap define: bootstrap stub -> 'globals' -> 'loadedModules' -> 'debuggerWidgets' -> () ToBe: bootstrap addSlotsTo: (
              bootstrap remove: 'directory' From:
              bootstrap remove: 'fileInTimeString' From:
              bootstrap remove: 'myComment' From:
              bootstrap remove: 'postFileIn' From:
              bootstrap remove: 'revision' From:
              bootstrap remove: 'subpartNames' From:
-             globals modules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'modules' -> 'debuggerWidgets' -> () From: ( |
-             {} = 'ModuleInfo: Creator: globals modules debuggerWidgets.
+             globals loadedModules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'loadedModules' -> 'debuggerWidgets' -> () From: ( |
+             {} = 'ModuleInfo: Creator: globals loadedModules debuggerWidgets.
 
 CopyDowns:
-globals modules init. copy 
+globals loadedModules init. copy 
 SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNames.
 
 \x7fIsComplete: '.
             | ) .
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'debuggerWidgets' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'debuggerWidgets' -> () From: ( | {
          'ModuleInfo: Module: debuggerWidgets InitialContents: FollowSlot\x7fVisibility: public'
         
          directory <- 'ui2/outliner'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'debuggerWidgets' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'debuggerWidgets' -> () From: ( | {
          'ModuleInfo: Module: debuggerWidgets InitialContents: InitializeToExpression: (_CurrentTimeString)\x7fVisibility: public'
         
          fileInTimeString <- _CurrentTimeString.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'debuggerWidgets' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'debuggerWidgets' -> () From: ( | {
          'ModuleInfo: Module: debuggerWidgets InitialContents: FollowSlot'
         
          myComment <- ''.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'debuggerWidgets' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'debuggerWidgets' -> () From: ( | {
          'ModuleInfo: Module: debuggerWidgets InitialContents: FollowSlot'
         
          postFileIn = ( |
@@ -57,13 +57,13 @@ SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNam
             self).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'debuggerWidgets' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'debuggerWidgets' -> () From: ( | {
          'ModuleInfo: Module: debuggerWidgets InitialContents: FollowSlot\x7fVisibility: public'
         
          revision <- '$Revision: 30.6 $'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'debuggerWidgets' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'debuggerWidgets' -> () From: ( | {
          'ModuleInfo: Module: debuggerWidgets InitialContents: FollowSlot\x7fVisibility: private'
         
          subpartNames <- ''.
@@ -187,4 +187,4 @@ SlotsToOmit: parent prototype.
 
  '-- Side effects'
 
- globals modules debuggerWidgets postFileIn
+ globals loadedModules debuggerWidgets postFileIn

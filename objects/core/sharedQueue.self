@@ -1,16 +1,17 @@
  'Sun-$Revision: 30.7 $'
  '
-Copyright 1992-2012 AUTHORS.
-See the LICENSE file for license information.
+Copyright 1992-2016 AUTHORS.
+See the legal/LICENSE file for license information and legal/AUTHORS for authors.
 '
+["preFileIn" self] value
 
 
  '-- Module body'
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> () From: ( | {
          'ModuleInfo: Module: sharedQueue InitialContents: FollowSlot'
         
-         sharedQueue = bootstrap define: bootstrap stub -> 'globals' -> 'modules' -> 'sharedQueue' -> () ToBe: bootstrap addSlotsTo: (
+         sharedQueue = bootstrap define: bootstrap stub -> 'globals' -> 'loadedModules' -> 'sharedQueue' -> () ToBe: bootstrap addSlotsTo: (
              bootstrap remove: 'comment' From:
              bootstrap remove: 'directory' From:
              bootstrap remove: 'fileInTimeString' From:
@@ -18,42 +19,42 @@ See the LICENSE file for license information.
              bootstrap remove: 'postFileIn' From:
              bootstrap remove: 'revision' From:
              bootstrap remove: 'subpartNames' From:
-             globals modules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'modules' -> 'sharedQueue' -> () From: ( |
-             {} = 'ModuleInfo: Creator: globals modules sharedQueue.
+             globals loadedModules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'loadedModules' -> 'sharedQueue' -> () From: ( |
+             {} = 'ModuleInfo: Creator: globals loadedModules sharedQueue.
 
 CopyDowns:
-globals modules init. copy 
+globals loadedModules init. copy 
 SlotsToOmit: comment directory fileInTimeString myComment postFileIn revision subpartNames.
 
 \x7fIsComplete: '.
             | ) .
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'sharedQueue' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'sharedQueue' -> () From: ( | {
          'ModuleInfo: Module: sharedQueue InitialContents: FollowSlot\x7fVisibility: public'
         
          directory <- 'core'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'sharedQueue' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'sharedQueue' -> () From: ( | {
          'ModuleInfo: Module: sharedQueue InitialContents: InitializeToExpression: (_CurrentTimeString)\x7fVisibility: public'
         
          fileInTimeString <- _CurrentTimeString.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'sharedQueue' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'sharedQueue' -> () From: ( | {
          'ModuleInfo: Module: sharedQueue InitialContents: FollowSlot'
         
          myComment <- ''.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'sharedQueue' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'sharedQueue' -> () From: ( | {
          'ModuleInfo: Module: sharedQueue InitialContents: FollowSlot\x7fVisibility: public'
         
          revision <- 'Sun-$Revision: 30.7 $'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'sharedQueue' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'sharedQueue' -> () From: ( | {
          'ModuleInfo: Module: sharedQueue InitialContents: FollowSlot\x7fVisibility: private'
         
          subpartNames <- ''.
@@ -345,4 +346,4 @@ then call size which also locks it.
 
  '-- Side effects'
 
- globals modules sharedQueue postFileIn
+ globals loadedModules sharedQueue postFileIn

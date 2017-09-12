@@ -1,8 +1,9 @@
  '$Revision: 30.4 $'
  '
-Copyright 1992-2011 AUTHORS.
+Copyright 1992-2016 AUTHORS.
 See the legal/LICENSE file for license information and legal/AUTHORS for authors.
 '
+["preFileIn" self] value
 
 
  '-- Module body'
@@ -45,59 +46,59 @@ See the legal/LICENSE file for license information and legal/AUTHORS for authors
             slotsInMeAndSubcategories gather: [|:s| s basicPrintString asWords]).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> () From: ( | {
          'ModuleInfo: Module: autoCompletion InitialContents: FollowSlot'
         
-         autoCompletion = bootstrap define: bootstrap stub -> 'globals' -> 'modules' -> 'autoCompletion' -> () ToBe: bootstrap addSlotsTo: (
+         autoCompletion = bootstrap define: bootstrap stub -> 'globals' -> 'loadedModules' -> 'autoCompletion' -> () ToBe: bootstrap addSlotsTo: (
              bootstrap remove: 'directory' From:
              bootstrap remove: 'fileInTimeString' From:
              bootstrap remove: 'myComment' From:
              bootstrap remove: 'postFileIn' From:
              bootstrap remove: 'revision' From:
              bootstrap remove: 'subpartNames' From:
-             globals modules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'modules' -> 'autoCompletion' -> () From: ( |
-             {} = 'ModuleInfo: Creator: globals modules autoCompletion.
+             globals loadedModules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'loadedModules' -> 'autoCompletion' -> () From: ( |
+             {} = 'ModuleInfo: Creator: globals loadedModules autoCompletion.
 
 CopyDowns:
-globals modules init. copy 
+globals loadedModules init. copy 
 SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNames.
 
 \x7fIsComplete: '.
             | ) .
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'autoCompletion' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'autoCompletion' -> () From: ( | {
          'ModuleInfo: Module: autoCompletion InitialContents: FollowSlot\x7fVisibility: public'
         
          directory <- 'ui2'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'autoCompletion' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'autoCompletion' -> () From: ( | {
          'ModuleInfo: Module: autoCompletion InitialContents: InitializeToExpression: (_CurrentTimeString)\x7fVisibility: public'
         
          fileInTimeString <- _CurrentTimeString.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'autoCompletion' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'autoCompletion' -> () From: ( | {
          'ModuleInfo: Module: autoCompletion InitialContents: FollowSlot'
         
          myComment <- ''.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'autoCompletion' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'autoCompletion' -> () From: ( | {
          'ModuleInfo: Module: autoCompletion InitialContents: FollowSlot'
         
          postFileIn = ( |
             | resend.postFileIn).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'autoCompletion' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'autoCompletion' -> () From: ( | {
          'ModuleInfo: Module: autoCompletion InitialContents: FollowSlot\x7fVisibility: public'
         
          revision <- '$Revision: 30.4 $'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'autoCompletion' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'autoCompletion' -> () From: ( | {
          'ModuleInfo: Module: autoCompletion InitialContents: FollowSlot\x7fVisibility: private'
         
          subpartNames <- ''.
@@ -261,4 +262,4 @@ SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNam
 
  '-- Side effects'
 
- globals modules autoCompletion postFileIn
+ globals loadedModules autoCompletion postFileIn

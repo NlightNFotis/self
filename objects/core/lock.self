@@ -1,11 +1,70 @@
  '$Revision: 30.8 $'
  '
-Copyright 1992-2012 AUTHORS.
-See the LICENSE file for license information.
+Copyright 1992-2016 AUTHORS.
+See the legal/LICENSE file for license information and legal/AUTHORS for authors.
 '
+["preFileIn" self] value
 
 
  '-- Module body'
+
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> () From: ( | {
+         'ModuleInfo: Module: lock InitialContents: FollowSlot'
+        
+         lock = bootstrap define: bootstrap stub -> 'globals' -> 'loadedModules' -> 'lock' -> () ToBe: bootstrap addSlotsTo: (
+             bootstrap remove: 'directory' From:
+             bootstrap remove: 'fileInTimeString' From:
+             bootstrap remove: 'myComment' From:
+             bootstrap remove: 'postFileIn' From:
+             bootstrap remove: 'revision' From:
+             bootstrap remove: 'subpartNames' From:
+             globals loadedModules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'loadedModules' -> 'lock' -> () From: ( |
+             {} = 'ModuleInfo: Creator: globals loadedModules lock.
+
+CopyDowns:
+globals loadedModules init. copy 
+SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNames.
+
+\x7fIsComplete: '.
+            | ) .
+        } | ) 
+
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'lock' -> () From: ( | {
+         'ModuleInfo: Module: lock InitialContents: FollowSlot\x7fVisibility: public'
+        
+         directory <- 'core'.
+        } | ) 
+
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'lock' -> () From: ( | {
+         'ModuleInfo: Module: lock InitialContents: InitializeToExpression: (_CurrentTimeString)\x7fVisibility: public'
+        
+         fileInTimeString <- _CurrentTimeString.
+        } | ) 
+
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'lock' -> () From: ( | {
+         'ModuleInfo: Module: lock InitialContents: FollowSlot'
+        
+         myComment <- ''.
+        } | ) 
+
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'lock' -> () From: ( | {
+         'ModuleInfo: Module: lock InitialContents: FollowSlot'
+        
+         postFileIn = ( |
+            | resend.postFileIn).
+        } | ) 
+
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'lock' -> () From: ( | {
+         'ModuleInfo: Module: lock InitialContents: FollowSlot\x7fVisibility: public'
+        
+         revision <- '$Revision: 30.8 $'.
+        } | ) 
+
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'lock' -> () From: ( | {
+         'ModuleInfo: Module: lock InitialContents: FollowSlot\x7fVisibility: private'
+        
+         subpartNames <- ''.
+        } | ) 
 
  bootstrap addSlotsTo: bootstrap stub -> 'globals' -> () From: ( | {
          'Category: system\x7fCategory: concurrency\x7fModuleInfo: Module: lock InitialContents: FollowSlot\x7fVisibility: public'
@@ -50,64 +109,6 @@ process has performed.\x7fModuleInfo: Module: lock InitialContents: InitializeTo
          'ModuleInfo: Module: lock InitialContents: InitializeToExpression: (nil)\x7fVisibility: private'
         
          sema.
-        } | ) 
-
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> () From: ( | {
-         'ModuleInfo: Module: lock InitialContents: FollowSlot'
-        
-         lock = bootstrap define: bootstrap stub -> 'globals' -> 'modules' -> 'lock' -> () ToBe: bootstrap addSlotsTo: (
-             bootstrap remove: 'directory' From:
-             bootstrap remove: 'fileInTimeString' From:
-             bootstrap remove: 'myComment' From:
-             bootstrap remove: 'postFileIn' From:
-             bootstrap remove: 'revision' From:
-             bootstrap remove: 'subpartNames' From:
-             globals modules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'modules' -> 'lock' -> () From: ( |
-             {} = 'ModuleInfo: Creator: globals modules lock.
-
-CopyDowns:
-globals modules init. copy 
-SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNames.
-
-\x7fIsComplete: '.
-            | ) .
-        } | ) 
-
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'lock' -> () From: ( | {
-         'ModuleInfo: Module: lock InitialContents: FollowSlot\x7fVisibility: public'
-        
-         directory <- 'core'.
-        } | ) 
-
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'lock' -> () From: ( | {
-         'ModuleInfo: Module: lock InitialContents: InitializeToExpression: (_CurrentTimeString)\x7fVisibility: public'
-        
-         fileInTimeString <- _CurrentTimeString.
-        } | ) 
-
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'lock' -> () From: ( | {
-         'ModuleInfo: Module: lock InitialContents: FollowSlot'
-        
-         myComment <- ''.
-        } | ) 
-
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'lock' -> () From: ( | {
-         'ModuleInfo: Module: lock InitialContents: FollowSlot'
-        
-         postFileIn = ( |
-            | resend.postFileIn).
-        } | ) 
-
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'lock' -> () From: ( | {
-         'ModuleInfo: Module: lock InitialContents: FollowSlot\x7fVisibility: public'
-        
-         revision <- '$Revision: 30.8 $'.
-        } | ) 
-
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'lock' -> () From: ( | {
-         'ModuleInfo: Module: lock InitialContents: FollowSlot\x7fVisibility: private'
-        
-         subpartNames <- ''.
         } | ) 
 
  bootstrap addSlotsTo: bootstrap stub -> 'traits' -> 'lock' -> () From: ( | {
@@ -409,4 +410,4 @@ it is known that no processes are accessing the lock.\x7fModuleInfo: Module: loc
 
  '-- Side effects'
 
- globals modules lock postFileIn
+ globals loadedModules lock postFileIn

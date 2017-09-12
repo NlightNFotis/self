@@ -360,10 +360,10 @@ and its use is deprecated. --Mario, 2/4/95\x7fModuleInfo: Module: desktop Initia
             worlds copy do: aBlock).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> () From: ( | {
          'ModuleInfo: Module: desktop InitialContents: FollowSlot'
         
-         desktop = bootstrap define: bootstrap stub -> 'globals' -> 'modules' -> 'desktop' -> () ToBe: bootstrap addSlotsTo: (
+         desktop = bootstrap define: bootstrap stub -> 'globals' -> 'loadedModules' -> 'desktop' -> () ToBe: bootstrap addSlotsTo: (
              bootstrap remove: 'comment' From:
              bootstrap remove: 'directory' From:
              bootstrap remove: 'fileInTimeString' From:
@@ -371,36 +371,36 @@ and its use is deprecated. --Mario, 2/4/95\x7fModuleInfo: Module: desktop Initia
              bootstrap remove: 'postFileIn' From:
              bootstrap remove: 'revision' From:
              bootstrap remove: 'subpartNames' From:
-             globals modules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'modules' -> 'desktop' -> () From: ( |
-             {} = 'ModuleInfo: Creator: globals modules desktop.
+             globals loadedModules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'loadedModules' -> 'desktop' -> () From: ( |
+             {} = 'ModuleInfo: Creator: globals loadedModules desktop.
 
 CopyDowns:
-globals modules init. copy 
+globals loadedModules init. copy 
 SlotsToOmit: comment directory fileInTimeString myComment postFileIn revision subpartNames.
 
 \x7fIsComplete: '.
             | ) .
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'desktop' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'desktop' -> () From: ( | {
          'ModuleInfo: Module: desktop InitialContents: FollowSlot\x7fVisibility: public'
         
          directory <- 'ui2'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'desktop' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'desktop' -> () From: ( | {
          'ModuleInfo: Module: desktop InitialContents: InitializeToExpression: (_CurrentTimeString)\x7fVisibility: public'
         
          fileInTimeString <- _CurrentTimeString.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'desktop' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'desktop' -> () From: ( | {
          'ModuleInfo: Module: desktop InitialContents: FollowSlot'
         
          myComment <- ''.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'desktop' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'desktop' -> () From: ( | {
          'ModuleInfo: Module: desktop InitialContents: FollowSlot'
         
          postFileIn = ( |
@@ -424,13 +424,13 @@ SlotsToOmit: comment directory fileInTimeString myComment postFileIn revision su
             self).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'desktop' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'desktop' -> () From: ( | {
          'ModuleInfo: Module: desktop InitialContents: InitializeToExpression: (\'30.11.1\')\x7fVisibility: public'
         
          revision <- '30.11.1'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'desktop' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'desktop' -> () From: ( | {
          'ModuleInfo: Module: desktop InitialContents: FollowSlot\x7fVisibility: private'
         
          subpartNames <- ''.
@@ -514,4 +514,4 @@ their size and position by themselves.\x7fModuleInfo: Module: desktop InitialCon
 
  '-- Side effects'
 
- globals modules desktop postFileIn
+ globals loadedModules desktop postFileIn

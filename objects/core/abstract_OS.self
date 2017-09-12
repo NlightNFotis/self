@@ -157,10 +157,10 @@ block is done executing. -- Adam & Alex, March 04\x7fModuleInfo: Module: abstrac
          fileTable = vector copySize: 256.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> () From: ( | {
          'ModuleInfo: Module: abstract_OS InitialContents: FollowSlot'
         
-         abstract_OS = bootstrap define: bootstrap stub -> 'globals' -> 'modules' -> 'abstract_OS' -> () ToBe: bootstrap addSlotsTo: (
+         abstract_OS = bootstrap define: bootstrap stub -> 'globals' -> 'loadedModules' -> 'abstract_OS' -> () ToBe: bootstrap addSlotsTo: (
              bootstrap remove: 'comment' From:
              bootstrap remove: 'directory' From:
              bootstrap remove: 'fileInTimeString' From:
@@ -168,49 +168,49 @@ block is done executing. -- Adam & Alex, March 04\x7fModuleInfo: Module: abstrac
              bootstrap remove: 'postFileIn' From:
              bootstrap remove: 'revision' From:
              bootstrap remove: 'subpartNames' From:
-             globals modules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'modules' -> 'abstract_OS' -> () From: ( |
-             {} = 'ModuleInfo: Creator: globals modules abstract_OS.
+             globals loadedModules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'loadedModules' -> 'abstract_OS' -> () From: ( |
+             {} = 'ModuleInfo: Creator: globals loadedModules abstract_OS.
 
 CopyDowns:
-globals modules init. copy 
+globals loadedModules init. copy 
 SlotsToOmit: comment directory fileInTimeString myComment postFileIn revision subpartNames.
 
 \x7fIsComplete: '.
             | ) .
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'abstract_OS' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'abstract_OS' -> () From: ( | {
          'ModuleInfo: Module: abstract_OS InitialContents: FollowSlot\x7fVisibility: public'
         
          directory <- 'core'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'abstract_OS' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'abstract_OS' -> () From: ( | {
          'ModuleInfo: Module: abstract_OS InitialContents: InitializeToExpression: (_CurrentTimeString)\x7fVisibility: public'
         
          fileInTimeString <- _CurrentTimeString.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'abstract_OS' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'abstract_OS' -> () From: ( | {
          'ModuleInfo: Module: abstract_OS InitialContents: FollowSlot'
         
          myComment <- ''.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'abstract_OS' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'abstract_OS' -> () From: ( | {
          'ModuleInfo: Module: abstract_OS InitialContents: FollowSlot'
         
          postFileIn = ( |
             | resend.postFileIn).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'abstract_OS' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'abstract_OS' -> () From: ( | {
          'ModuleInfo: Module: abstract_OS InitialContents: FollowSlot\x7fVisibility: public'
         
          revision <- '$Revision: 30.16 $'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'abstract_OS' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'abstract_OS' -> () From: ( | {
          'ModuleInfo: Module: abstract_OS InitialContents: FollowSlot\x7fVisibility: private'
         
          subpartNames <- ''.
@@ -1065,4 +1065,4 @@ be no other access; e.g., in stdin preemptReadLine\x7fModuleInfo: Module: abstra
 
  '-- Side effects'
 
- globals modules abstract_OS postFileIn
+ globals loadedModules abstract_OS postFileIn

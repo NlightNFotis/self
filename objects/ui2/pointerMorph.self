@@ -1,8 +1,9 @@
  '$Revision: 30.15 $'
  '
-Copyright 1992-2014 AUTHORS.
+Copyright 1992-2016 AUTHORS.
 See the legal/LICENSE file for license information and legal/AUTHORS for authors.
 '
+["preFileIn" self] value
 
 
  '-- Module body'
@@ -39,46 +40,46 @@ SlotsToOmit: parent prototype.
          parent* = bootstrap stub -> 'traits' -> 'leafPointerButton' -> ().
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> () From: ( | {
          'ModuleInfo: Module: pointerMorph InitialContents: FollowSlot'
         
-         pointerMorph = bootstrap define: bootstrap stub -> 'globals' -> 'modules' -> 'pointerMorph' -> () ToBe: bootstrap addSlotsTo: (
+         pointerMorph = bootstrap define: bootstrap stub -> 'globals' -> 'loadedModules' -> 'pointerMorph' -> () ToBe: bootstrap addSlotsTo: (
              bootstrap remove: 'directory' From:
              bootstrap remove: 'fileInTimeString' From:
              bootstrap remove: 'myComment' From:
              bootstrap remove: 'postFileIn' From:
              bootstrap remove: 'revision' From:
              bootstrap remove: 'subpartNames' From:
-             globals modules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'modules' -> 'pointerMorph' -> () From: ( |
-             {} = 'ModuleInfo: Creator: globals modules pointerMorph.
+             globals loadedModules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'loadedModules' -> 'pointerMorph' -> () From: ( |
+             {} = 'ModuleInfo: Creator: globals loadedModules pointerMorph.
 
 CopyDowns:
-globals modules init. copy 
+globals loadedModules init. copy 
 SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNames.
 
 \x7fIsComplete: '.
             | ) .
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'pointerMorph' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'pointerMorph' -> () From: ( | {
          'ModuleInfo: Module: pointerMorph InitialContents: FollowSlot\x7fVisibility: public'
         
          directory <- 'ui2'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'pointerMorph' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'pointerMorph' -> () From: ( | {
          'ModuleInfo: Module: pointerMorph InitialContents: InitializeToExpression: (_CurrentTimeString)\x7fVisibility: public'
         
          fileInTimeString <- _CurrentTimeString.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'pointerMorph' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'pointerMorph' -> () From: ( | {
          'ModuleInfo: Module: pointerMorph InitialContents: FollowSlot'
         
          myComment <- ''.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'pointerMorph' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'pointerMorph' -> () From: ( | {
          'ModuleInfo: Module: pointerMorph InitialContents: FollowSlot'
         
          postFileIn = ( |
@@ -86,13 +87,13 @@ SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNam
             resend.postFileIn).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'pointerMorph' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'pointerMorph' -> () From: ( | {
          'ModuleInfo: Module: pointerMorph InitialContents: FollowSlot\x7fVisibility: public'
         
          revision <- '$Revision: 30.15 $'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'pointerMorph' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'pointerMorph' -> () From: ( | {
          'ModuleInfo: Module: pointerMorph InitialContents: FollowSlot\x7fVisibility: private'
         
          subpartNames <- 'pluggablePointerMorph
@@ -1048,4 +1049,4 @@ Sent from:
 
  '-- Side effects'
 
- globals modules pointerMorph postFileIn
+ globals loadedModules pointerMorph postFileIn

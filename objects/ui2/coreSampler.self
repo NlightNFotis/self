@@ -1,8 +1,9 @@
  '$Revision: 30.10 $'
  '
-Copyright 1992-2014 AUTHORS.
+Copyright 1992-2016 AUTHORS.
 See the legal/LICENSE file for license information and legal/AUTHORS for authors.
 '
+["preFileIn" self] value
 
 
  '-- Module body'
@@ -45,46 +46,46 @@ SlotsToOmit: parent prototype.
          parent* = bootstrap stub -> 'traits' -> 'coreSamplerMorph' -> ().
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> () From: ( | {
          'ModuleInfo: Module: coreSampler InitialContents: FollowSlot'
         
-         coreSampler = bootstrap define: bootstrap stub -> 'globals' -> 'modules' -> 'coreSampler' -> () ToBe: bootstrap addSlotsTo: (
+         coreSampler = bootstrap define: bootstrap stub -> 'globals' -> 'loadedModules' -> 'coreSampler' -> () ToBe: bootstrap addSlotsTo: (
              bootstrap remove: 'directory' From:
              bootstrap remove: 'fileInTimeString' From:
              bootstrap remove: 'myComment' From:
              bootstrap remove: 'postFileIn' From:
              bootstrap remove: 'revision' From:
              bootstrap remove: 'subpartNames' From:
-             globals modules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'modules' -> 'coreSampler' -> () From: ( |
-             {} = 'ModuleInfo: Creator: globals modules coreSampler.
+             globals loadedModules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'loadedModules' -> 'coreSampler' -> () From: ( |
+             {} = 'ModuleInfo: Creator: globals loadedModules coreSampler.
 
 CopyDowns:
-globals modules init. copy 
+globals loadedModules init. copy 
 SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNames.
 
 \x7fIsComplete: '.
             | ) .
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'coreSampler' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'coreSampler' -> () From: ( | {
          'ModuleInfo: Module: coreSampler InitialContents: FollowSlot\x7fVisibility: public'
         
          directory <- 'ui2'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'coreSampler' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'coreSampler' -> () From: ( | {
          'ModuleInfo: Module: coreSampler InitialContents: InitializeToExpression: (_CurrentTimeString)\x7fVisibility: public'
         
          fileInTimeString <- _CurrentTimeString.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'coreSampler' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'coreSampler' -> () From: ( | {
          'ModuleInfo: Module: coreSampler InitialContents: FollowSlot'
         
          myComment <- ''.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'coreSampler' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'coreSampler' -> () From: ( | {
          'ModuleInfo: Module: coreSampler InitialContents: FollowSlot'
         
          postFileIn = ( |
@@ -94,13 +95,13 @@ SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNam
             self).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'coreSampler' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'coreSampler' -> () From: ( | {
          'ModuleInfo: Module: coreSampler InitialContents: FollowSlot\x7fVisibility: public'
         
          revision <- '$Revision: 30.10 $'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'coreSampler' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'coreSampler' -> () From: ( | {
          'ModuleInfo: Module: coreSampler InitialContents: FollowSlot\x7fVisibility: private'
         
          subpartNames <- ''.
@@ -1108,4 +1109,4 @@ SlotsToOmit: parent prototype.
 
  '-- Side effects'
 
- globals modules coreSampler postFileIn
+ globals loadedModules coreSampler postFileIn

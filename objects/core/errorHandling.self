@@ -3,6 +3,7 @@
 Copyright 1992-2016 AUTHORS.
 See the legal/LICENSE file for license information and legal/AUTHORS for authors.
 '
+["preFileIn" self] value
 
 
  '-- Module body'
@@ -122,10 +123,10 @@ method performs a sanity check on an error message argument.\x7fModuleInfo: Modu
             log warn: string. self).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> () From: ( | {
          'ModuleInfo: Module: errorHandling InitialContents: FollowSlot'
         
-         errorHandling = bootstrap define: bootstrap stub -> 'globals' -> 'modules' -> 'errorHandling' -> () ToBe: bootstrap addSlotsTo: (
+         errorHandling = bootstrap define: bootstrap stub -> 'globals' -> 'loadedModules' -> 'errorHandling' -> () ToBe: bootstrap addSlotsTo: (
              bootstrap remove: 'comment' From:
              bootstrap remove: 'directory' From:
              bootstrap remove: 'fileInTimeString' From:
@@ -133,42 +134,42 @@ method performs a sanity check on an error message argument.\x7fModuleInfo: Modu
              bootstrap remove: 'postFileIn' From:
              bootstrap remove: 'revision' From:
              bootstrap remove: 'subpartNames' From:
-             globals modules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'modules' -> 'errorHandling' -> () From: ( |
-             {} = 'ModuleInfo: Creator: globals modules errorHandling.
+             globals loadedModules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'loadedModules' -> 'errorHandling' -> () From: ( |
+             {} = 'ModuleInfo: Creator: globals loadedModules errorHandling.
 
 CopyDowns:
-globals modules init. copy 
+globals loadedModules init. copy 
 SlotsToOmit: comment directory fileInTimeString myComment postFileIn revision subpartNames.
 
 \x7fIsComplete: '.
             | ) .
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'errorHandling' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'errorHandling' -> () From: ( | {
          'ModuleInfo: Module: errorHandling InitialContents: FollowSlot\x7fVisibility: public'
         
          directory <- 'core'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'errorHandling' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'errorHandling' -> () From: ( | {
          'ModuleInfo: Module: errorHandling InitialContents: InitializeToExpression: (_CurrentTimeString)\x7fVisibility: public'
         
          fileInTimeString <- _CurrentTimeString.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'errorHandling' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'errorHandling' -> () From: ( | {
          'ModuleInfo: Module: errorHandling InitialContents: FollowSlot'
         
          myComment <- ''.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'errorHandling' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'errorHandling' -> () From: ( | {
          'ModuleInfo: Module: errorHandling InitialContents: InitializeToExpression: (\'30.17.0\')\x7fVisibility: public'
         
          revision <- '30.17.0'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'errorHandling' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'errorHandling' -> () From: ( | {
          'ModuleInfo: Module: errorHandling InitialContents: FollowSlot\x7fVisibility: private'
         
          subpartNames <- ''.
@@ -332,4 +333,4 @@ SlotsToOmit: comment directory fileInTimeString myComment postFileIn revision su
 
  '-- Side effects'
 
- globals modules errorHandling postFileIn
+ globals loadedModules errorHandling postFileIn

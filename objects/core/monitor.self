@@ -1,16 +1,17 @@
  '$Revision: 30.8 $'
  '
-Copyright 1992-2012 AUTHORS.
-See the LICENSE file for license information.
+Copyright 1992-2016 AUTHORS.
+See the legal/LICENSE file for license information and legal/AUTHORS for authors.
 '
+["preFileIn" self] value
 
 
  '-- Module body'
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> () From: ( | {
          'ModuleInfo: Module: monitor InitialContents: FollowSlot'
         
-         monitor = bootstrap define: bootstrap stub -> 'globals' -> 'modules' -> 'monitor' -> () ToBe: bootstrap addSlotsTo: (
+         monitor = bootstrap define: bootstrap stub -> 'globals' -> 'loadedModules' -> 'monitor' -> () ToBe: bootstrap addSlotsTo: (
              bootstrap remove: 'comment' From:
              bootstrap remove: 'directory' From:
              bootstrap remove: 'fileInTimeString' From:
@@ -18,49 +19,49 @@ See the LICENSE file for license information.
              bootstrap remove: 'postFileIn' From:
              bootstrap remove: 'revision' From:
              bootstrap remove: 'subpartNames' From:
-             globals modules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'modules' -> 'monitor' -> () From: ( |
-             {} = 'ModuleInfo: Creator: globals modules monitor.
+             globals loadedModules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'loadedModules' -> 'monitor' -> () From: ( |
+             {} = 'ModuleInfo: Creator: globals loadedModules monitor.
 
 CopyDowns:
-globals modules init. copy 
+globals loadedModules init. copy 
 SlotsToOmit: comment directory fileInTimeString myComment postFileIn revision subpartNames.
 
 \x7fIsComplete: '.
             | ) .
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'monitor' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'monitor' -> () From: ( | {
          'ModuleInfo: Module: monitor InitialContents: FollowSlot\x7fVisibility: public'
         
          directory <- 'core'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'monitor' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'monitor' -> () From: ( | {
          'ModuleInfo: Module: monitor InitialContents: InitializeToExpression: (_CurrentTimeString)\x7fVisibility: public'
         
          fileInTimeString <- _CurrentTimeString.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'monitor' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'monitor' -> () From: ( | {
          'ModuleInfo: Module: monitor InitialContents: FollowSlot'
         
          myComment <- ''.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'monitor' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'monitor' -> () From: ( | {
          'ModuleInfo: Module: monitor InitialContents: FollowSlot'
         
          postFileIn = ( |
             | resend.postFileIn).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'monitor' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'monitor' -> () From: ( | {
          'ModuleInfo: Module: monitor InitialContents: FollowSlot\x7fVisibility: public'
         
          revision <- '$Revision: 30.8 $'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'monitor' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'monitor' -> () From: ( | {
          'ModuleInfo: Module: monitor InitialContents: FollowSlot\x7fVisibility: private'
         
          subpartNames <- ''.
@@ -473,4 +474,4 @@ process doing so holds the monitor.\x7fModuleInfo: Module: monitor InitialConten
 
  '-- Side effects'
 
- globals modules monitor postFileIn
+ globals loadedModules monitor postFileIn

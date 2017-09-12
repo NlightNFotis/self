@@ -15,10 +15,10 @@ See the legal/LICENSE file for license information and legal/AUTHORS for authors
             | false).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> () From: ( | {
          'ModuleInfo: Module: scalableFont InitialContents: FollowSlot'
         
-         scalableFont = bootstrap define: bootstrap stub -> 'globals' -> 'modules' -> 'scalableFont' -> () ToBe: bootstrap addSlotsTo: (
+         scalableFont = bootstrap define: bootstrap stub -> 'globals' -> 'loadedModules' -> 'scalableFont' -> () ToBe: bootstrap addSlotsTo: (
              bootstrap remove: 'comment' From:
              bootstrap remove: 'directory' From:
              bootstrap remove: 'fileInTimeString' From:
@@ -26,42 +26,42 @@ See the legal/LICENSE file for license information and legal/AUTHORS for authors
              bootstrap remove: 'postFileIn' From:
              bootstrap remove: 'revision' From:
              bootstrap remove: 'subpartNames' From:
-             globals modules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'modules' -> 'scalableFont' -> () From: ( |
-             {} = 'ModuleInfo: Creator: globals modules scalableFont.
+             globals loadedModules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'loadedModules' -> 'scalableFont' -> () From: ( |
+             {} = 'ModuleInfo: Creator: globals loadedModules scalableFont.
 
 CopyDowns:
-globals modules init. copy 
+globals loadedModules init. copy 
 SlotsToOmit: comment directory fileInTimeString myComment postFileIn revision subpartNames.
 
 \x7fIsComplete: '.
             | ) .
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'scalableFont' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'scalableFont' -> () From: ( | {
          'ModuleInfo: Module: scalableFont InitialContents: FollowSlot\x7fVisibility: public'
         
          directory <- 'ui2'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'scalableFont' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'scalableFont' -> () From: ( | {
          'ModuleInfo: Module: scalableFont InitialContents: InitializeToExpression: (_CurrentTimeString)\x7fVisibility: public'
         
          fileInTimeString <- _CurrentTimeString.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'scalableFont' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'scalableFont' -> () From: ( | {
          'ModuleInfo: Module: scalableFont InitialContents: FollowSlot'
         
          myComment <- 'Font support, including convenient naming of scalable font families.'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'scalableFont' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'scalableFont' -> () From: ( | {
          'ModuleInfo: Module: scalableFont InitialContents: InitializeToExpression: (\'30.10.1\')\x7fVisibility: public'
         
          revision <- '30.10.1'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'scalableFont' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'scalableFont' -> () From: ( | {
          'ModuleInfo: Module: scalableFont InitialContents: FollowSlot\x7fVisibility: private'
         
          subpartNames <- ''.
@@ -960,4 +960,4 @@ I print out as asterisks.\x7fModuleInfo: Module: scalableFont InitialContents: F
 
  '-- Side effects'
 
- globals modules scalableFont postFileIn
+ globals loadedModules scalableFont postFileIn

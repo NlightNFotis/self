@@ -8,52 +8,52 @@ See the legal/LICENSE file for license information and legal/AUTHORS for authors
 
  '-- Module body'
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> () From: ( | {
          'ModuleInfo: Module: numberTests InitialContents: FollowSlot'
         
-         numberTests = bootstrap define: bootstrap stub -> 'globals' -> 'modules' -> 'numberTests' -> () ToBe: bootstrap addSlotsTo: (
+         numberTests = bootstrap define: bootstrap stub -> 'globals' -> 'loadedModules' -> 'numberTests' -> () ToBe: bootstrap addSlotsTo: (
              bootstrap remove: 'directory' From:
              bootstrap remove: 'fileInTimeString' From:
              bootstrap remove: 'myComment' From:
              bootstrap remove: 'postFileIn' From:
              bootstrap remove: 'revision' From:
              bootstrap remove: 'subpartNames' From:
-             globals modules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'modules' -> 'numberTests' -> () From: ( |
-             {} = 'ModuleInfo: Creator: globals modules numberTests.
+             globals loadedModules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'loadedModules' -> 'numberTests' -> () From: ( |
+             {} = 'ModuleInfo: Creator: globals loadedModules numberTests.
 
 CopyDowns:
-globals modules init. copy 
+globals loadedModules init. copy 
 SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNames.
 
 \x7fIsComplete: '.
             | ) .
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'numberTests' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'numberTests' -> () From: ( | {
          'ModuleInfo: Module: numberTests InitialContents: FollowSlot\x7fVisibility: public'
         
          directory <- 'tests'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'numberTests' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'numberTests' -> () From: ( | {
          'ModuleInfo: Module: numberTests InitialContents: InitializeToExpression: (_CurrentTimeString)\x7fVisibility: public'
         
          fileInTimeString <- _CurrentTimeString.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'numberTests' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'numberTests' -> () From: ( | {
          'ModuleInfo: Module: numberTests InitialContents: FollowSlot'
         
          myComment <- 'Tests various number functions (and some other stuff).'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'numberTests' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'numberTests' -> () From: ( | {
          'ModuleInfo: Module: numberTests InitialContents: InitializeToExpression: (\'30.13.0\')\x7fVisibility: public'
         
          revision <- '30.13.0'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'numberTests' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'numberTests' -> () From: ( | {
          'ModuleInfo: Module: numberTests InitialContents: FollowSlot\x7fVisibility: private'
         
          subpartNames <- ''.
@@ -567,4 +567,4 @@ already has a 0-ed out tag.\x7fModuleInfo: Module: numberTests InitialContents: 
 
  '-- Side effects'
 
- globals modules numberTests postFileIn
+ globals loadedModules numberTests postFileIn

@@ -1,6 +1,6 @@
  '$Revision: 30.9 $'
  '
-Copyright 1992-2014 AUTHORS.
+Copyright 1992-2016 AUTHORS.
 See the legal/LICENSE file for license information and legal/AUTHORS for authors.
 '
 ["preFileIn" self] value
@@ -8,46 +8,46 @@ See the legal/LICENSE file for license information and legal/AUTHORS for authors
 
  '-- Module body'
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> () From: ( | {
          'ModuleInfo: Module: pluggableLeafOutliner InitialContents: FollowSlot'
         
-         pluggableLeafOutliner = bootstrap define: bootstrap stub -> 'globals' -> 'modules' -> 'pluggableLeafOutliner' -> () ToBe: bootstrap addSlotsTo: (
+         pluggableLeafOutliner = bootstrap define: bootstrap stub -> 'globals' -> 'loadedModules' -> 'pluggableLeafOutliner' -> () ToBe: bootstrap addSlotsTo: (
              bootstrap remove: 'directory' From:
              bootstrap remove: 'fileInTimeString' From:
              bootstrap remove: 'myComment' From:
              bootstrap remove: 'postFileIn' From:
              bootstrap remove: 'revision' From:
              bootstrap remove: 'subpartNames' From:
-             globals modules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'modules' -> 'pluggableLeafOutliner' -> () From: ( |
-             {} = 'ModuleInfo: Creator: globals modules pluggableLeafOutliner.
+             globals loadedModules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'loadedModules' -> 'pluggableLeafOutliner' -> () From: ( |
+             {} = 'ModuleInfo: Creator: globals loadedModules pluggableLeafOutliner.
 
 CopyDowns:
-globals modules init. copy 
+globals loadedModules init. copy 
 SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNames.
 
 \x7fIsComplete: '.
             | ) .
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'pluggableLeafOutliner' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'pluggableLeafOutliner' -> () From: ( | {
          'ModuleInfo: Module: pluggableLeafOutliner InitialContents: FollowSlot\x7fVisibility: public'
         
          directory <- 'ui2/outliner'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'pluggableLeafOutliner' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'pluggableLeafOutliner' -> () From: ( | {
          'ModuleInfo: Module: pluggableLeafOutliner InitialContents: InitializeToExpression: (_CurrentTimeString)\x7fVisibility: public'
         
          fileInTimeString <- _CurrentTimeString.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'pluggableLeafOutliner' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'pluggableLeafOutliner' -> () From: ( | {
          'ModuleInfo: Module: pluggableLeafOutliner InitialContents: FollowSlot'
         
          myComment <- ''.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'pluggableLeafOutliner' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'pluggableLeafOutliner' -> () From: ( | {
          'ModuleInfo: Module: pluggableLeafOutliner InitialContents: FollowSlot'
         
          postFileIn = ( |
@@ -56,13 +56,13 @@ SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNam
              resend.postFileIn).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'pluggableLeafOutliner' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'pluggableLeafOutliner' -> () From: ( | {
          'ModuleInfo: Module: pluggableLeafOutliner InitialContents: FollowSlot\x7fVisibility: public'
         
          revision <- '$Revision: 30.9 $'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'pluggableLeafOutliner' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'pluggableLeafOutliner' -> () From: ( | {
          'ModuleInfo: Module: pluggableLeafOutliner InitialContents: FollowSlot\x7fVisibility: private'
         
          subpartNames <- ''.
@@ -356,4 +356,4 @@ SlotsToOmit: parent prototype.
 
  '-- Side effects'
 
- globals modules pluggableLeafOutliner postFileIn
+ globals loadedModules pluggableLeafOutliner postFileIn

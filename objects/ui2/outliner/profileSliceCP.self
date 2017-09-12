@@ -1,65 +1,66 @@
  '$Revision: 30.11 $'
  '
-Copyright 1992-2012 AUTHORS.
-See the LICENSE file for license information.
+Copyright 1992-2017 AUTHORS.
+See the legal/LICENSE file for license information and legal/AUTHORS for authors.
 '
+["preFileIn" self] value
 
 
  '-- Module body'
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> () From: ( | {
          'ModuleInfo: Module: profileSliceCP InitialContents: FollowSlot'
         
-         profileSliceCP = bootstrap define: bootstrap stub -> 'globals' -> 'modules' -> 'profileSliceCP' -> () ToBe: bootstrap addSlotsTo: (
+         profileSliceCP = bootstrap define: bootstrap stub -> 'globals' -> 'loadedModules' -> 'profileSliceCP' -> () ToBe: bootstrap addSlotsTo: (
              bootstrap remove: 'directory' From:
              bootstrap remove: 'fileInTimeString' From:
              bootstrap remove: 'myComment' From:
              bootstrap remove: 'postFileIn' From:
              bootstrap remove: 'revision' From:
              bootstrap remove: 'subpartNames' From:
-             globals modules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'modules' -> 'profileSliceCP' -> () From: ( |
-             {} = 'ModuleInfo: Creator: globals modules profileSliceCP.
+             globals loadedModules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'loadedModules' -> 'profileSliceCP' -> () From: ( |
+             {} = 'ModuleInfo: Creator: globals loadedModules profileSliceCP.
 
 CopyDowns:
-globals modules init. copy 
+globals loadedModules init. copy 
 SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNames.
 
 \x7fIsComplete: '.
             | ) .
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'profileSliceCP' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'profileSliceCP' -> () From: ( | {
          'ModuleInfo: Module: profileSliceCP InitialContents: FollowSlot\x7fVisibility: public'
         
          directory <- 'ui2/outliner'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'profileSliceCP' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'profileSliceCP' -> () From: ( | {
          'ModuleInfo: Module: profileSliceCP InitialContents: InitializeToExpression: (_CurrentTimeString)\x7fVisibility: public'
         
          fileInTimeString <- _CurrentTimeString.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'profileSliceCP' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'profileSliceCP' -> () From: ( | {
          'ModuleInfo: Module: profileSliceCP InitialContents: FollowSlot'
         
          myComment <- ''.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'profileSliceCP' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'profileSliceCP' -> () From: ( | {
          'ModuleInfo: Module: profileSliceCP InitialContents: FollowSlot'
         
          postFileIn = ( |
             | resend.postFileIn).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'profileSliceCP' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'profileSliceCP' -> () From: ( | {
          'ModuleInfo: Module: profileSliceCP InitialContents: FollowSlot\x7fVisibility: public'
         
          revision <- '$Revision: 30.11 $'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'profileSliceCP' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'profileSliceCP' -> () From: ( | {
          'ModuleInfo: Module: profileSliceCP InitialContents: FollowSlot\x7fVisibility: private'
         
          subpartNames <- ''.
@@ -427,7 +428,7 @@ globals sliceControlPanel parent optionNameSpaces. _Clone
             | 
             allModules: list copyRemoveAll.
             aSet do: [|:mName|
-              (mName sendTo: modules) preorderDo: [|:m|
+              (mName sendTo: loadedModules) preorderDo: [|:m|
                 allModules add: m asString.
               ].
             ].
@@ -618,4 +619,4 @@ If empty, assume we want to start from all modules.\x7fModuleInfo: Module: profi
 
  '-- Side effects'
 
- globals modules profileSliceCP postFileIn
+ globals loadedModules profileSliceCP postFileIn

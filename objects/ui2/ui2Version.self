@@ -11,7 +11,7 @@ See the legal/LICENSE file for license information and legal/AUTHORS for authors
  bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'about' -> () From: ( | {
          'Category: versions\x7fModuleInfo: Module: ui2Version InitialContents: InitializeToExpression: (nil)'
         
-         morphic.
+         morphic <- bootstrap stub -> 'globals' -> 'nil' -> ().
         } | ) 
 
  bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'about' -> 'parent' -> () From: ( | {
@@ -24,10 +24,10 @@ See the legal/LICENSE file for license information and legal/AUTHORS for authors
                 ToGroup: 'usefulObjects').
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> () From: ( | {
          'ModuleInfo: Module: ui2Version InitialContents: FollowSlot'
         
-         ui2Version = bootstrap define: bootstrap stub -> 'globals' -> 'modules' -> 'ui2Version' -> () ToBe: bootstrap addSlotsTo: (
+         ui2Version = bootstrap define: bootstrap stub -> 'globals' -> 'loadedModules' -> 'ui2Version' -> () ToBe: bootstrap addSlotsTo: (
              bootstrap remove: 'copyright' From:
              bootstrap remove: 'directory' From:
              bootstrap remove: 'fileInTimeString' From:
@@ -35,18 +35,18 @@ See the legal/LICENSE file for license information and legal/AUTHORS for authors
              bootstrap remove: 'postFileIn' From:
              bootstrap remove: 'revision' From:
              bootstrap remove: 'subpartNames' From:
-             globals modules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'modules' -> 'ui2Version' -> () From: ( |
-             {} = 'ModuleInfo: Creator: globals modules ui2Version.
+             globals loadedModules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'loadedModules' -> 'ui2Version' -> () From: ( |
+             {} = 'ModuleInfo: Creator: globals loadedModules ui2Version.
 
 CopyDowns:
-globals modules init. copy 
+globals loadedModules init. copy 
 SlotsToOmit: copyright directory fileInTimeString myComment postFileIn revision subpartNames.
 
 \x7fIsComplete: '.
             | ) .
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'ui2Version' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'ui2Version' -> () From: ( | {
          'Category: state\x7fModuleInfo: Module: ui2Version InitialContents: InitializeToExpression: (\'
 Copyright 2016 AUTHORS.
 See the legal/LICENSE file for license information and legal/AUTHORS for authors.
@@ -58,25 +58,25 @@ See the legal/LICENSE file for license information and legal/AUTHORS for authors
 '.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'ui2Version' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'ui2Version' -> () From: ( | {
          'ModuleInfo: Module: ui2Version InitialContents: FollowSlot\x7fVisibility: public'
         
          directory <- 'ui2'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'ui2Version' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'ui2Version' -> () From: ( | {
          'ModuleInfo: Module: ui2Version InitialContents: InitializeToExpression: (_CurrentTimeString)\x7fVisibility: public'
         
          fileInTimeString <- _CurrentTimeString.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'ui2Version' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'ui2Version' -> () From: ( | {
          'ModuleInfo: Module: ui2Version InitialContents: FollowSlot'
         
          myComment <- ''.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'ui2Version' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'ui2Version' -> () From: ( | {
          'ModuleInfo: Module: ui2Version InitialContents: FollowSlot'
         
          postFileIn = ( |
@@ -87,13 +87,13 @@ See the legal/LICENSE file for license information and legal/AUTHORS for authors
             self).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'ui2Version' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'ui2Version' -> () From: ( | {
          'ModuleInfo: Module: ui2Version InitialContents: InitializeToExpression: (\'0.1.0\')\x7fVisibility: public'
         
          revision <- '0.1.0'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'ui2Version' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'ui2Version' -> () From: ( | {
          'ModuleInfo: Module: ui2Version InitialContents: FollowSlot\x7fVisibility: private'
         
          subpartNames <- ''.
@@ -103,4 +103,4 @@ See the legal/LICENSE file for license information and legal/AUTHORS for authors
 
  '-- Side effects'
 
- globals modules ui2Version postFileIn
+ globals loadedModules ui2Version postFileIn

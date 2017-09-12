@@ -99,47 +99,47 @@ See the legal/LICENSE file for license information and legal/AUTHORS for authors
          xcm <- bootstrap stub -> 'traits' -> 'colormap' -> 'nullXCM' -> ().
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> () From: ( | {
          'ModuleInfo: Module: colormap InitialContents: FollowSlot'
         
-         colormap = bootstrap define: bootstrap stub -> 'globals' -> 'modules' -> 'colormap' -> () ToBe: bootstrap addSlotsTo: (
+         colormap = bootstrap define: bootstrap stub -> 'globals' -> 'loadedModules' -> 'colormap' -> () ToBe: bootstrap addSlotsTo: (
              bootstrap remove: 'directory' From:
              bootstrap remove: 'fileInTimeString' From:
              bootstrap remove: 'myComment' From:
              bootstrap remove: 'postFileIn' From:
              bootstrap remove: 'revision' From:
              bootstrap remove: 'subpartNames' From:
-             globals modules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'modules' -> 'colormap' -> () From: ( |
-             {} = 'ModuleInfo: Creator: globals modules colormap.
+             globals loadedModules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'loadedModules' -> 'colormap' -> () From: ( |
+             {} = 'ModuleInfo: Creator: globals loadedModules colormap.
 
 CopyDowns:
-globals modules init. copy 
+globals loadedModules init. copy 
 SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNames.
 
 \x7fIsComplete: '.
             | ) .
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'colormap' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'colormap' -> () From: ( | {
          'ModuleInfo: Module: colormap InitialContents: FollowSlot\x7fVisibility: public'
         
          directory <- 'graphics'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'colormap' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'colormap' -> () From: ( | {
          'ModuleInfo: Module: colormap InitialContents: InitializeToExpression: (_CurrentTimeString)\x7fVisibility: public'
         
          fileInTimeString <- _CurrentTimeString.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'colormap' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'colormap' -> () From: ( | {
          'ModuleInfo: Module: colormap InitialContents: FollowSlot'
         
          myComment <- 'The cached version of the colormap is a vector of xColor objects;
              send convertForWindow: to get a usable colormap for a specific X window.'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'colormap' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'colormap' -> () From: ( | {
          'ModuleInfo: Module: colormap InitialContents: FollowSlot\x7fVisibility: public'
         
          postFileIn = ( |
@@ -148,13 +148,13 @@ SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNam
             resend.postFileIn).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'colormap' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'colormap' -> () From: ( | {
          'ModuleInfo: Module: colormap InitialContents: InitializeToExpression: (\'30.11.1\')\x7fVisibility: public'
         
          revision <- '30.11.1'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'colormap' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'colormap' -> () From: ( | {
          'ModuleInfo: Module: colormap InitialContents: FollowSlot\x7fVisibility: private'
         
          subpartNames <- ''.
@@ -1430,4 +1430,4 @@ SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNam
 
  '-- Side effects'
 
- globals modules colormap postFileIn
+ globals loadedModules colormap postFileIn

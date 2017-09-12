@@ -1,4 +1,4 @@
- '30.8.1'
+ '30.9.0'
  '
 Copyright 1992-2016 AUTHORS.
 See the legal/LICENSE file for license information and legal/AUTHORS for authors.
@@ -8,10 +8,10 @@ See the legal/LICENSE file for license information and legal/AUTHORS for authors
 
  '-- Module body'
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> () From: ( | {
          'ModuleInfo: Module: allGraphics InitialContents: FollowSlot'
         
-         allGraphics = bootstrap define: bootstrap stub -> 'globals' -> 'modules' -> 'allGraphics' -> () ToBe: bootstrap addSlotsTo: (
+         allGraphics = bootstrap define: bootstrap stub -> 'globals' -> 'loadedModules' -> 'allGraphics' -> () ToBe: bootstrap addSlotsTo: (
              bootstrap remove: 'comment' From:
              bootstrap remove: 'directory' From:
              bootstrap remove: 'fileInTimeString' From:
@@ -19,42 +19,53 @@ See the legal/LICENSE file for license information and legal/AUTHORS for authors
              bootstrap remove: 'postFileIn' From:
              bootstrap remove: 'revision' From:
              bootstrap remove: 'subpartNames' From:
-             globals modules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'modules' -> 'allGraphics' -> () From: ( |
-             {} = 'ModuleInfo: Creator: globals modules allGraphics.
+             globals loadedModules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'loadedModules' -> 'allGraphics' -> () From: ( |
+             {} = 'ModuleInfo: Creator: globals loadedModules allGraphics.
 
 CopyDowns:
-globals modules init. copy 
+globals loadedModules init. copy 
 SlotsToOmit: comment directory fileInTimeString myComment postFileIn revision subpartNames.
 
 \x7fIsComplete: '.
             | ) .
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'allGraphics' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'allGraphics' -> () From: ( | {
          'ModuleInfo: Module: allGraphics InitialContents: FollowSlot\x7fVisibility: public'
         
          directory <- 'graphics'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'allGraphics' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'allGraphics' -> () From: ( | {
          'ModuleInfo: Module: allGraphics InitialContents: InitializeToExpression: (_CurrentTimeString)\x7fVisibility: public'
         
          fileInTimeString <- _CurrentTimeString.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'allGraphics' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'allGraphics' -> () From: ( | {
          'ModuleInfo: Module: allGraphics InitialContents: FollowSlot'
         
          myComment <- ''.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'allGraphics' -> () From: ( | {
-         'ModuleInfo: Module: allGraphics InitialContents: InitializeToExpression: (\'30.8.1\')\x7fVisibility: public'
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'allGraphics' -> () From: ( | {
+         'ModuleInfo: Module: allGraphics InitialContents: FollowSlot'
         
-         revision <- '30.8.1'.
+         postFileIn = ( |
+            | 
+            "host setGraphicsDependentGlobals won't work at fileIn"
+            snapshotAction addPostReadMessage: (
+              message copy receiver: host Selector: 'setGraphicsDependentGlobals').
+            resend.postFileIn).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'allGraphics' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'allGraphics' -> () From: ( | {
+         'ModuleInfo: Module: allGraphics InitialContents: InitializeToExpression: (\'30.9.0\')\x7fVisibility: public'
+        
+         revision <- '30.9.0'.
+        } | ) 
+
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'allGraphics' -> () From: ( | {
          'ModuleInfo: Module: allGraphics InitialContents: FollowSlot\x7fVisibility: private'
         
          subpartNames <- 'drawable
@@ -117,4 +128,4 @@ x11Globals
 
  '-- Side effects'
 
- globals modules allGraphics postFileIn
+ globals loadedModules allGraphics postFileIn

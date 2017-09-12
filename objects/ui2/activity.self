@@ -1,8 +1,9 @@
  'Sun-$Revision: 30.11 $'
  '
-Copyright 1992-2012 AUTHORS.
-See the LICENSE file for license information.
+Copyright 1992-2016 AUTHORS.
+See the legal/LICENSE file for license information and legal/AUTHORS for authors.
 '
+["preFileIn" self] value
 
 
  '-- Module body'
@@ -586,6 +587,58 @@ SlotsToOmit: parent.
          parent* = bootstrap stub -> 'traits' -> 'concurrentActivity' -> ().
         } | ) 
 
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> () From: ( | {
+         'ModuleInfo: Module: activity InitialContents: FollowSlot'
+        
+         activity = bootstrap define: bootstrap stub -> 'globals' -> 'loadedModules' -> 'activity' -> () ToBe: bootstrap addSlotsTo: (
+             bootstrap remove: 'directory' From:
+             bootstrap remove: 'fileInTimeString' From:
+             bootstrap remove: 'myComment' From:
+             bootstrap remove: 'postFileIn' From:
+             bootstrap remove: 'revision' From:
+             bootstrap remove: 'subpartNames' From:
+             globals loadedModules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'loadedModules' -> 'activity' -> () From: ( |
+             {} = 'ModuleInfo: Creator: globals loadedModules activity.
+
+CopyDowns:
+globals loadedModules init. copy 
+SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNames.
+
+\x7fIsComplete: '.
+            | ) .
+        } | ) 
+
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'activity' -> () From: ( | {
+         'ModuleInfo: Module: activity InitialContents: FollowSlot\x7fVisibility: public'
+        
+         directory <- 'ui2'.
+        } | ) 
+
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'activity' -> () From: ( | {
+         'ModuleInfo: Module: activity InitialContents: InitializeToExpression: (_CurrentTimeString)\x7fVisibility: public'
+        
+         fileInTimeString <- _CurrentTimeString.
+        } | ) 
+
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'activity' -> () From: ( | {
+         'ModuleInfo: Module: activity InitialContents: FollowSlot'
+        
+         myComment <- 'Activities are used for animation and other
+             behavior that extends over a period of time.'.
+        } | ) 
+
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'activity' -> () From: ( | {
+         'ModuleInfo: Module: activity InitialContents: FollowSlot\x7fVisibility: public'
+        
+         revision <- 'Sun-$Revision: 30.11 $'.
+        } | ) 
+
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'activity' -> () From: ( | {
+         'ModuleInfo: Module: activity InitialContents: FollowSlot\x7fVisibility: private'
+        
+         subpartNames <- ''.
+        } | ) 
+
  bootstrap addSlotsTo: bootstrap stub -> 'globals' -> () From: ( | {
          'Category: graphical interface\x7fCategory: ui2\x7fCategory: System\x7fCategory: Activities\x7fModuleInfo: Module: activity InitialContents: FollowSlot\x7fVisibility: public'
         
@@ -621,58 +674,6 @@ SlotsToOmit: parent.
          'ModuleInfo: Module: activity InitialContents: FollowSlot\x7fVisibility: public'
         
          parent* = bootstrap stub -> 'traits' -> 'messageActivity' -> ().
-        } | ) 
-
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> () From: ( | {
-         'ModuleInfo: Module: activity InitialContents: FollowSlot'
-        
-         activity = bootstrap define: bootstrap stub -> 'globals' -> 'modules' -> 'activity' -> () ToBe: bootstrap addSlotsTo: (
-             bootstrap remove: 'directory' From:
-             bootstrap remove: 'fileInTimeString' From:
-             bootstrap remove: 'myComment' From:
-             bootstrap remove: 'postFileIn' From:
-             bootstrap remove: 'revision' From:
-             bootstrap remove: 'subpartNames' From:
-             globals modules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'modules' -> 'activity' -> () From: ( |
-             {} = 'ModuleInfo: Creator: globals modules activity.
-
-CopyDowns:
-globals modules init. copy 
-SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNames.
-
-\x7fIsComplete: '.
-            | ) .
-        } | ) 
-
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'activity' -> () From: ( | {
-         'ModuleInfo: Module: activity InitialContents: FollowSlot\x7fVisibility: public'
-        
-         directory <- 'ui2'.
-        } | ) 
-
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'activity' -> () From: ( | {
-         'ModuleInfo: Module: activity InitialContents: InitializeToExpression: (_CurrentTimeString)\x7fVisibility: public'
-        
-         fileInTimeString <- _CurrentTimeString.
-        } | ) 
-
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'activity' -> () From: ( | {
-         'ModuleInfo: Module: activity InitialContents: FollowSlot'
-        
-         myComment <- 'Activities are used for animation and other
-             behavior that extends over a period of time.'.
-        } | ) 
-
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'activity' -> () From: ( | {
-         'ModuleInfo: Module: activity InitialContents: FollowSlot\x7fVisibility: public'
-        
-         revision <- 'Sun-$Revision: 30.11 $'.
-        } | ) 
-
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'activity' -> () From: ( | {
-         'ModuleInfo: Module: activity InitialContents: FollowSlot\x7fVisibility: private'
-        
-         subpartNames <- ''.
         } | ) 
 
  bootstrap addSlotsTo: bootstrap stub -> 'globals' -> () From: ( | {
@@ -1634,4 +1635,4 @@ SlotsToOmit: parent.
 
  '-- Side effects'
 
- globals modules activity postFileIn
+ globals loadedModules activity postFileIn

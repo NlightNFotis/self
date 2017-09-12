@@ -1,16 +1,17 @@
  '$Revision: 30.8 $'
  '
-Copyright 1992-2012 AUTHORS.
-See the LICENSE file for license information.
+Copyright 1992-2016 AUTHORS.
+See the legal/LICENSE file for license information and legal/AUTHORS for authors.
 '
+["preFileIn" self] value
 
 
  '-- Module body'
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> () From: ( | {
          'ModuleInfo: Module: morphFinder InitialContents: FollowSlot'
         
-         morphFinder = bootstrap define: bootstrap stub -> 'globals' -> 'modules' -> 'morphFinder' -> () ToBe: bootstrap addSlotsTo: (
+         morphFinder = bootstrap define: bootstrap stub -> 'globals' -> 'loadedModules' -> 'morphFinder' -> () ToBe: bootstrap addSlotsTo: (
              bootstrap remove: 'comment' From:
              bootstrap remove: 'directory' From:
              bootstrap remove: 'fileInTimeString' From:
@@ -18,36 +19,36 @@ See the LICENSE file for license information.
              bootstrap remove: 'postFileIn' From:
              bootstrap remove: 'revision' From:
              bootstrap remove: 'subpartNames' From:
-             globals modules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'modules' -> 'morphFinder' -> () From: ( |
-             {} = 'ModuleInfo: Creator: globals modules morphFinder.
+             globals loadedModules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'loadedModules' -> 'morphFinder' -> () From: ( |
+             {} = 'ModuleInfo: Creator: globals loadedModules morphFinder.
 
 CopyDowns:
-globals modules init. copy 
+globals loadedModules init. copy 
 SlotsToOmit: comment directory fileInTimeString myComment postFileIn revision subpartNames.
 
 \x7fIsComplete: '.
             | ) .
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'morphFinder' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'morphFinder' -> () From: ( | {
          'ModuleInfo: Module: morphFinder InitialContents: FollowSlot\x7fVisibility: public'
         
          directory <- 'ui2'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'morphFinder' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'morphFinder' -> () From: ( | {
          'ModuleInfo: Module: morphFinder InitialContents: InitializeToExpression: (_CurrentTimeString)\x7fVisibility: public'
         
          fileInTimeString <- _CurrentTimeString.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'morphFinder' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'morphFinder' -> () From: ( | {
          'ModuleInfo: Module: morphFinder InitialContents: FollowSlot'
         
          myComment <- ''.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'morphFinder' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'morphFinder' -> () From: ( | {
          'Comment: None of the code in here should be necessary (?)\x7fModuleInfo: Module: morphFinder InitialContents: FollowSlot'
         
          postFileIn = ( |
@@ -67,13 +68,13 @@ SlotsToOmit: comment directory fileInTimeString myComment postFileIn revision su
               morphFinderMenu color: (paint copyRed: 0.71 Green: 0.83 Blue: 0.81)).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'morphFinder' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'morphFinder' -> () From: ( | {
          'ModuleInfo: Module: morphFinder InitialContents: FollowSlot\x7fVisibility: public'
         
          revision <- '$Revision: 30.8 $'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'morphFinder' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'morphFinder' -> () From: ( | {
          'ModuleInfo: Module: morphFinder InitialContents: FollowSlot\x7fVisibility: private'
         
          subpartNames <- ''.
@@ -329,4 +330,4 @@ xxxXXX\x7fModuleInfo: Module: morphFinder InitialContents: InitializeToExpressio
 
  '-- Side effects'
 
- globals modules morphFinder postFileIn
+ globals loadedModules morphFinder postFileIn

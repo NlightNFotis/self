@@ -1,0 +1,60 @@
+ranches for developing features. If all goes well, these will be rebased into dev, then merged into master to make release version 2017.2.
+
+The second difference is that we now have the ability for a single Self world to read and write modules from more than one tree. So for example my simple webserver is at github.com/russellallen/self-webserver. It can be loaded into a Self world and the transporter will keep track of whether a module should be saved to one or another file hierarchy.
+
+* Self is more like an OS than a programming language
+* Users are developers
+* Be careful with dependencies
+* Live is strength
+
+
+A Self world is made up of objects.
+Some of these objects are created within the world, expressly by the user or by the actions of other objects.
+However most of the objects were created in some other world and imported into this world, like 'string', 'webserver' etc.
+Self worlds can share objects through the 'transporter' mechanism.
+The transporter shares objects as a textual description of sets of slots defined in relation to the lobby.
+Modules have a unique identity and metadata:
+    (|
+      name = 'webserver'.
+      uuid = '239rhgoh34y99y354354'.
+      basedOn = '2392rt489ghgrdff8f9df8'.
+      versionString = '0.3.3'.
+      linearVersion = 235.
+      depends = 'allCore'.
+      recommends = 'ui2'.
+      author = 'Russell Allen'.
+      authorEmail = 'mail@russell-allen.com'.
+      description = 'A fabulous webserver.'.
+    |)
+Modules live in repositories. Repositories may be either on disk (managed by git) or published.
+The transporter finds a modules named 'x' by refering to the universe the world is in.
+Each Self world has a single universe.
+The universe specifies where to find modules.
+A universe is a set of modules which can be loaded into a world all at the same time.
+(|
+    name = 'dev'.
+    repositories =
+      core          github.com/russellallen/self-universes/
+      webserver     /Users/russellallen/git/webserver/
+    modules = '
+      github.com/russellallen/self-universes/dev.universe  " Another universe"
+      * @ core                                             " All modules in that repository"
+      examples/mysite @ webserver                          " mysite.self modules in webserver repo in directory examples"
+    '.
+|)
+
+traits universe = (|
+    install: module.
+    uninstall: module.
+    installWithDependencies: module.
+    cleanDependencies.
+    update.
+    upgradeAll.
+    list.
+    search: name
+
+    private
+      traits*
+      prototype
+
+|)

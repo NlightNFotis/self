@@ -1,65 +1,66 @@
  '$Revision: 30.6 $'
  '
-Copyright 1992-2011 AUTHORS.
+Copyright 1992-2016 AUTHORS.
 See the legal/LICENSE file for license information and legal/AUTHORS for authors.
 '
+["preFileIn" self] value
 
 
  '-- Module body'
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> () From: ( | {
          'ModuleInfo: Module: pluggablePointerMorph InitialContents: FollowSlot'
         
-         pluggablePointerMorph = bootstrap define: bootstrap stub -> 'globals' -> 'modules' -> 'pluggablePointerMorph' -> () ToBe: bootstrap addSlotsTo: (
+         pluggablePointerMorph = bootstrap define: bootstrap stub -> 'globals' -> 'loadedModules' -> 'pluggablePointerMorph' -> () ToBe: bootstrap addSlotsTo: (
              bootstrap remove: 'directory' From:
              bootstrap remove: 'fileInTimeString' From:
              bootstrap remove: 'myComment' From:
              bootstrap remove: 'postFileIn' From:
              bootstrap remove: 'revision' From:
              bootstrap remove: 'subpartNames' From:
-             globals modules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'modules' -> 'pluggablePointerMorph' -> () From: ( |
-             {} = 'ModuleInfo: Creator: globals modules pluggablePointerMorph.
+             globals loadedModules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'loadedModules' -> 'pluggablePointerMorph' -> () From: ( |
+             {} = 'ModuleInfo: Creator: globals loadedModules pluggablePointerMorph.
 
 CopyDowns:
-globals modules init. copy 
+globals loadedModules init. copy 
 SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNames.
 
 \x7fIsComplete: '.
             | ) .
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'pluggablePointerMorph' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'pluggablePointerMorph' -> () From: ( | {
          'ModuleInfo: Module: pluggablePointerMorph InitialContents: FollowSlot\x7fVisibility: public'
         
          directory <- 'ui2'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'pluggablePointerMorph' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'pluggablePointerMorph' -> () From: ( | {
          'ModuleInfo: Module: pluggablePointerMorph InitialContents: InitializeToExpression: (_CurrentTimeString)\x7fVisibility: public'
         
          fileInTimeString <- _CurrentTimeString.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'pluggablePointerMorph' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'pluggablePointerMorph' -> () From: ( | {
          'ModuleInfo: Module: pluggablePointerMorph InitialContents: FollowSlot'
         
          myComment <- ''.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'pluggablePointerMorph' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'pluggablePointerMorph' -> () From: ( | {
          'ModuleInfo: Module: pluggablePointerMorph InitialContents: FollowSlot'
         
          postFileIn = ( |
             | resend.postFileIn).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'pluggablePointerMorph' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'pluggablePointerMorph' -> () From: ( | {
          'ModuleInfo: Module: pluggablePointerMorph InitialContents: FollowSlot\x7fVisibility: public'
         
          revision <- '$Revision: 30.6 $'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'pluggablePointerMorph' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'pluggablePointerMorph' -> () From: ( | {
          'ModuleInfo: Module: pluggablePointerMorph InitialContents: FollowSlot\x7fVisibility: private'
         
          subpartNames <- ''.
@@ -201,4 +202,4 @@ SlotsToOmit: droppedOn:Event:.
 
  '-- Side effects'
 
- globals modules pluggablePointerMorph postFileIn
+ globals loadedModules pluggablePointerMorph postFileIn

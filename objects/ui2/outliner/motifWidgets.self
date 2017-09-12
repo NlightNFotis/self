@@ -1,6 +1,6 @@
  'Sun-$Revision: 30.10 $'
  '
-Copyright 1992-2014 AUTHORS.
+Copyright 1992-2016 AUTHORS.
 See the legal/LICENSE file for license information and legal/AUTHORS for authors.
 '
 ["preFileIn" self] value
@@ -592,10 +592,10 @@ SlotsToOmit: parent prototype.
          parent* = bootstrap stub -> 'traits' -> 'expanderPushButton' -> ().
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> () From: ( | {
          'ModuleInfo: Module: motifWidgets InitialContents: FollowSlot'
         
-         motifWidgets = bootstrap define: bootstrap stub -> 'globals' -> 'modules' -> 'motifWidgets' -> () ToBe: bootstrap addSlotsTo: (
+         motifWidgets = bootstrap define: bootstrap stub -> 'globals' -> 'loadedModules' -> 'motifWidgets' -> () ToBe: bootstrap addSlotsTo: (
              bootstrap remove: 'comment' From:
              bootstrap remove: 'directory' From:
              bootstrap remove: 'fileInTimeString' From:
@@ -603,36 +603,36 @@ SlotsToOmit: parent prototype.
              bootstrap remove: 'postFileIn' From:
              bootstrap remove: 'revision' From:
              bootstrap remove: 'subpartNames' From:
-             globals modules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'modules' -> 'motifWidgets' -> () From: ( |
-             {} = 'ModuleInfo: Creator: globals modules motifWidgets.
+             globals loadedModules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'loadedModules' -> 'motifWidgets' -> () From: ( |
+             {} = 'ModuleInfo: Creator: globals loadedModules motifWidgets.
 
 CopyDowns:
-globals modules init. copy 
+globals loadedModules init. copy 
 SlotsToOmit: comment directory fileInTimeString myComment postFileIn revision subpartNames.
 
 \x7fIsComplete: '.
             | ) .
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'motifWidgets' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'motifWidgets' -> () From: ( | {
          'ModuleInfo: Module: motifWidgets InitialContents: FollowSlot\x7fVisibility: public'
         
          directory <- 'ui2/outliner'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'motifWidgets' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'motifWidgets' -> () From: ( | {
          'ModuleInfo: Module: motifWidgets InitialContents: InitializeToExpression: (_CurrentTimeString)\x7fVisibility: public'
         
          fileInTimeString <- _CurrentTimeString.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'motifWidgets' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'motifWidgets' -> () From: ( | {
          'ModuleInfo: Module: motifWidgets InitialContents: FollowSlot'
         
          myComment <- 'widget morphs used by the outliner'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'motifWidgets' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'motifWidgets' -> () From: ( | {
          'ModuleInfo: Module: motifWidgets InitialContents: FollowSlot'
         
          postFileIn = ( |
@@ -645,13 +645,13 @@ SlotsToOmit: comment directory fileInTimeString myComment postFileIn revision su
             expanderPushButton  initializePrototype).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'motifWidgets' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'motifWidgets' -> () From: ( | {
          'ModuleInfo: Module: motifWidgets InitialContents: FollowSlot\x7fVisibility: public'
         
          revision <- 'Sun-$Revision: 30.10 $'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'motifWidgets' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'motifWidgets' -> () From: ( | {
          'ModuleInfo: Module: motifWidgets InitialContents: FollowSlot\x7fVisibility: private'
         
          subpartNames <- ''.
@@ -1147,4 +1147,4 @@ in the up state.\x7fModuleInfo: Module: motifWidgets InitialContents: FollowSlot
 
  '-- Side effects'
 
- globals modules motifWidgets postFileIn
+ globals loadedModules motifWidgets postFileIn

@@ -1402,59 +1402,59 @@ be the focus
          stackDepthToShow <- 5.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> () From: ( | {
          'ModuleInfo: Module: pluggableDebugger InitialContents: FollowSlot'
         
-         pluggableDebugger = bootstrap define: bootstrap stub -> 'globals' -> 'modules' -> 'pluggableDebugger' -> () ToBe: bootstrap addSlotsTo: (
+         pluggableDebugger = bootstrap define: bootstrap stub -> 'globals' -> 'loadedModules' -> 'pluggableDebugger' -> () ToBe: bootstrap addSlotsTo: (
              bootstrap remove: 'directory' From:
              bootstrap remove: 'fileInTimeString' From:
              bootstrap remove: 'myComment' From:
              bootstrap remove: 'postFileIn' From:
              bootstrap remove: 'revision' From:
              bootstrap remove: 'subpartNames' From:
-             globals modules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'modules' -> 'pluggableDebugger' -> () From: ( |
-             {} = 'ModuleInfo: Creator: globals modules pluggableDebugger.
+             globals loadedModules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'loadedModules' -> 'pluggableDebugger' -> () From: ( |
+             {} = 'ModuleInfo: Creator: globals loadedModules pluggableDebugger.
 
 CopyDowns:
-globals modules init. copy 
+globals loadedModules init. copy 
 SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNames.
 
 \x7fIsComplete: '.
             | ) .
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'pluggableDebugger' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'pluggableDebugger' -> () From: ( | {
          'ModuleInfo: Module: pluggableDebugger InitialContents: FollowSlot\x7fVisibility: public'
         
          directory <- 'ui2/outliner'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'pluggableDebugger' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'pluggableDebugger' -> () From: ( | {
          'ModuleInfo: Module: pluggableDebugger InitialContents: InitializeToExpression: (_CurrentTimeString)\x7fVisibility: public'
         
          fileInTimeString <- _CurrentTimeString.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'pluggableDebugger' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'pluggableDebugger' -> () From: ( | {
          'ModuleInfo: Module: pluggableDebugger InitialContents: FollowSlot'
         
          myComment <- ''.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'pluggableDebugger' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'pluggableDebugger' -> () From: ( | {
          'ModuleInfo: Module: pluggableDebugger InitialContents: FollowSlot'
         
          postFileIn = ( |
             | resend.postFileIn).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'pluggableDebugger' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'pluggableDebugger' -> () From: ( | {
          'ModuleInfo: Module: pluggableDebugger InitialContents: InitializeToExpression: (\'30.38.1\')\x7fVisibility: public'
         
          revision <- '30.38.1'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'pluggableDebugger' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'pluggableDebugger' -> () From: ( | {
          'ModuleInfo: Module: pluggableDebugger InitialContents: FollowSlot\x7fVisibility: private'
         
          subpartNames <- ''.
@@ -1472,4 +1472,4 @@ SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNam
 
  '-- Side effects'
 
- globals modules pluggableDebugger postFileIn
+ globals loadedModules pluggableDebugger postFileIn

@@ -1,6 +1,6 @@
  '$Revision: 30.12 $'
  '
-Copyright 1992-2014 AUTHORS.
+Copyright 1992-2016 AUTHORS.
 See the legal/LICENSE file for license information and legal/AUTHORS for authors.
 '
 ["preFileIn" self] value
@@ -31,59 +31,59 @@ See the legal/LICENSE file for license information and legal/AUTHORS for authors
             (selfObjectModel outlinerFor:  mirror InWorld: myOutliner world) model).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> () From: ( | {
          'ModuleInfo: Module: selfObjectModel InitialContents: FollowSlot'
         
-         selfObjectModel = bootstrap define: bootstrap stub -> 'globals' -> 'modules' -> 'selfObjectModel' -> () ToBe: bootstrap addSlotsTo: (
+         selfObjectModel = bootstrap define: bootstrap stub -> 'globals' -> 'loadedModules' -> 'selfObjectModel' -> () ToBe: bootstrap addSlotsTo: (
              bootstrap remove: 'directory' From:
              bootstrap remove: 'fileInTimeString' From:
              bootstrap remove: 'myComment' From:
              bootstrap remove: 'postFileIn' From:
              bootstrap remove: 'revision' From:
              bootstrap remove: 'subpartNames' From:
-             globals modules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'modules' -> 'selfObjectModel' -> () From: ( |
-             {} = 'ModuleInfo: Creator: globals modules selfObjectModel.
+             globals loadedModules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'loadedModules' -> 'selfObjectModel' -> () From: ( |
+             {} = 'ModuleInfo: Creator: globals loadedModules selfObjectModel.
 
 CopyDowns:
-globals modules init. copy 
+globals loadedModules init. copy 
 SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNames.
 
 \x7fIsComplete: '.
             | ) .
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'selfObjectModel' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'selfObjectModel' -> () From: ( | {
          'ModuleInfo: Module: selfObjectModel InitialContents: FollowSlot\x7fVisibility: public'
         
          directory <- 'ui2/outliner'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'selfObjectModel' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'selfObjectModel' -> () From: ( | {
          'ModuleInfo: Module: selfObjectModel InitialContents: InitializeToExpression: (_CurrentTimeString)\x7fVisibility: public'
         
          fileInTimeString <- _CurrentTimeString.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'selfObjectModel' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'selfObjectModel' -> () From: ( | {
          'ModuleInfo: Module: selfObjectModel InitialContents: FollowSlot'
         
          myComment <- ''.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'selfObjectModel' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'selfObjectModel' -> () From: ( | {
          'ModuleInfo: Module: selfObjectModel InitialContents: FollowSlot'
         
          postFileIn = ( |
             | resend.postFileIn).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'selfObjectModel' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'selfObjectModel' -> () From: ( | {
          'ModuleInfo: Module: selfObjectModel InitialContents: FollowSlot\x7fVisibility: public'
         
          revision <- '$Revision: 30.12 $'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'selfObjectModel' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'selfObjectModel' -> () From: ( | {
          'ModuleInfo: Module: selfObjectModel InitialContents: FollowSlot\x7fVisibility: private'
         
          subpartNames <- ''.
@@ -545,4 +545,4 @@ Set the creator of my parent slot.\x7fModuleInfo: Module: selfObjectModel Initia
 
  '-- Side effects'
 
- globals modules selfObjectModel postFileIn
+ globals loadedModules selfObjectModel postFileIn

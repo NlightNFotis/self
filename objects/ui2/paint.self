@@ -1,6 +1,6 @@
  '30.16.0'
  '
-Copyright 1992-2014 AUTHORS.
+Copyright 1992-2016 AUTHORS.
 See the legal/LICENSE file for license information and legal/AUTHORS for authors.
 '
 ["preFileIn" self] value
@@ -95,10 +95,10 @@ See the legal/LICENSE file for license information and legal/AUTHORS for authors
          parent* = bootstrap stub -> 'traits' -> 'clonable' -> ().
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> () From: ( | {
          'ModuleInfo: Module: paint InitialContents: FollowSlot'
         
-         paint = bootstrap define: bootstrap stub -> 'globals' -> 'modules' -> 'paint' -> () ToBe: bootstrap addSlotsTo: (
+         paint = bootstrap define: bootstrap stub -> 'globals' -> 'loadedModules' -> 'paint' -> () ToBe: bootstrap addSlotsTo: (
              bootstrap remove: 'comment' From:
              bootstrap remove: 'directory' From:
              bootstrap remove: 'fileInTimeString' From:
@@ -106,36 +106,36 @@ See the legal/LICENSE file for license information and legal/AUTHORS for authors
              bootstrap remove: 'postFileIn' From:
              bootstrap remove: 'revision' From:
              bootstrap remove: 'subpartNames' From:
-             globals modules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'modules' -> 'paint' -> () From: ( |
-             {} = 'ModuleInfo: Creator: globals modules paint.
+             globals loadedModules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'loadedModules' -> 'paint' -> () From: ( |
+             {} = 'ModuleInfo: Creator: globals loadedModules paint.
 
 CopyDowns:
-globals modules init. copy 
+globals loadedModules init. copy 
 SlotsToOmit: comment directory fileInTimeString myComment postFileIn revision subpartNames.
 
 \x7fIsComplete: '.
             | ) .
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'paint' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'paint' -> () From: ( | {
          'ModuleInfo: Module: paint InitialContents: FollowSlot\x7fVisibility: public'
         
          directory <- 'ui2'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'paint' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'paint' -> () From: ( | {
          'ModuleInfo: Module: paint InitialContents: InitializeToExpression: (_CurrentTimeString)\x7fVisibility: public'
         
          fileInTimeString <- _CurrentTimeString.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'paint' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'paint' -> () From: ( | {
          'ModuleInfo: Module: paint InitialContents: FollowSlot'
         
          myComment <- 'Paint and colormap management.'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'paint' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'paint' -> () From: ( | {
          'ModuleInfo: Module: paint InitialContents: FollowSlot'
         
          postFileIn = ( |
@@ -177,13 +177,13 @@ SlotsToOmit: comment directory fileInTimeString myComment postFileIn revision su
             paintNames at:   'transparent' Put: (paint copyRed: 0 Green: 0  Blue: 0 Alpha: 0)).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'paint' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'paint' -> () From: ( | {
          'ModuleInfo: Module: paint InitialContents: FollowSlot\x7fVisibility: public'
         
          revision <- '30.16.0'.
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'paint' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'paint' -> () From: ( | {
          'ModuleInfo: Module: paint InitialContents: FollowSlot\x7fVisibility: private'
         
          subpartNames <- 'specialPaintManager
@@ -568,6 +568,16 @@ in HSV space. It works better for our menus. -- dmu 3/95\x7fModuleInfo: Module: 
         } | ) 
 
  bootstrap addSlotsTo: bootstrap stub -> 'traits' -> 'paint' -> () From: ( | {
+         'Category: creation\x7fModuleInfo: Module: paint InitialContents: FollowSlot\x7fVisibility: public'
+        
+         copyHexRGB: s = ( |
+            | 
+            copyRed: (s slice: 0 @ 2) hexAsInteger / 255.0
+              Green: (s slice: 2 @ 4) hexAsInteger / 255.0
+               Blue: (s slice: 4 @ 6) hexAsInteger / 255.0).
+        } | ) 
+
+ bootstrap addSlotsTo: bootstrap stub -> 'traits' -> 'paint' -> () From: ( | {
          'Category: accessing HSV\x7fModuleInfo: Module: paint InitialContents: FollowSlot\x7fVisibility: public'
         
          copyHue: h = ( |
@@ -679,16 +689,6 @@ lots of images. It quantizes in RGB space.\x7fModuleInfo: Module: paint InitialC
          copyRed: r Green: g Blue: b Alpha: a = ( |
             | 
             (copyRed: r Green: g Blue: b) rawAlpha: a).
-        } | ) 
-
- bootstrap addSlotsTo: bootstrap stub -> 'traits' -> 'paint' -> () From: ( | {
-         'Category: creation\x7fModuleInfo: Module: paint InitialContents: FollowSlot\x7fVisibility: public'
-        
-         copyHexRGB: s = ( |
-            | 
-            copyRed: (s slice: 0 @ 2) hexAsInteger / 255.0
-              Green: (s slice: 2 @ 4) hexAsInteger / 255.0
-               Blue: (s slice: 4 @ 6) hexAsInteger / 255.0).
         } | ) 
 
  bootstrap addSlotsTo: bootstrap stub -> 'traits' -> 'paint' -> () From: ( | {
@@ -1641,4 +1641,4 @@ lots of images. It quantizes in RGB space.\x7fModuleInfo: Module: paint InitialC
 
  '-- Side effects'
 
- globals modules paint postFileIn
+ globals loadedModules paint postFileIn

@@ -1,12 +1,73 @@
  '$Revision: 30.8 $'
  '
-Copyright 1992-2014 AUTHORS.
+Copyright 1992-2016 AUTHORS.
 See the legal/LICENSE file for license information and legal/AUTHORS for authors.
 '
 ["preFileIn" self] value
 
 
  '-- Module body'
+
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> () From: ( | {
+         'ModuleInfo: Module: moduleHolderModel InitialContents: FollowSlot'
+        
+         moduleHolderModel = bootstrap define: bootstrap stub -> 'globals' -> 'loadedModules' -> 'moduleHolderModel' -> () ToBe: bootstrap addSlotsTo: (
+             bootstrap remove: 'comment' From:
+             bootstrap remove: 'directory' From:
+             bootstrap remove: 'fileInTimeString' From:
+             bootstrap remove: 'myComment' From:
+             bootstrap remove: 'postFileIn' From:
+             bootstrap remove: 'revision' From:
+             bootstrap remove: 'subpartNames' From:
+             globals loadedModules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'loadedModules' -> 'moduleHolderModel' -> () From: ( |
+             {} = 'ModuleInfo: Creator: globals loadedModules moduleHolderModel.
+
+CopyDowns:
+globals loadedModules init. copy 
+SlotsToOmit: comment directory fileInTimeString myComment postFileIn revision subpartNames.
+
+\x7fIsComplete: '.
+            | ) .
+        } | ) 
+
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'moduleHolderModel' -> () From: ( | {
+         'ModuleInfo: Module: moduleHolderModel InitialContents: FollowSlot\x7fVisibility: public'
+        
+         directory <- 'ui2/outliner'.
+        } | ) 
+
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'moduleHolderModel' -> () From: ( | {
+         'ModuleInfo: Module: moduleHolderModel InitialContents: InitializeToExpression: (_CurrentTimeString)\x7fVisibility: public'
+        
+         fileInTimeString <- _CurrentTimeString.
+        } | ) 
+
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'moduleHolderModel' -> () From: ( | {
+         'ModuleInfo: Module: moduleHolderModel InitialContents: FollowSlot'
+        
+         myComment <- ''.
+        } | ) 
+
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'moduleHolderModel' -> () From: ( | {
+         'ModuleInfo: Module: moduleHolderModel InitialContents: FollowSlot'
+        
+         postFileIn = ( |
+            | resend.postFileIn).
+        } | ) 
+
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'moduleHolderModel' -> () From: ( | {
+         'ModuleInfo: Module: moduleHolderModel InitialContents: FollowSlot\x7fVisibility: public'
+        
+         revision <- '$Revision: 30.8 $'.
+        } | ) 
+
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'loadedModules' -> 'moduleHolderModel' -> () From: ( | {
+         'ModuleInfo: Module: moduleHolderModel InitialContents: FollowSlot\x7fVisibility: private'
+        
+         subpartNames <- '
+moduleModel
+changedModulesModel'.
+        } | ) 
 
  bootstrap addSlotsTo: bootstrap stub -> 'globals' -> () From: ( | {
          'Category: graphical interface\x7fCategory: ui2\x7fCategory: Programming Environment\x7fCategory: Pluggable Module Outliner\x7fModuleInfo: Module: moduleHolderModel InitialContents: FollowSlot\x7fVisibility: public'
@@ -200,67 +261,6 @@ I am also immutable.\x7fModuleInfo: Creator: globals moduleHolderModel parent ti
             resend.updateDo: blk).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> () From: ( | {
-         'ModuleInfo: Module: moduleHolderModel InitialContents: FollowSlot'
-        
-         moduleHolderModel = bootstrap define: bootstrap stub -> 'globals' -> 'modules' -> 'moduleHolderModel' -> () ToBe: bootstrap addSlotsTo: (
-             bootstrap remove: 'comment' From:
-             bootstrap remove: 'directory' From:
-             bootstrap remove: 'fileInTimeString' From:
-             bootstrap remove: 'myComment' From:
-             bootstrap remove: 'postFileIn' From:
-             bootstrap remove: 'revision' From:
-             bootstrap remove: 'subpartNames' From:
-             globals modules init copy ) From: bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'modules' -> 'moduleHolderModel' -> () From: ( |
-             {} = 'ModuleInfo: Creator: globals modules moduleHolderModel.
-
-CopyDowns:
-globals modules init. copy 
-SlotsToOmit: comment directory fileInTimeString myComment postFileIn revision subpartNames.
-
-\x7fIsComplete: '.
-            | ) .
-        } | ) 
-
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'moduleHolderModel' -> () From: ( | {
-         'ModuleInfo: Module: moduleHolderModel InitialContents: FollowSlot\x7fVisibility: public'
-        
-         directory <- 'ui2/outliner'.
-        } | ) 
-
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'moduleHolderModel' -> () From: ( | {
-         'ModuleInfo: Module: moduleHolderModel InitialContents: InitializeToExpression: (_CurrentTimeString)\x7fVisibility: public'
-        
-         fileInTimeString <- _CurrentTimeString.
-        } | ) 
-
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'moduleHolderModel' -> () From: ( | {
-         'ModuleInfo: Module: moduleHolderModel InitialContents: FollowSlot'
-        
-         myComment <- ''.
-        } | ) 
-
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'moduleHolderModel' -> () From: ( | {
-         'ModuleInfo: Module: moduleHolderModel InitialContents: FollowSlot'
-        
-         postFileIn = ( |
-            | resend.postFileIn).
-        } | ) 
-
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'moduleHolderModel' -> () From: ( | {
-         'ModuleInfo: Module: moduleHolderModel InitialContents: FollowSlot\x7fVisibility: public'
-        
-         revision <- '$Revision: 30.8 $'.
-        } | ) 
-
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'modules' -> 'moduleHolderModel' -> () From: ( | {
-         'ModuleInfo: Module: moduleHolderModel InitialContents: FollowSlot\x7fVisibility: private'
-        
-         subpartNames <- '
-moduleModel
-changedModulesModel'.
-        } | ) 
-
 
 
  '-- Sub parts'
@@ -272,4 +272,4 @@ changedModulesModel'.
 
  '-- Side effects'
 
- globals modules moduleHolderModel postFileIn
+ globals loadedModules moduleHolderModel postFileIn
