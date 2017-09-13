@@ -90,6 +90,102 @@ SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNam
  bootstrap addSlotsTo: bootstrap stub -> 'globals' -> () From: ( | {
          'Category: system\x7fCategory: modules\x7fCategory: prototypes\x7fModuleInfo: Module: universes InitialContents: FollowSlot\x7fVisibility: public'
         
+         moduleMetadata = bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'moduleMetadata' -> () From: ( |
+             {} = 'ModuleInfo: Creator: globals moduleMetadata.
+'.
+            | ) .
+        } | ) 
+
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'moduleMetadata' -> () From: ( | {
+         'ModuleInfo: Module: universes InitialContents: FollowSlot'
+        
+         asStringDescription = ( |
+            | 
+            '[Module Metadata v1]\n',
+            'name=',        name,              '\n',
+            'description=', description,       '\n',
+            'directory=',   directory,         '\n',
+            'version=',     version asString,  '\n',
+            'requires=',    
+                (requires joinUsing: ' '),     '\n').
+        } | ) 
+
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'moduleMetadata' -> () From: ( | {
+         'ModuleInfo: Module: universes InitialContents: FollowSlot'
+        
+         copyOn: stringDescription = ( |
+            | self).
+        } | ) 
+
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'moduleMetadata' -> () From: ( | {
+         'Category: state\x7fModuleInfo: Module: universes InitialContents: InitializeToExpression: (\'\')'
+        
+         description <- ''.
+        } | ) 
+
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'moduleMetadata' -> () From: ( | {
+         'Category: state\x7fModuleInfo: Module: universes InitialContents: InitializeToExpression: (\'/\')'
+        
+         directory <- '/'.
+        } | ) 
+
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'moduleMetadata' -> () From: ( | {
+         'Category: state\x7fModuleInfo: Module: universes InitialContents: InitializeToExpression: (\'\')'
+        
+         name <- ''.
+        } | ) 
+
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'moduleMetadata' -> () From: ( | {
+         'ModuleInfo: Module: universes InitialContents: FollowSlot'
+        
+         parent* = bootstrap stub -> 'traits' -> 'clonable' -> ().
+        } | ) 
+
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'moduleMetadata' -> () From: ( | {
+         'Category: state\x7fModuleInfo: Module: universes InitialContents: InitializeToExpression: (list copyRemoveAll)'
+        
+         requires <- list copyRemoveAll.
+        } | ) 
+
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'moduleMetadata' -> () From: ( | {
+         'ModuleInfo: Module: universes InitialContents: FollowSlot'
+        
+         tests = bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'moduleMetadata' -> 'tests' -> () From: ( |
+             {} = 'ModuleInfo: Creator: globals moduleMetadata tests.
+'.
+            | ) .
+        } | ) 
+
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'moduleMetadata' -> 'tests' -> () From: ( | {
+         'ModuleInfo: Module: universes InitialContents: FollowSlot'
+        
+         parent* = bootstrap stub -> 'traits' -> 'oddball' -> ().
+        } | ) 
+
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'moduleMetadata' -> 'tests' -> () From: ( | {
+         'ModuleInfo: Module: universes InitialContents: FollowSlot'
+        
+         test1 = ( |
+             m.
+            | 
+            m: moduleMetadata copy.
+            m name: 'emacs'.
+            m description: 'Gnu Emacs'.
+            m directory: '/'.
+            m version: 0.
+            m requires: ('gnu' & 'gcc') asVector.
+            m asStringDescription).
+        } | ) 
+
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'moduleMetadata' -> () From: ( | {
+         'Category: state\x7fModuleInfo: Module: universes InitialContents: InitializeToExpression: (0)'
+        
+         version <- 0.
+        } | ) 
+
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> () From: ( | {
+         'Category: system\x7fCategory: modules\x7fCategory: prototypes\x7fModuleInfo: Module: universes InitialContents: FollowSlot\x7fVisibility: public'
+        
          repository = bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'repository' -> () From: ( |
              {} = 'ModuleInfo: Creator: globals repository.
 '.
@@ -97,21 +193,6 @@ SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNam
         } | ) 
 
  bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'repository' -> () From: ( | {
-         'Category: caches\x7fModuleInfo: Module: universes InitialContents: InitializeToExpression: (dictionary copyRemoveAll)'
-        
-         moduleMetadataCache <- dictionary copyRemoveAll.
-        } | ) 
-
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'repository' -> () From: ( | {
-         'ModuleInfo: Module: universes InitialContents: FollowSlot'
-        
-         parent* = bootstrap setObjectAnnotationOf: bootstrap stub -> 'globals' -> 'repository' -> 'parent' -> () From: ( |
-             {} = 'ModuleInfo: Creator: globals repository parent.
-'.
-            | ) .
-        } | ) 
-
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'repository' -> 'parent' -> () From: ( | {
          'Category: loading\x7fModuleInfo: Module: universes InitialContents: FollowSlot'
         
          load: aModule IfFail: fb = ( |
@@ -123,7 +204,7 @@ SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNam
             moduleMetadataCache at: aModule name).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'repository' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'repository' -> () From: ( | {
          'Category: metadata\x7fModuleInfo: Module: universes InitialContents: FollowSlot'
         
          metadataAsString = ( |
@@ -141,28 +222,34 @@ SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNam
             ').
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'repository' -> 'parent' -> () From: ( | {
-         'Category: loading\x7fCategory: modules\x7fModuleInfo: Module: universes InitialContents: FollowSlot'
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'repository' -> () From: ( | {
+         'Category: modules\x7fModuleInfo: Module: universes InitialContents: FollowSlot'
         
          module: aName = ( |
             | tbd).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'repository' -> 'parent' -> () From: ( | {
-         'Category: loading\x7fCategory: modules\x7fModuleInfo: Module: universes InitialContents: FollowSlot'
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'repository' -> () From: ( | {
+         'Category: caches\x7fModuleInfo: Module: universes InitialContents: InitializeToExpression: (dictionary copyRemoveAll)'
+        
+         moduleMetadataCache <- dictionary copyRemoveAll.
+        } | ) 
+
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'repository' -> () From: ( | {
+         'Category: modules\x7fModuleInfo: Module: universes InitialContents: FollowSlot'
         
          modules = ( |
             | tbd).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'repository' -> 'parent' -> () From: ( | {
-         'Category: loading\x7fCategory: modules\x7fModuleInfo: Module: universes InitialContents: FollowSlot'
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'repository' -> () From: ( | {
+         'Category: modules\x7fModuleInfo: Module: universes InitialContents: FollowSlot'
         
          modulesMatching: blk = ( |
             | tbd).
         } | ) 
 
- bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'repository' -> 'parent' -> () From: ( | {
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'repository' -> () From: ( | {
          'Category: metadata\x7fModuleInfo: Module: universes InitialContents: FollowSlot'
         
          modulesMetadataAsString = ( |
@@ -227,9 +314,9 @@ SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNam
         } | ) 
 
  bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'universe' -> () From: ( | {
-         'Category: state\x7fModuleInfo: Module: universes InitialContents: InitializeToExpression: (vector copyRemoveAll)'
+         'Category: state\x7fModuleInfo: Module: universes InitialContents: InitializeToExpression: (0 _AsObject)'
         
-         repositoryList <- vector copyRemoveAll.
+         repositories <- 0 _AsObject.
         } | ) 
 
  bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'universe' -> () From: ( | {
