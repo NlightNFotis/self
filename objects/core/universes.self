@@ -114,7 +114,19 @@ SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNam
          'ModuleInfo: Module: universes InitialContents: FollowSlot'
         
          copyOn: stringDescription = ( |
-            | self).
+             c.
+            | 
+            c: copy.
+            (stringDescription splitOn: '\n') do: [|:l. p. f. s|
+              p: l splitOn: '='.
+              f: p first.
+              s: p at: 1 IfAbsent: ''.
+              f = 'name'        ifTrue: [c name: s].
+              f = 'description' ifTrue: [c description: s].
+              f = 'dirctory'    ifTrue: [c directory: s].
+              f = 'version'     ifTrue: [c version: s].
+              f = 'requires'    ifTrue: [c requires: (s splitOn: ' ') asVector]].
+            c).
         } | ) 
 
  bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'moduleMetadata' -> () From: ( | {
@@ -175,6 +187,13 @@ SlotsToOmit: directory fileInTimeString myComment postFileIn revision subpartNam
             m version: 0.
             m requires: ('gnu' & 'gcc') asVector.
             m asStringDescription).
+        } | ) 
+
+ bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'moduleMetadata' -> 'tests' -> () From: ( | {
+         'ModuleInfo: Module: universes InitialContents: FollowSlot'
+        
+         test2 = ( |
+            | (moduleMetadata copyOn: test1) asStringDescription = test1).
         } | ) 
 
  bootstrap addSlotsTo: bootstrap stub -> 'globals' -> 'moduleMetadata' -> () From: ( | {
